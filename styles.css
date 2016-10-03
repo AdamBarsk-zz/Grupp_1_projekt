@@ -1,0 +1,36 @@
+* {margin: 0}
+header {
+  width: 100%;
+  height: 50px;
+  background-color: green;
+}
+header h2 {
+  text-align: center;
+}
+article {
+  width: 60%;
+  background-color: blue;
+  text-align: center;
+  float: left;
+}
+article h1 {
+  font-size: 50px;
+}
+.content {
+  width: 100%;
+  height: 800px;
+}
+#calendar {
+  width: 300px;
+  height: 450px;
+  background-color: purple;
+  float: left;
+}
+footer  {
+  width: 100%;
+  height: 50px;
+  background-color: green;
+}
+footer h2 {
+  text-align: center;
+}
