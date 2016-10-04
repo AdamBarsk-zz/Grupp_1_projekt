@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url("images/geten.jpg");
+  background: url("images/goat.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -11,8 +11,6 @@ body {
 header {
   height: 50px;
   background-color: yellow;
-  position: fixed;
-  top: 0px;
 }
 
 footer  {
