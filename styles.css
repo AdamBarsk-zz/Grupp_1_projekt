@@ -1,0 +1,14 @@
+li {
+    width:100px;
+    text-align:center;
+    font-weight:bold;
+    background-color:green;
+
+
+}
+.nav navbar-nav {
+  background-color:red;
+}
+a {
+  color:white;
+}
