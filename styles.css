@@ -9,7 +9,11 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
+li {
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
 
 
 #footer  {
