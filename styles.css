@@ -13,8 +13,9 @@ header {
   background-color: yellow;
 }
 
-footer  {
+#footer  {
   height: 50px;
+  width: 100%;
   background-color: green;
   position: fixed;
   bottom: 0px;
@@ -33,7 +34,9 @@ footer h2 {
 
 #welcome, #cal{
   background: rgba(44, 44, 44, 0.7);
-  border-radius: 25px;
+
+  border-radius: 15px;
+
   color: white;
   padding: 2%;
 }
