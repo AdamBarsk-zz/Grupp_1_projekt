@@ -32,8 +32,8 @@ footer h2 {
 }
 
 #welcome, #cal{
-  background: rgba(22, 22, 22, 0.7);
-  border-radius: 4%;
+  background: rgba(44, 44, 44, 0.7);
+  border-radius: 15px;
   color: white;
   padding: 2%;
 }
