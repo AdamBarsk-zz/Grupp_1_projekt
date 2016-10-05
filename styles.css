@@ -1,45 +1,39 @@
 * {
-  margin: 0;
+    margin: 0;
 }
 
 body {
-  background: url("images/geten.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
+    background: url("images/geten.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
 }
 
 li {
-  width: 100px;
-  text-align: center;
-  font-weight: bold;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.footer  {
-  height: 50px;
-  width: 100%;
-  background-color: green;
-  position: fixed;
-  bottom: 0px;
+.footer-cont {
+    height: 50px;
+    width: 100%;
+    background-color: green;
+    position: fixed;
+    bottom: 0px;
 }
 
 footer h2 {
-  text-align: center;
-  margin: 10px;
-  padding-bottom: 50%;
+    text-align: center;
+    margin: 10px;
+    padding-bottom: 50%;
 }
 
-.main-cont {
-  border: solid black 1px;
-  margin-top: 30px;
-}
-
-.welcome, .calender{
-  background: rgba(44, 44, 44, 0.7);
-  border-radius: 15px;
-  padding: 2%;
-  margin-top: 15%;
-  margin-bottom: 15%;
+.welcome, .calender {
+    background: rgba(44, 44, 44, 0.7);
+    border-radius: 15px;
+    padding: 2%;
+    margin-top: 10%;
 }
