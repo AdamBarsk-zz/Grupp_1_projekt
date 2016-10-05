@@ -8,6 +8,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: white;
 }
 
 li {
@@ -38,7 +39,6 @@ footer h2 {
 .welcome, .calender{
   background: rgba(44, 44, 44, 0.7);
   border-radius: 15px;
-  color: white;
   padding: 2%;
   margin-top: 15%;
   margin-bottom: 15%;
