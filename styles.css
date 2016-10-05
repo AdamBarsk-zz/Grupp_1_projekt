@@ -17,10 +17,9 @@ li {
 }
 #a, #a2, #a3, #a4{
     color:white;
-    background-color: rgba(0, 0, 0, 0.35);
 }
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
-  color: hotpink;
+  background-color: rgba(0, 0, 0, 0.35)
 }
 .navbar-toggle{
     background-color:rgba(0, 0, 0, 0.35);
@@ -32,10 +31,7 @@ span {
 
 @media not screen and (min-width: 765px) {
   li {
+    width: 100%;
     margin: auto;
   }
-    #a:hover, #a2:hover, #a3:hover, #a4:hover {
-      color: black;
-      background-color: white;
-    }
 }
