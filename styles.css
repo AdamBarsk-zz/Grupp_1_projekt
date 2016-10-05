@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url("images/goat.jpg") no-repeat center center fixed;
+  background: url("images/geten.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,5 +40,6 @@ footer h2 {
   border-radius: 15px;
   color: white;
   padding: 2%;
-  margin-top: 15%
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
