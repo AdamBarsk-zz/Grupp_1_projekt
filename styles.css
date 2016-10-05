@@ -11,8 +11,6 @@ li {
     width:140px;
     text-align:center;
     font-weight:bold;
-    background-color:#rgba(0, 0, 0, 0.35);
-    margin: auto;
 }
 #brand {
   color: white;
@@ -33,9 +31,9 @@ span {
 }
 
 @media not screen and (min-width: 765px) {
-    li {
-      width: 100%;
-    }
+  li {
+    margin: auto;
+  }
     #a:hover, #a2:hover, #a3:hover, #a4:hover {
       color: black;
       background-color: white;
