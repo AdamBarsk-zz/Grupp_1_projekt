@@ -1,16 +1,41 @@
 .container-fluid {
-  background-color: blue;
+  background-color:  #ff3399;
+
+
+}
+ul{
+  margin: 0 40px;
 }
 li {
-    width:130px;
+    width:140px;
     text-align:center;
     font-weight:bold;
-    background-color: green;
+    background-color:#ccccff;
     margin: auto;
+
+
 }
 #brand {
   color: white;
+
+}
+.navbar-brand{
+    margin:
 }
 #a, #a2, #a3, #a4 {
-  color:white;
+    color:White;
+
+}
+.navbar-toggle{
+    background-color:#ffccff;
+    border-color:white;
+}
+span {
+  background-color:white;;
+}
+
+@media not screen and (min-width: 700px) {
+    li {
+      background-color:green;
+    }
 }
