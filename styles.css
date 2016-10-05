@@ -1,7 +1,8 @@
+body {
+  background-image: url("http://avpixlat.info/wp-content/uploads/2014/10/Get-foto-Armin-K%C3%BCbelbeck-Wikimedia-Commons.jpg");
+}
 .container-fluid {
-  background-color:  #ff3399;
-
-
+  background-color:  rgba(0, 0, 0, 0.35);
 }
 ul{
   margin: 0 40px;
@@ -10,32 +11,33 @@ li {
     width:140px;
     text-align:center;
     font-weight:bold;
-    background-color:#ccccff;
+    background-color:#rgba(0, 0, 0, 0.35);
     margin: auto;
-
-
 }
 #brand {
   color: white;
-
 }
-.navbar-brand{
-    margin:
+#li:hover {
+  background-color: rgba(0, 0, 0, 0.35);
 }
-#a, #a2, #a3, #a4 {
-    color:White;
-
+#a, #a2, #a3, #a4{
+    color:white;
+    rgba(0, 0, 0, 0.35)
+}
+#a:hover, #a2:hover, #a3:hover, #a4:hover {
+  color: black;
 }
 .navbar-toggle{
-    background-color:#ffccff;
+    background-color:rgba(0, 0, 0, 0.35);
     border-color:white;
 }
 span {
-  background-color:white;;
+  background-color:white;
 }
 
-@media not screen and (min-width: 700px) {
+@media not screen and (min-width: 765px) {
     li {
-      background-color:green;
+      background-color:rgba(0, 0, 0, 0.45);
+      width: 100%;
     }
 }
