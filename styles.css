@@ -3,9 +3,6 @@ li {
     width:100px;
     text-align:center;
     font-weight:bold;
-
-
-
 }
 .nav navbar-nav {
   background-color:red;
@@ -28,32 +25,4 @@ li {
   width: 100px;
   text-align: center;
   font-weight: bold;
-}
-
-
-#footer  {
-  height: 50px;
-  width: 100%;
-  background-color: green;
-  position: fixed;
-  bottom: 0px;
-}
-
-footer h2 {
-  text-align: center;
-  margin: 10px;
-  padding-bottom: 50%;
-}
-
-.container {
-  border: solid black 1px;
-  margin-top: 30px;
-}
-
-#welcome, #cal{
-  background: rgba(44, 44, 44, 0.7);
-  border-radius: 15px;
-  color: white;
-  padding: 2%;
->>>>>>> startsida
 }
