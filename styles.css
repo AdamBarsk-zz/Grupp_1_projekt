@@ -18,7 +18,7 @@ li {
     font-weight: bold;
 }
 
-.footer-cont {
+.footer {
     height: 50px;
     width: 100%;
     background-color: green;
@@ -47,4 +47,9 @@ h1 {
 .welcome p {
   text-align: center;
   font-style: italic;
+}
+
+.social-logo {
+  max-width: 30px;
+  max-height: 30px;
 }
