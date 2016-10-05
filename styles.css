@@ -41,3 +41,4 @@ footer h2 {
   color: white;
   padding: 2%;
 }
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
