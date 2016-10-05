@@ -17,15 +17,12 @@ li {
 #brand {
   color: white;
 }
-#li:hover {
-  background-color: rgba(0, 0, 0, 0.35);
-}
 #a, #a2, #a3, #a4{
     color:white;
-    rgba(0, 0, 0, 0.35)
+    background-color: rgba(0, 0, 0, 0.35);
 }
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
-  color: black;
+  color: hotpink;
 }
 .navbar-toggle{
     background-color:rgba(0, 0, 0, 0.35);
@@ -37,7 +34,10 @@ span {
 
 @media not screen and (min-width: 765px) {
     li {
-      background-color:rgba(0, 0, 0, 0.45);
       width: 100%;
+    }
+    #a:hover, #a2:hover, #a3:hover, #a4:hover {
+      color: black;
+      background-color: white;
     }
 }
