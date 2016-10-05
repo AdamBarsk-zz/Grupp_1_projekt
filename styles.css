@@ -1,7 +1,10 @@
 * {
     margin: 0;
 }
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
     background: url("images/meadow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -9,6 +12,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: #444444;
+    margin: 0 0 150px;
 }
 
 li {
@@ -18,17 +22,12 @@ li {
 }
 
 .footer {
-    height: 50px;
-    width: 100%;
-    background-color: green;
-    position: fixed;
-    bottom: 0px;
-}
+background-color: hotpink;
+position: absolute;
+left: 0;
+bottom: 0;
 
-footer h2 {
-    text-align: center;
-    margin: 10px;
-    padding-bottom: 50%;
+width: 100%;
 }
 
 .welcome, .calender {
@@ -36,7 +35,9 @@ footer h2 {
     border-radius: 15px;
     padding: 2%;
     margin-top: 10%;
+
 }
+
 
 .social-logo {
   max-width: 30px;
