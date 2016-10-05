@@ -17,7 +17,7 @@ li {
     font-weight: bold;
 }
 
-.footer-cont {
+.footer {
     height: 50px;
     width: 100%;
     background-color: green;
@@ -36,4 +36,9 @@ footer h2 {
     border-radius: 15px;
     padding: 2%;
     margin-top: 10%;
+}
+
+.social-logo {
+  max-width: 30px;
+  max-height: 30px;
 }
