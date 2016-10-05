@@ -33,13 +33,12 @@ footer h2 {
 
 .main-cont {
     border: solid black 1px;
-    margin-top: 30px;
+    
 }
 
 .welcome, .calender {
     background: rgba(44, 44, 44, 0.7);
     border-radius: 15px;
     padding: 2%;
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-top: 10%;
 }
