@@ -5,11 +5,12 @@ body {
   background-color:  rgba(0, 0, 0, 0.35);
 }
 ul{
-  margin: 0 40px;
+  width: 100%;
+  text-align: center;
 }
 li {
+    display: inline-block;
     width:140px;
-    text-align:center;
     font-weight:bold;
 }
 #brand {
@@ -31,6 +32,7 @@ span {
 
 @media not screen and (min-width: 765px) {
   li {
+    display: block;
     width: 100%;
     margin: auto;
   }
