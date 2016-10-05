@@ -4,10 +4,6 @@ body {
 .container-fluid {
   background-color:  rgba(0, 0, 0, 0.35);
 }
-ul{
-  width: 565px;
-  border: 2px solid white;
-}
 li {
     text-align: center;
     width:140px;
