@@ -1,42 +1,17 @@
-/* Hej */
-body {
-  background-image: url("http://avpixlat.info/wp-content/uploads/2014/10/Get-foto-Armin-K%C3%BCbelbeck-Wikimedia-Commons.jpg");
+div {
+display:inline;
 }
-.container-fluid {
-  background-color:  rgba(0, 0, 0, 0.35);
+label, input {
+  display: block;
+  text-align:center;
+
 }
-.collapse {
-  margin: 0 auto;
-  width: 600px;
-}
-li {
-    text-align: center;
-    width:140px;
-    font-weight:bold;
-}
-#brand {
-  color: white;
-}
-#a, #a2, #a3, #a4{
-    color:white;
-}
-#a:hover, #a2:hover, #a3:hover, #a4:hover {
-  background-color: rgba(0, 0, 0, 0.35)
-}
-#a:active {
-  background-color: rgba(0, 0, 0, 0.35);
-}
-.navbar-toggle{
-    background-color:rgba(0, 0, 0, 0.35);
-    border-color:white;
-}
-span {
-  background-color:white;
+input{
+  width:20%;
+  margin:auto;
 }
 
-@media not screen and (min-width: 765px) {
-  li {
-    width: 100%;
-    margin: auto;
-  }
+button {
+    width:20%;
+    margin:5px;
 }

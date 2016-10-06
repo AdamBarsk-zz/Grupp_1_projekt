@@ -8,28 +8,32 @@
 	<link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
 <body>
-	<nav class="navbar navbar">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul id="ul" class="nav navbar-nav">
-							<li id="li"><a id="a" href="#">Hem</a></li>
-							<li id="li2"><a id="a2" href="#">Om</a></li>
-							<li id="li3"><a id="a3" href="#">Geten</a></li>
-							<li id="li4"><a id="a4" href="#">Kontakt</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
+
+	<form action="/submit-calender">
+		<div>
+			<label>Checkin</label>
+			<input type="date" name="checkin-checkout">
+		</div>
+		<div>
+			<label>Checkout</label>
+			<input type="date" name="checkin-checkout">
+		</div>
+		<div>
+			<label>Adults</label>
+			<input type="number" name="person">
+		</div>
+		<div>
+			<label>Kids</label>
+			<input type="number" name="person">
+		</div>
+		<div>
+			<label><button class="btn btn-info"> Search</button> </label>
+		</div>
+
+
+</form>
+
+
 		<script src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
