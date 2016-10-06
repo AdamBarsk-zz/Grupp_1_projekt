@@ -1,9 +1,11 @@
 div {
 display:inline;
+
 }
 label, input {
   display: block;
   text-align:center;
+
 
 }
 input{
@@ -14,4 +16,7 @@ input{
 button {
     width:20%;
     margin:5px;
+}
+label{
+  border:2px solid black;
 }
