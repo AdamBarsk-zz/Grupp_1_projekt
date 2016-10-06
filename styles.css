@@ -24,7 +24,7 @@ li {
 
 .footer {
 
-background-color: #F1F1EB;
+background: rgba(255, 255, 255, 0.5);
 position: absolute;
 left: 0;
 bottom: 0;
@@ -62,17 +62,17 @@ h1 {
 .ett {
 
   text-align: center;
-  padding-top: 5px;
+  margin-top: 10px;
 }
 .två {
 
   text-align: center;
-  padding-top: 5px;
+  margin-top: 10px;
 }
 .tre {
 
 
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
 }
