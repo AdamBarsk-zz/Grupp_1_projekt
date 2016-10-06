@@ -90,7 +90,7 @@ h1 {
 }
 span {
   background-color:white;
->>>>>>> origin/navbar
+
 }
 .tre {
   margin-top: 5px;
@@ -102,4 +102,9 @@ span {
     width: 100%;
     margin: auto;
   }
+}
+
+.collapse {
+  margin: 0 auto;
+  width: 600px;
 }
