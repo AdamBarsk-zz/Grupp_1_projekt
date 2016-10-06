@@ -20,7 +20,7 @@ body {
 }
 
 span {
-  background-color:white;
+  background-color: #666666;
 }
 
 li {
@@ -38,26 +38,16 @@ h1 {
 
 /* Navbar */
 .header {
-  background-color:  rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
-#a, #a2, #a3, #a4{
-    color:white;
-}
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
-  background-color: rgba(0, 0, 0, 0.35)
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-toggle{
-    background-color:rgba(0, 0, 0, 0.35);
-    border-color:white;
-}
-
-@media not screen and (min-width: 765px) {
-  li {
-    width: 100%;
-    margin: auto;
-  }
+    background-color:rgba(255, 255, 255, 0.7);
+    border-color: #666666;
 }
 
 .collapse {
@@ -65,11 +55,17 @@ h1 {
   width: 600px;
 }
 
+@media not screen and (min-width: 765px) {
+  li {
+    width: 100%;
+  }
+}
+
 
 
 /* Content */
 .welcome, .calender {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
     margin-top: 10%;
@@ -84,7 +80,7 @@ h1 {
 
 /* Footer */
 .footer {
-background: rgba(255, 255, 255, 0.5);
+background: rgba(255, 255, 255, 0.9);
 position: absolute;
 left: 0;
 bottom: 0;
