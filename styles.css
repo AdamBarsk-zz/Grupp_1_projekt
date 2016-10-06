@@ -23,10 +23,12 @@ li {
 }
 
 .footer {
-background-color: hotpink;
+
+background-color: #F1F1EB;
 position: absolute;
 left: 0;
 bottom: 0;
+
 
 width: 100%;
 }
