@@ -60,13 +60,19 @@ h1 {
 
 }
 .ett {
-  background-color: green;
 
+  text-align: center;
+  padding-top: 5px;
 }
 .två {
-  background-color: hotpink;
+
+  text-align: center;
+  padding-top: 5px;
 }
 .tre {
-  background-color: yellow;
-  display: grid;
+
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
 }
