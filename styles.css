@@ -1,4 +1,4 @@
-
+/* Global */
 * {
     margin: 0;
 }
@@ -16,34 +16,15 @@ body {
     margin: 0 0 150px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.header {
-  background-color:  rgba(0, 0, 0, 0.35);
 
+span {
+  background-color:white;
 }
 
 li {
-
-
       text-align: center;
       width:140px;
       font-weight:bold;
-}
-
-.footer {
-
-background: rgba(255, 255, 255, 0.5);
-position: absolute;
-left: 0;
-bottom: 0;
-width: 100%;
-}
-
-.welcome, .calender {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    padding: 2%;
-    margin-top: 10%;
-
 }
 
 h1 {
@@ -51,52 +32,23 @@ h1 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.welcome p {
-  text-align: center;
-  font-style: italic;
+/* Navbar */
+.header {
+  background-color:  rgba(0, 0, 0, 0.35);
 }
 
-.social-logo {
-  max-width: 30px;
-  max-height: 30px;
-}
-
-.icons-right {
-
-}
-.ett {
-
-  text-align: center;
-  margin-top: 10px;
-}
-.två {
-
-  text-align: center;
-  margin-top: 10px;
-
-}
-#brand {
-  color: white;
-}
 #a, #a2, #a3, #a4{
     color:white;
 }
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
   background-color: rgba(0, 0, 0, 0.35)
 }
+
 .navbar-toggle{
     background-color:rgba(0, 0, 0, 0.35);
     border-color:white;
 }
-span {
-  background-color:white;
 
-}
-.tre {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  text-align: center;
-}
 @media not screen and (min-width: 765px) {
   li {
     width: 100%;
@@ -107,4 +59,50 @@ span {
 .collapse {
   margin: 0 auto;
   width: 600px;
+}
+
+
+
+/* Content */
+.welcome, .calender {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 2%;
+    margin-top: 10%;
+}
+
+.welcome p {
+  text-align: center;
+  font-style: italic;
+}
+
+
+
+/* Footer */
+
+.footer {
+background: rgba(255, 255, 255, 0.5);
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+}
+
+.social-logo {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.icons-right {
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-icons {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
 }
