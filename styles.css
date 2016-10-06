@@ -1,44 +1,111 @@
+/* Global */
 * {
-  margin: 0;
+    margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-  background: url("images/goat.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    background: url("images/meadow.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #444444;
+    margin: 0 0 150px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+span {
+  background-color:white;
 }
 
 li {
-  width: 100px;
+      text-align: center;
+      width:140px;
+      font-weight:bold;
+}
+
+h1 {
   text-align: center;
-  font-weight: bold;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.footer  {
-  height: 50px;
-  width: 100%;
-  background-color: green;
-  position: fixed;
-  bottom: 0px;
+
+
+/* Navbar */
+.header {
+  background-color:  rgba(0, 0, 0, 0.35);
 }
 
-footer h2 {
+#a, #a2, #a3, #a4{
+    color:white;
+}
+#a:hover, #a2:hover, #a3:hover, #a4:hover {
+  background-color: rgba(0, 0, 0, 0.35)
+}
+
+.navbar-toggle{
+    background-color:rgba(0, 0, 0, 0.35);
+    border-color:white;
+}
+
+@media not screen and (min-width: 765px) {
+  li {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.collapse {
+  margin: 0 auto;
+  width: 600px;
+}
+
+
+
+/* Content */
+.welcome, .calender {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 2%;
+    margin-top: 10%;
+}
+
+.welcome p {
   text-align: center;
-  margin: 10px;
-  padding-bottom: 50%;
+  font-style: italic;
 }
 
-.main-cont {
-  border: solid black 1px;
-  margin-top: 30px;
+
+
+/* Footer */
+.footer {
+background: rgba(255, 255, 255, 0.5);
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
 }
 
-.welcome, .cal{
-  background: rgba(44, 44, 44, 0.7);
-  border-radius: 15px;
-  color: white;
-  padding: 2%;
+.social-logo {
+  max-width: 30px;
+  max-height: 30px;
 }
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+
+.icons-right {
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-icons {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}

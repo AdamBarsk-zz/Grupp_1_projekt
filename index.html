@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Välkomstsida</title>
-
-
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="styles.css"/>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body>
 
-	<!-- Navigation Bar -->
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar">
+		<div class="container-fluid header">
 			<div class="row">
 				<div class="col-xs-12">
-
-
-					<!-- Navigation header -->
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Den Glada Geten</a>
 					</div>
-
-					<!-- Dropdown menu content -->
-
 					<div class="collapse navbar-collapse" id="myNavbar">
-						<div class="col-xs-offset-5">
-							<ul class="nav navbar-nav">
-								<li class=""><a href="#">Hem</a></li>
-								<li class=""><a href="#">Om</a></li>
-								<li class=""><a href="#">Geten</a></li>
-								<li class=""><a href="#">Kontakt</a></li>
-							</ul>
-						</div>
+						<ul id="ul" class="nav navbar-nav">
+							<li><a id="a" href="#">Hem</a></li>
+							<li><a id="a2" href="#">Om</a></li>
+							<li><a id="a3" href="#">Geten</a></li>
+							<li><a id="a4" href="#">Kontakt</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 
-			<div class="container main-cont">
-				<div class="row">
-					<article class="col-xs-5 col-xs-offset-1 welcome">
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-					</article>
-					<div class="col-xs-3 col-xs-offset-1 cal">
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-					</div>
-				</div>
+
+		<!-- Content -->
+	<div class="container-fluid main-cont">
+		<div class="row">
+			<article class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
+				<h1>Wälcom</h1>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</article>
+			<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 calender">
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+				in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 			</div>
-		<div class="container-fluid footer">
-			<div class="row">
-				<footer class="col-xs-12"><h2>Footer</h2></footer>
 		</div>
 	</div>
 
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- Footer -->
+	<div class="container-fluid footer">
+		<div class="row">
+			<p class="col-md-1 col-sm-1 footer-text"><a href="">Admin</a></p>
+			<p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text">Email: <a href="">get@goat.com</a> +70 1234567</p>
+			<div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
+				<a href="">
+
+					<img class="social-logo" src="icons/facebook.png" />
+				</a>
+				<a href="">
+					<img class="social-logo" src="icons/instagram.png" />
+				</a>
+
+				<a href="">
+					<img class="social-logo" src="icons/twitter.png" />
+
+				</a>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>
