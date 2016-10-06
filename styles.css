@@ -4,6 +4,10 @@ body {
 .container-fluid {
   background-color:  rgba(0, 0, 0, 0.35);
 }
+.collapse {
+  margin: 0 auto;
+  width: 600px;
+}
 li {
     text-align: center;
     width:140px;
@@ -17,6 +21,9 @@ li {
 }
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
   background-color: rgba(0, 0, 0, 0.35)
+}
+#a:active {
+  background-color: rgba(0, 0, 0, 0.35);
 }
 .navbar-toggle{
     background-color:rgba(0, 0, 0, 0.35);
