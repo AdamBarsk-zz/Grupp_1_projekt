@@ -8,17 +8,20 @@ label {
 input{
   display: block;
   text-align:center;
-  width:50%;
+  width:70%;
   margin:auto;
   font-size: 2em;
 }
 button {
-    width:20%;
-    margin:5px;
+    width:30%;
+    height: 10%;
+    margin:20px;
 }
 .calendar {
-  background-color: blue;
   width:80%;
   margin: auto;
-  border-radius: 10px;
+  padding: 20px 0 20px 0;
+}
+.container-fluid {
+  background-color: blue;
 }
