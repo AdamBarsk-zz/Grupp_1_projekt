@@ -1,3 +1,3 @@
-$(document).ready(function) {
-  $("#checkin").autocomplete();
+$(function() {
+  $("#checkin").datepicker();
 });
