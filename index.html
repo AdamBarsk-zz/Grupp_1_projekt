@@ -44,10 +44,31 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			</article>
-			<div class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 calender">
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-				in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-			</div>
+
+			<section class="col-md-10 col-sm-10 col-sm-offset-1 col-md-offset-1 calender">
+				<div class="row">
+					<h3>Boka nu</h3>
+				</div>
+				<form class="form-inline">
+					<div class="col-md-3 col-sm-3 form-group" id="checkIn">
+						<label for="checkInDate">Incheckning</label><br />
+						<input type="date" class="bookingDates" id="checkInDate"></input>
+					</div>
+					<div class="col-md-3 col-sm-3 form-group" id="checkOut">
+						<label for="checkOutDate">Utcheckning</label><br />
+						<input type="date" class="bookingDates" id="checkOutDate"></input>
+					</div>
+					<div class="col-md-3 col-sm-3 form-group" id="numDouble">
+						<label for="doubleBeds">Dubbelsängar</label><br />
+						<input type="number" class="bookingBeds" id="doubleBeds"></input>
+					</div>
+					<div class="col-md-2 col-sm-2 form-group" id="numDouble">
+						<label for="singleBeds">Enkelsängar</label><br />
+						<input type="number" class="bookingBeds" id="singleBeds"></input>
+					</div>
+					<button type="submit">Sök</button>
+				</form>
+			</section>
 		</div>
 	</div>
 
@@ -76,5 +97,3 @@
 </body>
 
 </html>
-
-LALALA
