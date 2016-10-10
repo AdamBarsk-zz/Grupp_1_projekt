@@ -12,10 +12,11 @@ input{
   margin:auto;
   font-size: 2em;
 }
-button {
+#button {
     width:30%;
     height: 10%;
     margin:20px;
+    font-size: 1em;
 }
 .calendar {
   width:80%;
