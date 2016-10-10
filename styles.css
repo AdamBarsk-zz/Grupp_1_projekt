@@ -43,21 +43,26 @@ h1 {
   width: 100%;
   z-index: 1;
 }
+
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
-.navbar-toggle{
+
+.navbar-toggle {
     background-color:rgba(255, 255, 255, 0.7);
     border-color: #666666;
 }
+
 .collapse {
   margin: 0 auto;
   width: 600px;
 }
+
 @media not screen and (min-width: 780px) {
   .collapse {
     width: 100%;
   }
+
   li {
     width: 100%;
     margin: auto;
@@ -88,6 +93,11 @@ position: absolute;
 left: 0;
 bottom: 0;
 width: 100%;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #444444;
 }
 
 .social-logo {
