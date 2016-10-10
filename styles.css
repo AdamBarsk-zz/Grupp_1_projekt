@@ -1,7 +1,11 @@
 *{margin:0;padding:0}
-div {
-display:inline-block;
-border: 1px solid blue;
+.box {
+  display:inline-block;
+  border: 1px solid blue;
+}
+.calendar {
+  border: 1px solid black;
+  height: 100%;
 }
 label, input {
   display: block;
