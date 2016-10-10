@@ -1,22 +1,17 @@
+*{margin:0;padding:0}
 div {
-display:inline;
-
+display:inline-block;
+border: 1px solid blue;
 }
 label, input {
   display: block;
   text-align:center;
-
-
 }
 input{
   width:20%;
   margin:auto;
 }
-
 button {
     width:20%;
     margin:5px;
-}
-label{
-  border:2px solid black;
 }
