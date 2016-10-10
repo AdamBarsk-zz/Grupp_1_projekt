@@ -9,28 +9,30 @@
 </head>
 <body>
 	<div class="container-fluid">
-	<form>
-		<div class="row">
-			<div class="col-md-6">
-			<label>Checkin</label>
-			<input id="checkin" type="date"name="checkin-checkout">
+		<div class="calendar">
+			<form>
+				<div class="row">
+					<div class="col-md-6">
+					<label>Checkin</label>
+					<input id="checkin" type="date"name="checkin-checkout">
+				</div>
+				<div class="col-md-6">
+					<label>Checkout</label>
+					<input id="checkout" type="date" name="checkin-checkout">
+				</div>
+				<div class="col-md-6">
+					<label>Adults</label>
+					<input type="number" name="person" value="1">
+				</div>
+				<div class="col-md-6">
+					<label>Kids</label>
+					<input type="number" name="person" value="0">
+				</div>
+					<label><button class="btn btn-info"> Search</button> </label>
+				</div>
+		</form>
 		</div>
-		<div class="col-md-6">
-			<label>Checkout</label>
-			<input id="checkout" type="date" name="checkin-checkout">
 		</div>
-		<div class="col-md-6">
-			<label>Adults</label>
-			<input type="number" name="person" value="1">
-		</div>
-		<div class="col-md-6">
-			<label>Kids</label>
-			<input type="number" name="person" value="0">
-		</div>
-			<label><button class="btn btn-info"> Search</button> </label>
-		</div>
-</form>
-</div>
 		<script src="http://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</body>
