@@ -76,27 +76,6 @@ h1 {
   font-style: italic;
 }
 
-/* Gallery */
-
-
-
-/* Bildgalleri */
-/*img {
-  max-height: 50%;
-  max-width: 50%;
-}*/
-
-.testtest {
-  text-align: center;
-}
-
-img {
-  width: 160px;
-  height: auto;
-}
-
-
-
 
 
 /* Footer */
@@ -125,3 +104,28 @@ width: 100%;
   margin-bottom: 5px;
   text-align: center;
 }
+
+/* gallery */
+
+.picture-gallery {
+  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  text-align: center;
+
+}
+.picture-gallery a img {
+  width: 170px;
+  height: 170px;
+  margin: 10px;
+  -webkit-transition: all 1s;
+}
+
+.picture-gallery a img:hover {
+	-webkit-filter: none;
+}
+
+.picture-gallery a img.brightness:hover {
+	-webkit-filter: brightness(0);
+}
+.flashy {-webkit-filter: sepia(100%);}
