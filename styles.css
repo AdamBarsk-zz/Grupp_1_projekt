@@ -93,3 +93,16 @@ width: 100%;
   margin-bottom: 5px;
   text-align: center;
 }
+
+.welcome {
+  width: 40%;
+}
+input {
+  width: 50px;
+}
+.left {
+  display: inline-block;
+}
+.right {
+  display: inline-block;
+}
