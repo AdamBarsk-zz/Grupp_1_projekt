@@ -1,6 +1,6 @@
 /* Global */
 * {
-    margin: 0;
+  margin: 0
 }
 
 html {
@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
 /* Navbar */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
@@ -46,22 +47,18 @@ h1, h2, h3, h4, h5, h6 {
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
-
 .navbar-toggle {
     background-color:rgba(255, 255, 255, 0.7);
     border-color: #666666;
 }
-
 .collapse {
   margin: 0 auto;
   width: 600px;
 }
-
-@media not screen and (min-width: 780px) {
+@media not screen and (min-width: 750px) {
   .collapse {
     width: 100%;
   }
-
   li {
     width: 100%;
     margin: auto;
@@ -77,11 +74,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2%;
     margin-top: 10%;
 }
-
 .welcome p {
   text-align: center;
   font-style: italic;
 }
+
 
 
 /* Footer */
