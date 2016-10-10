@@ -98,7 +98,10 @@ width: 100%;
   width: 40%;
 }
 input {
-  width: 50px;
+  width: 100px;
+}
+label {
+  width: 100px;
 }
 .left {
   display: inline-block;
