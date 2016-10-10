@@ -81,11 +81,21 @@ h1 {
 
 
 /* Bildgalleri */
-#myCarousel {
-  max-height: 50px;
-  max-width: 50px;
-  margin: auto;
+/*img {
+  max-height: 50%;
+  max-width: 50%;
+}*/
+
+.testtest {
+  text-align: center;
 }
+
+img {
+  width: 160px;
+  height: auto;
+}
+
+
 
 
 
