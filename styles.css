@@ -54,7 +54,7 @@ h1 {
   margin: 0 auto;
   width: 600px;
 }
-@media not screen and (min-width: 780px) {
+@media not screen and (min-width: 750px) {
   .collapse {
     width: 100%;
   }
