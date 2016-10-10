@@ -80,6 +80,14 @@ h1 {
 
 
 
+/* Bildgalleri */
+#myCarousel {
+  max-height: 50%;
+  max-width: 50%;
+  margin: auto;
+}
+
+
 
 /* Footer */
 .footer {
