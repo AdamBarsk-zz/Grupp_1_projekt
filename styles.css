@@ -1,10 +1,16 @@
-div {
-display:inline;
-
+*{margin:0;padding:0}
+.box {
+  display:inline-block;
+  border: 1px solid blue;
+}
+.calendar {
+  border: 1px solid black;
+  height: 100%;
 }
 label, input {
   display: block;
   text-align:center;
+<<<<<<< HEAD
 
 
 }
@@ -19,4 +25,6 @@ button {
 }
 .col-md-6 {
   border:2px solid black;
+=======
+>>>>>>> 552e5125bed08f4ab53170ccafb77c3830cdde1e
 }
