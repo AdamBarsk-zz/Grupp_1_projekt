@@ -1,1 +1,3 @@
-"HEJ"
+$(document).ready(function) {
+  $("#checkin").autocomplete();
+});

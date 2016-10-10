@@ -17,6 +17,6 @@ button {
     width:20%;
     margin:5px;
 }
-label{
+.col-md-6 {
   border:2px solid black;
 }
