@@ -116,15 +116,15 @@ width: 100%;
 
 .footer-effect {
   transition: 0.5s ease;
-  border-top: 3px solid rgba(255, 255, 255, 0);
-  border-bottom: 3px solid rgba(255, 255, 255, 0);
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 .footer-effect:hover {
-  border-top: 3px solid #444444;
-  border-bottom: 3px solid #444444;
+  border-top: 2px solid #444444;
+  border-bottom: 2px solid #444444;
   padding-top: 3px;
   padding-bottom: 3px;
 }
