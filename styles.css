@@ -5,7 +5,7 @@ label {
   color: white;
 }
 input{
-  display: block;
+  display: inline-block;
   text-align:center;
   width:20%;
   margin:auto;
@@ -15,6 +15,9 @@ input{
     height: 10%;
     margin:20px;
     font-size: 1em;
+}
+.button {
+  display: none;
 }
 .calendar {
   width:40%;
@@ -29,10 +32,8 @@ input{
     font-size: 2em;
   }
   input{
-    display: block;
-    text-align:center;
+    display: inline-block;
     width:70%;
-    margin:auto;
     font-size: 2em;
   }
   #button {
@@ -42,10 +43,11 @@ input{
       font-size: 0.8em;
   }
   .button {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     font-size: 20px;
+    display: inline-block;
   }
   .calendar {
     width:80%;
