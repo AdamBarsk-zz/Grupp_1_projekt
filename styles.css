@@ -11,18 +11,15 @@ input{
   margin:auto;
 }
 #button {
-    width:12%;
+    width:20%;
     height: 10%;
     margin:20px;
     font-size: 1em;
 }
 .calendar {
-  width:80%;
+  width:40%;
   margin: auto;
-  padding: 20px 0 20px 0;
-}
-.container-fluid {
-  background-color: blue;
+  background-color: hotpink;
 }
 @media not screen and (min-width: 750px) {
   label {
@@ -42,12 +39,19 @@ input{
       width:30%;
       height: 10%;
       margin:20px;
-      font-size: 1em;
+      font-size: 0.8em;
+  }
+  .button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
   }
   .calendar {
     width:80%;
     margin: auto;
     padding: 20px 0 20px 0;
+    background-color: blue;
   }
   .container-fluid {
     background-color: blue;
