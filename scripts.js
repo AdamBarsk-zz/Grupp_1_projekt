@@ -1,8 +1,12 @@
 
 // Gallery slider
+$('.preview').click(startZoom());
+
 function startZoom(){
   var zoombg = document.getElementById('black')
   var zoom = document.getElementsByClassName('zoom')
+
+  alert("bajs")
 
   zoombg.style.display = "block"
   zoom.style.display = "block"
