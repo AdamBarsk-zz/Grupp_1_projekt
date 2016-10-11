@@ -44,8 +44,6 @@ h1 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-
-
 /* Navbar */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
@@ -71,8 +69,6 @@ h1 {
   }
 }
 
-
-
 /* Content */
 .welcome, .calender {
     background: rgba(255, 255, 255, 0.7);
@@ -86,9 +82,8 @@ h1 {
   font-style: italic;
 }
 
-
-
 /* Footer */
+
 .footer {
 background: rgba(255, 255, 255, 0.9);
 position: absolute;
@@ -128,6 +123,7 @@ width: 100%;
   padding-top: 3px;
   padding-bottom: 3px;
 }
+
 /* gallery */
 
 .picture-gallery {
