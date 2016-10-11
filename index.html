@@ -52,33 +52,35 @@
 				<form class="form-inline" id="booking">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date">Incheckning</label><br />
-						<input type="date" class="booking-dates" id="check-in-date"></input>
+						<input type="date" class="booking-dates form-control" id="check-in-date"></input>
 					</div>
 					<div class="form-group" id="check-out">
 						<label for="check-out-date">Utcheckning</label><br />
-						<input type="date" class="booking-dates" id="check-out-date"></input>
+						<input type="date" class="booking-dates form-control" id="check-out-date"></input>
 					</div>
-					<div class="form-group" id="num-double">
-						<label for="double-beds">Dubbelsängar</label><br />
-						<select class="booking-beds" id="double-beds">
-							<option>0</option>
-							<option selected>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-					<div class="form-group" id="num-single">
-						<label for="single-beds">Enkelsängar</label><br />
-						<select class="booking-beds" id="single-beds">
-							<option selected>0</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
+					<div class="form-group">
+						<div class="form-group" id="num-double">
+							<label for="double-beds">Dubbelsängar</label><br />
+							<select class="booking-beds form-control" id="double-beds">
+								<option>0</option>
+								<option selected>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+						<div class="form-group" id="num-single">
+							<label for="single-beds">Enkelsängar</label><br />
+							<select class="booking-beds form-control" id="single-beds">
+								<option selected>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
 					</div>
 					<br />
 					<button type="submit" id="search">Sök rum</button>

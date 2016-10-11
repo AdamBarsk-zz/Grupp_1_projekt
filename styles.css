@@ -41,12 +41,6 @@ label {
   font-weight: normal;
 }
 
-input, button[type="submit"] {
-  border: 1px #AAAAAA solid;
-  border-radius: 3px;
-  padding: 3px;
-}
-
 
 /* Navbar */
 .header {
@@ -85,28 +79,38 @@ input, button[type="submit"] {
     padding: 2%;
     margin-top: 10%;
 }
+
 .welcome p {
   text-align: center;
   font-style: italic;
 }
 
-#search {
-  vertical-align: bottom;
+.calender h3 {
+  margin-bottom: 0px;
 }
 
 #booking {
   text-align: center;
 }
 
-#booking .form-group {
-  margin: 15px auto;
+#booking label {
+  margin-top: 20px;
+}
+
+#booking input, #booking select {
+  width: 150px;
+  margin: 0px 10px;
+  border: 1px #AAAAAA solid;
+  border-radius: 3px;
+  padding: 3px;
 }
 
 #booking button {
-  margin: 15px;
+  margin-top: 20px;
   padding: 5px;
   width: 150px;
 }
+
 
 
 /* Footer */
