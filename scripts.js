@@ -1,2 +1,2 @@
 
-// Galleri slider
+// Gallery slider
