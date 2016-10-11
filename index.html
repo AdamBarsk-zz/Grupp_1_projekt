@@ -49,24 +49,39 @@
 				<div class="row">
 					<h3>Boka nu</h3>
 				</div>
-				<form class="form-inline">
-					<div class="col-md-3 col-sm-3 form-group" id="checkIn">
-						<label for="checkInDate">Incheckning</label><br />
-						<input type="date" class="bookingDates" id="checkInDate"></input>
+				<form class="form-inline" id="booking">
+					<div class="form-group" id="check-in">
+						<label for="check-in-date">Incheckning</label><br />
+						<input type="date" class="booking-dates" id="check-in-date"></input>
 					</div>
-					<div class="col-md-3 col-sm-3 form-group" id="checkOut">
-						<label for="checkOutDate">Utcheckning</label><br />
-						<input type="date" class="bookingDates" id="checkOutDate"></input>
+					<div class="form-group" id="check-out">
+						<label for="check-out-date">Utcheckning</label><br />
+						<input type="date" class="booking-dates" id="check-out-date"></input>
 					</div>
-					<div class="col-md-3 col-sm-3 form-group" id="numDouble">
-						<label for="doubleBeds">Dubbelsängar</label><br />
-						<input type="number" class="bookingBeds" id="doubleBeds"></input>
+					<div class="form-group" id="num-double">
+						<label for="double-beds">Dubbelsängar</label><br />
+						<select class="booking-beds" id="double-beds">
+							<option>0</option>
+							<option selected>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
 					</div>
-					<div class="col-md-2 col-sm-2 form-group" id="numDouble">
-						<label for="singleBeds">Enkelsängar</label><br />
-						<input type="number" class="bookingBeds" id="singleBeds"></input>
+					<div class="form-group" id="num-single">
+						<label for="single-beds">Enkelsängar</label><br />
+						<select class="booking-beds" id="single-beds">
+							<option selected>0</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
 					</div>
-					<button type="submit">Sök</button>
+					<br />
+					<button type="submit" id="search">Sök rum</button>
 				</form>
 			</section>
 		</div>

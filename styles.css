@@ -34,6 +34,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
+label {
+  color: #444444;
+  font-weight: normal;
+}
+
+input, button[type="submit"] {
+  border: 1px #AAAAAA solid;
+  border-radius: 3px;
+  padding: 3px;
+}
 
 
 /* Navbar */
@@ -66,7 +76,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-
 /* Content */
 .welcome, .calender {
     background: rgba(255, 255, 255, 0.7);
@@ -79,6 +88,24 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
 }
 
+#search {
+  vertical-align: bottom;
+}
+
+#booking {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#booking .form-group {
+  padding: 0 1.5%;
+}
+
+#booking button {
+  margin: 15px;
+  padding: 5px;
+  width: 150px;
+}
 
 
 /* Footer */
