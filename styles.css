@@ -110,7 +110,7 @@ width: 100%;
 }
 
 .footer-effect {
-  transition: 0.5s ease;
+  transition: 0.3s ease;
   border-top: 2px solid rgba(255, 255, 255, 0);
   border-bottom: 2px solid rgba(255, 255, 255, 0);
   padding-top: 8px;
@@ -137,7 +137,7 @@ width: 100%;
   width: 170px;
   height: 170px;
   margin: 10px;
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.7s;
 }
 
 .picture-gallery a img:hover {
