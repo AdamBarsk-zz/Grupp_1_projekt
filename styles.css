@@ -32,6 +32,8 @@ li {
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  margin-bottom: 15px;
+  margin-top: 0px;
 }
 
 label {
@@ -93,12 +95,11 @@ input, button[type="submit"] {
 }
 
 #booking {
-  margin-top: 20px;
   text-align: center;
 }
 
 #booking .form-group {
-  padding: 0 1.5%;
+  margin: 15px auto;
 }
 
 #booking button {
