@@ -169,3 +169,22 @@ width: 100%;
 	-webkit-filter: brightness(0);
 }
 .flashy {-webkit-filter: sepia(100%);}
+
+#black{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0.5;
+            display: none;
+            background-color: #000000;
+            height: 100%;
+            width: 100%;
+        }
+
+.zoom{
+            position: absolute;
+            top: 25%;
+            left: 40%;
+            display: none;
+       }
+
