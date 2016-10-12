@@ -31,3 +31,7 @@ function stopZoom(){
   zoom.style.display = "none"
   previewHide.style.display = "block";
 }
+
+
+
+//hejhejhej
