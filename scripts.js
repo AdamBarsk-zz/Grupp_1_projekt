@@ -2,12 +2,17 @@
 // GALLERY SLIDER
 
 //Startar slidern
-document.getElementById('preview').addEventListener('click', startZoom);
+var falukorv = document.getElementsByClassName('preview');
+
+for (var i = 0; i < falukorv.length; i++) {
+	falukorv[i].addEventListener('click', startZoom);
+}
 
 function startZoom(){
+
   var zoombg = document.getElementById('black');
-  var zoomed = document.getElementById('zoom');
-  var previewHide = document.getElementById('preview');
+  var zoomed = document.getElementsByClassName('zoom');
+  var previewHide = document.getElementsByClassName('preview');
 
   zoombg.style.display = "block";
   zoomed.style.display = "block";
