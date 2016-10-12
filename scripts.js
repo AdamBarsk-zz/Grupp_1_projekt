@@ -2,8 +2,6 @@
 // GALLERY SLIDER
 
 //Startar slidern
-window.onload = function (){
-
 document.getElementById('preview').addEventListener('click', startZoom);
 
 function startZoom(){
@@ -15,11 +13,8 @@ function startZoom(){
   zoomed.style.display = "block";
   previewHide.style.display = "none";
 }
-}
 
 //Avslutar slidern
-window.onload = function (){
-
 document.getElementById('black').addEventListener('click', stopZoom);
 
 function stopZoom(){
@@ -30,5 +25,4 @@ function stopZoom(){
   zoombg.style.display = "none"
   zoom.style.display = "none"
   previewHide.style.display = "block";
-}
 }
