@@ -31,3 +31,10 @@ function stopZoom(){
   zoom.style.display = "none"
   previewHide.style.display = "block";
 }
+<<<<<<< HEAD
+=======
+
+
+
+//hejhejhej
+>>>>>>> 6818a0f3dfd4792043f7471291a65ef71d10df60
