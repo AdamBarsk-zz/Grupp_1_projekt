@@ -22,4 +22,3 @@ function stopZoom(){
   zoombg.style.display = "none"
   zoom.style.display = "none"
 }
-
