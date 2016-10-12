@@ -97,9 +97,17 @@ label {
   margin-top: 20px;
 }
 
+@media screen and (min-width: 768px) {
+  #booking input, #booking select {
+    width: 150px;
+    margin: 0px 10px;
+    border: 1px #AAAAAA solid;
+    border-radius: 3px;
+    padding: 3px;
+  }
+}
+
 #booking input, #booking select {
-  width: 150px;
-  margin: 0px 10px;
   border: 1px #AAAAAA solid;
   border-radius: 3px;
   padding: 3px;
@@ -110,7 +118,6 @@ label {
   padding: 5px;
   width: 150px;
 }
-
 
 
 /* Footer */
