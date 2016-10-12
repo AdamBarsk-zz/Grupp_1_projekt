@@ -1,21 +1,21 @@
 
 // Gallery slider
-$('.preview').click(startZoom());
+document.getElementById('bajs').addEventListener('click', startZoom);
 
 function startZoom(){
-  var zoombg = document.getElementById('black')
-  var zoom = document.getElementsByClassName('zoom')
+  var zoombg = document.getElementById('black');
+  var zoomis = document.getElementById('soom');
 
-  alert("bajs")
+  alert("Jag vann! Du förlorade!");
 
-  zoombg.style.display = "block"
-  zoom.style.display = "block"
+  zoombg.style.display = "block";
+  zoomis.style.display = "block";
 }
 
 
 function stopZoom(){
   var zoombg = document.getElementById('black')
-  var zoom = document.getElementsByClassName('zoom')
+  var zoom = document.getElementById('soom')
 
   zoombg.style.display = "none"
   zoom.style.display = "none"
