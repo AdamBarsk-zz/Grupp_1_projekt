@@ -9,13 +9,19 @@ for (var i = 0; i < falukorv.length; i++) {
 }
 
 var imgArray = [].slice.call(falukorv);
-console.log(imgArray);
+
+
+
+
 function startZoom(){
   var zoombg = document.getElementById('black');
 	var previewHide = document.getElementsByClassName('preview');
+	var div = document.getElementById('white')
+	div.innerHTML += "Hej"
 
   zoombg.style.display = "block";
-	previewHide.style.display = "none";
+	div.style.display = "block";
+
 }
 
 //Avslutar slidern
@@ -26,5 +32,5 @@ function stopZoom(){
   var previewHide = document.getElementById('preview');
 
   zoombg.style.display = "none"
-  previewHide.style.display = "block";
+
 }
