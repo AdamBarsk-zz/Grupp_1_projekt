@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -89,11 +90,12 @@
 	</div>
 
 	<!-- Bildgalleri -->
-	<div id="black">
 
-	</div>
 
-	<div id="zoom" class="picture-gallery">
+	<div id="black"></div>
+
+	<div class="picture-gallery" id="zoom">
+
 		<a href="#" class="zoom"><img src="images/galleri1.jpg" class="img-rounded flashy"></a>
 				<a href="#" class="zoom"><img src="images/galleri2.jpg" class="img-rounded flashy"></a>
 				<a href="#" class="zoom"><img src="images/galleri3.jpg" class="img-rounded flashy"></a>
@@ -106,7 +108,7 @@
 				<a href="#" class="zoom"><img src="images/galleri4.jpg" class="img-rounded flashy"></a>
 	</div>
 
-	<div class="container picture-gallery">
+	<div class="container picture-gallery" id="preview">
 		<div class="row">
 			<div class="col-md-12">
 				<a href="#" class="preview"><img src="images/galleri1.jpg" class="img-rounded flashy"></a>
@@ -147,6 +149,7 @@
 	</div>
 
 
+<script src="scripts.js"></script>
 
 </body>
 </html>
