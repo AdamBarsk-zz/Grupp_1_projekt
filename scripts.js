@@ -14,6 +14,9 @@ function startZoom(){
   var zoombg = document.getElementById('black');
 	var div = document.getElementById('white')
 	div.innerHTML = "<img src="+this.src+" />"
+  + "<img src='icons/leftArrow.png' id='leftArrow' />"
+  + "<img src='icons/rightArrow.png' id='rightArrow' />" 
+  
 
   zoombg.style.display = "block";
 	div.style.display = "block";
@@ -22,6 +25,7 @@ function startZoom(){
 
 //Avslutar slidern
 document.getElementById('black').addEventListener('click', stopZoom);
+document.getElementById('footer').addEventListener('click', stopZoom);
 
 function stopZoom(){
   var zoombg = document.getElementById('black')

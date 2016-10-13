@@ -216,3 +216,20 @@ width: 100%;
   height: 100%;
   width: 100%;
 }
+
+#left-arrow {
+  /*display: block;*/
+  position: absolute;
+  /*vertical-align: middle;*/
+  width: 10%;
+  height: auto;
+  left: 0%;
+}
+
+#right-arrow {
+  position: absolute;
+  font-size: 150%;
+  height: 100%;
+  top: 50%;
+  right: 0%;
+}
