@@ -154,18 +154,18 @@ width: 100%;
   text-align: center;
 
 }
-.picture-gallery a img {
+.picture-gallery img {
   width: 170px;
   height: 170px;
   margin: 10px;
   -webkit-transition: all 0.7s;
 }
 
-.picture-gallery a img:hover {
+.picture-gallery img:hover {
 	-webkit-filter: none;
 }
 
-.picture-gallery a img.brightness:hover {
+.picture-gallery img.brightness:hover {
 	-webkit-filter: brightness(0);
 }
 .flashy {-webkit-filter: sepia(100%);}
@@ -185,10 +185,11 @@ width: 100%;
             position: absolute;
             top: 25%;
             left: 20%;
+            right: 20%;
             display: none;
             z-index: 1;
        }
 #white img {
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
 }
