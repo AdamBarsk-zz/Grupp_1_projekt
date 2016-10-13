@@ -41,7 +41,7 @@
 				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 					<h2 for="" style="text-align:center">Gästinformation</h2>
 
-					<form data-toggle="validator" role="form" class="" action="index.html" method="post" onsubmit="mySubmit()">
+					<form data-toggle="validator" role="form" class="" action="index.html" method="post">
 
 						<!-- Formulär -->
 						<div class="form-group">
@@ -83,7 +83,7 @@
 							<label for="requests">Önskemål:</label>
 							<textarea class="form-control"name="name" rows="3" cols="30"id="requests"></textarea>
 						</div>
-						<a href="sidor/bekräftelse.html" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
+						<a onclick="mySubmit()" href="sidor/bekräftelse.html" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
 					</div>
 				</div>
 			</form>
@@ -109,5 +109,29 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
+=======
+<script type="text/javascript">
+
+	var customers = [];
+
+	function mySubmit() {
+		var customer = {
+			inCheck: 					document.getElementsByTagName("input")[0].value,
+			outCheck: 				document.getElementsByTagName("input")[1].value,
+			firstName: 				document.getElementsByTagName("input")[2].value,
+			lastName: 				document.getElementsByTagName("input")[3].value,
+			email: 						document.getElementsByTagName("input")[4].value,
+			adress: 					document.getElementsByTagName("input")[5].value,
+			phoneNumber: 			document.getElementsByTagName("input")[6].value,
+			specialRequests: 	document.getElementsByTagName("textarea")[0].value
+		};
+		customers.push(customer);
+		localStorage.setItem("customers", customers);
+		console.log(customer);
+		return false;
+	}
+</script>
+>>>>>>> 3806c6d11db41c37913d81592731a10594e1ac61
 </body>
 </html>
