@@ -181,9 +181,13 @@ width: 100%;
             width: 100%;
         }
 
-#white{
+#white {
             position: absolute;
             top: 25%;
-            left: 40%;
+            left: 20%;
             display: none;
        }
+#white img {
+  height: 80%;
+  width: 80%;
+}
