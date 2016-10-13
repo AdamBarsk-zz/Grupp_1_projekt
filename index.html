@@ -6,6 +6,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -44,12 +45,12 @@
 						<!-- Formulär -->
 						<div class="form-group">
 							<label class="control-label">Incheckningsdatum:</label>
-							<input class="form-control" type="date" name="name" value="">
+							<input class="form-control" type="text" name="name" value="" id="checkin">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Utcheckningsdatum:</label>
-							<input class="form-control" type="date" name="name" value="">
+							<input class="form-control" type="text" name="name" value="" id="checkout">
 						</div>
 
 						<div class="form-group">
@@ -107,6 +108,7 @@
 		</div>
 	</div>
 </div>
+<script src="scripts.js"</script>
 <script type="text/javascript">
 
 	var customers = [];
