@@ -8,9 +8,6 @@ for (var i = 0; i < falukorv.length; i++) {
 	falukorv[i].addEventListener('click', startZoom);
 }
 
-
-
-
 function startZoom(){
   var zoombg = document.getElementById('black');
 	var div = document.getElementById('white')
@@ -25,6 +22,7 @@ function startZoom(){
 
 //Avslutar slidern
 document.getElementById('black').addEventListener('click', stopZoom);
+document.getElementById('footer').addEventListener('click', stopZoom);
 
 function stopZoom(){
   var zoombg = document.getElementById('black')
@@ -33,3 +31,5 @@ function stopZoom(){
   zoombg.style.display = "none"
 	div.style.display = "none";
 }
+
+// Change image
