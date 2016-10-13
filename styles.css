@@ -181,4 +181,14 @@ width: 100%;
             width: 100%;
         }
 
-       /*hej*/
+#white {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            display: none;
+            z-index: 1;
+       }
+#white img {
+  height: 80%;
+  width: 80%;
+}
