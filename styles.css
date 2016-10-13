@@ -186,6 +186,7 @@ width: 100%;
             top: 25%;
             left: 20%;
             display: none;
+            z-index: 1;
        }
 #white img {
   height: 80%;
