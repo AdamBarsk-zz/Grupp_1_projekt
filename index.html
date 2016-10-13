@@ -81,7 +81,7 @@
 							<label for="requests">Önskemål:</label>
 							<textarea class="form-control"name="name" rows="3" cols="30"id="requests"></textarea>
 						</div>
-						<a href="sidor/bekräftelse.html" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
+						<a href="#" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
 					</div>
 				</div>
 			</form>
@@ -111,10 +111,19 @@
 	var inputs = document.getElementsByTagName("input");
 	var data = [];
 	function mySubmit() {
-		for (var i = 0; i < inputs.length; i++) {
-			data.push(inputs[i].value);
-		}
-		alert(data);
+		var customer = {inCheck, outCheck, firstName, lastName, email, adress, phoneNumber, specialRequests};
+
+		// sparar värdena till kunden
+		customer.inCheck = document.getElementsByTagName("input")[0].value;
+		customer.outCheck = document.getElementsByTagName("input")[1].value;
+		customer.firstName = document.getElementsByTagName("input")[2].value;
+		customer.lastName = document.getElementsByTagName("input")[3].value;
+		customer.email = document.getElementsByTagName("input")[4].value;
+		customer.adress = document.getElementsByTagName("input")[5].value;
+		customer.phoneNumber = document.getElementsByTagName("input")[6].value;
+		customer.specialRequests = document.getElementsByTagName("input")[7].value;
+		console.log(customer);
+		alert(customer);
 		return false;
 	}
 </script>
