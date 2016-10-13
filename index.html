@@ -81,7 +81,7 @@
 							<label for="requests">Önskemål:</label>
 							<textarea class="form-control"name="name" rows="3" cols="30"id="requests"></textarea>
 						</div>
-						<a onclick="mySubmit()" href="#" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
+						<a onclick="mySubmit()" href="sidor/bekräftelse.html" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
 					</div>
 				</div>
 			</form>
@@ -108,19 +108,22 @@
 	</div>
 </div>
 <script type="text/javascript">
-	var inputs = document.getElementsByTagName("input");
-	var data = [];
+
+	var customers = [];
+
 	function mySubmit() {
 		var customer = {
 			inCheck: 					document.getElementsByTagName("input")[0].value,
 			outCheck: 				document.getElementsByTagName("input")[1].value,
-			firstName: 				document.getElementsByTagName("input")[2].value
-			lastName: 				document.getElementsByTagName("input")[3].value
-			email: 						document.getElementsByTagName("input")[4].value
-			adress: 					document.getElementsByTagName("input")[5].value
+			firstName: 				document.getElementsByTagName("input")[2].value,
+			lastName: 				document.getElementsByTagName("input")[3].value,
+			email: 						document.getElementsByTagName("input")[4].value,
+			adress: 					document.getElementsByTagName("input")[5].value,
 			phoneNumber: 			document.getElementsByTagName("input")[6].value,
 			specialRequests: 	document.getElementsByTagName("textarea")[0].value
 		};
+		customers.push(customer);
+		localStorage.setItem("customers", customers);
 		console.log(customer);
 		return false;
 	}
