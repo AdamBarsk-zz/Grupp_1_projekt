@@ -1,3 +1,4 @@
 $(function() {
-  $("#checkin").datepicker();
+$("#checkin").datepicker();
+$("#checkout").datepicker();
 });
