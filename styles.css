@@ -54,6 +54,8 @@ label {
 /* Navbar */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
+  margin-top: -5px;
+  margin-right: -5px;
 }
 
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
