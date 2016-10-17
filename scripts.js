@@ -3,7 +3,7 @@
 
 //Startar slidern
 var falukorv = document.getElementsByClassName('flashy');
-var images = []
+var images = [];
 for (var i = 0; i < falukorv.length; i++) {
 
 	images.push(falukorv[i])
@@ -14,14 +14,15 @@ for (var i = 0; i < falukorv.length; i++) {
 
 console.log(images);
 
+
 function startZoom(){
   var zoombg = document.getElementById('black');
-	var div = document.getElementById('white')
+	var div = document.getElementById('white');
 	div.innerHTML = "<img src='"+this.src+"' id='test2' />"
 	 + '<span class="glyphicon glyphicon-chevron-left" id="left-arrow"></span>'
 	 + '<span class="glyphicon glyphicon-chevron-right" id="right-arrow"></span>'
-
-	 listener();
+	 console.log(this.src)
+	listener();
   zoombg.style.display = "block";
 	div.style.display = "block";
 }
@@ -31,29 +32,32 @@ document.getElementById('black').addEventListener('click', stopZoom);
 document.getElementById('footer').addEventListener('click', stopZoom);
 
 function stopZoom(){
-  var zoombg = document.getElementById('black')
-	var div = document.getElementById('white')
+  var zoombg = document.getElementById('black');
+	var div = document.getElementById('white');
 
-  zoombg.style.display = "none"
+  zoombg.style.display = "none";
 	div.style.display = "none";
 }
+
 
 // Change image
 function listener(){
 	$("span.glyphicon").on('click', move);
-	function move()
+	function move(e)
 	{
+
 
 	    // //Om span class= left i--
 	    if (this.id == 'left-arrow') {
+
 				 i--;
 			 }
 	    //     // Om span class=right i++
 	    else if (this.id == 'right-arrow') {
 				 i++;
 		 	}
-			//
-	    // // OM i<0 eller i > images.length-1 då ändra i till godkänt värde
+
+	    // When backing from first image, go to last, and vice versa.
 	    if (i < 0) {
 				 i = images.length - 1;
 			 }
@@ -61,5 +65,7 @@ function listener(){
 				 i = 0;
 			 }
 	    $("#test2").prop('src', images[i].src);//Visa bild
+			console.log(images[i]);
+			// console.log(event.target);
 	}
 }
