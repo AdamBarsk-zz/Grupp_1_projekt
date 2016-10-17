@@ -3,13 +3,15 @@
 
 //Startar slidern
 var falukorv = document.getElementsByClassName('flashy');
-
+var images = []
 for (var i = 0; i < falukorv.length; i++) {
-	falukorv[i].addEventListener('click', startZoom);
+
+	images.push(falukorv[i])
+	images[i].addEventListener('click', startZoom);
 }
 
-var images = [];
-images.push(falukorv);
+
+
 console.log(images);
 
 function startZoom(){
@@ -53,11 +55,11 @@ function listener(){
 			//
 	    // // OM i<0 eller i > images.length-1 då ändra i till godkänt värde
 	    if (i < 0) {
-				 i = falukorv.length - 1;
+				 i = images.length - 1;
 			 }
-	    if (i > (falukorv.length - 1)) {
+	    if (i > (images.length) - 1) {
 				 i = 0;
 			 }
-	    $("#test2").prop('src', falukorv[i].src);//Visa bild
+	    $("#test2").prop('src', images[i].src);//Visa bild
 	}
 }
