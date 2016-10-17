@@ -93,7 +93,7 @@ width: 100%;
   margin-bottom: 5px;
   text-align: center;
 }
-/*incheck utcheck kalender */
+/*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
     background-color:grey;
 }
@@ -101,18 +101,19 @@ width: 100%;
   width:216px;
   height:auto;
   margin:5px auto;
-  font: helvetica, sans-serif;
-}
-.ui-datepicker a {
-  text-decoration:none;
+  font: Arial, sans-serif;
 }
 .ui-datepicker-table {
   width:100%;
 }
 .ui-datepicker-header {
-  background-color:silver;
+  background-color:black;
   color:white;
   font-weight:bold;
+  line-height:30px;
+  border-width:1px 0 0 0;
+  border-style:solid;
+  border-color:#111;
 }
 .ui-datepicker-title {
     text-align:center;
@@ -121,10 +122,59 @@ width: 100%;
     width:30px;
     height:30px;
     display:inline-block;
+    text-align:center;
+    background-image:url("images/arrow.png");
+    background-repeat:no-repeat;
+    line-height:600%;
+    overflow:hidden;
+    cursor:pointer;
 }
 .ui-datepicker-prev {
   float:left;
+  background-position:center -30px;
 }
 .ui-datepicker-next {
   float:right;
+  background-position: center 0px;
+}
+.ui-datepicker thead {
+  background-color: #FFF;
+  border-bottom: 1px solid #bbb;
+}
+.ui-datepicker th {
+  text-transform:uppercase;
+  font-size:6pt;
+  padding:10px 5px;
+  color:#666666;
+}
+.ui-datepicker tbody td {
+    padding:0;
+    border-right: 1px solid #bbb;
+}
+.ut-datepicker tbody td:last-child {
+  border-right:0px;
+}
+.ui-datepicker tbody tr {
+  border-bottom: 1px solid #bbb;
+}
+.ui-datepicker tbody tr:last-child {
+  border-bottom: 0px;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+  display:inline-block;
+  font-weight:bold;
+  text-align:center;
+  width:30px;
+  height:30px;
+  line-height:30px;
+  color:#666666;
+}
+.ui-datepicker-unselectable .ui-state-default  {
+  background:#f4f4f3;
+  color:#b4b4b3;
+
+}
+.ui-datepicker-calendar .ui-state-hover {
+  background: #f7f7f7;
+  color:green;
 }
