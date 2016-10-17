@@ -47,44 +47,86 @@
 						<!-- Formulär -->
 						<div class="form-group">
 							<label class="control-label">Incheckningsdatum:</label>
-							<input class="form-control" type="text" name="name" value="" id="checkin">
+							<input
+							class="form-control"
+							id="checkin"
+							type="text"
+							name="name">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Utcheckningsdatum:</label>
-							<input class="form-control" type="text" name="name" value="" id="checkout">
-						</div>
+							<input
+							class="form-control"
+							id="checkout"
+							type="text"
+							name="name">
 
 						<div class="form-group">
-							<label class="control-label" for="inputSuccess1">Förstanamn:</label>
-							<input class="form-control" type="text" placeholder="Ange förstanamn" id="inputSuccess1" required>
+							<label class="control-label">Förnamn:</label>
+							<input
+							class="form-control"
+							id="firstname"
+							type="text"
+							placeholder="Ange förstanamn"
+							required>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label" for="lastname">Efternamn:</label>
-							<input class="form-control" type="text" placeholder="Ange efternamn" id="lastname" required>
+							<input
+							class="form-control"
+							id="lastname"
+							type="text"
+							placeholder="Ange efternamn"
+							required>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label" for="email">Emailadress:</label>
-							<input class="form-control" type="text" placeholder="Ange email" id="email">
+							<input
+							class="form-control"
+							id="email"
+							type="text"
+							placeholder="Ange email">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label" for="adress">Adress:</label>
-							<input class="form-control" type="text" placeholder="Ange adress" id="adress" required="">
+							<input
+							class="form-control"
+							id="adress"
+							type="text"
+							placeholder="Ange adress"
+							required="">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label" for="phonenumber">Telefonnummer:</label>
-							<input class="form-control" type="text" placeholder="Ange telefonnummer" id="phonenumber" required>
+							<input
+							class="form-control"
+							id="phonenumber"
+							type="text"
+							placeholder="Ange telefonnummer"
+							required>
 						</div>
 
 						<div class="form-group">
 							<label for="requests">Önskemål:</label>
-							<textarea class="form-control"name="name" rows="3" cols="30"id="requests"></textarea>
+							<textarea
+							class="form-control"
+							id="requests"
+							name="name"
+							rows="3"
+							cols="30">
+							</textarea>
 						</div>
-						<a onclick="mySubmit()" href="sidor/bekräftelse.html" type="submit" class="btn btn-lg btn-block btn-default">Reservera rum</a>
+						<a
+						class="btn btn-lg btn-block btn-default"
+						onclick="mySubmit()"
+						href="sidor/bekräftelse.html"
+						type="submit"
+						>Reservera rum</a>
 					</div>
 				</div>
 			</form>
@@ -128,8 +170,14 @@
 			specialRequests: 	document.getElementsByTagName("textarea")[0].value
 		};
 		customers.push(customer);
-		localStorage.setItem("customers", customers);
-		console.log(customer);
+		localStorage.setItem("inCheck", customer.inCheck);
+		localStorage.setItem("outCheck", customer.outCheck);
+		localStorage.setItem("firstName", customer.firstName);
+		localStorage.setItem("lastName", customer.lastName);
+		localStorage.setItem("email", customer.email);
+		localStorage.setItem("adress", customer.adress);
+		localStorage.setItem("phoneNumber", customer.phoneNumber);
+		localStorage.setItem("specialRequests", customer.specialRequests);
 		return false;
 	}
 	//hej
