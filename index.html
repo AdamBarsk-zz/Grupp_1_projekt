@@ -40,7 +40,7 @@
 		<div class="container-fluid main-cont">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
-					<h2 for="" style="text-align:center">Gästinformation</h2>
+					<h2 style="text-align:center">Gästinformation</h2>
 
 					<form data-toggle="validator" role="form" class="" action="index.html" method="post">
 
@@ -51,7 +51,8 @@
 							class="form-control"
 							id="checkin"
 							type="text"
-							name="name">
+							name="name"
+							required>
 						</div>
 
 						<div class="form-group">
@@ -60,7 +61,8 @@
 							class="form-control"
 							id="checkout"
 							type="text"
-							name="name">
+							name="name"
+							required>
 
 						<div class="form-group">
 							<label class="control-label">Förnamn:</label>
@@ -69,6 +71,8 @@
 							id="firstname"
 							type="text"
 							placeholder="Ange förstanamn"
+							pattern="[a-z][A-Z]"
+							title="Förnamnet skall enbart innehålla bokstäver"
 							required>
 						</div>
 
@@ -98,7 +102,7 @@
 							id="adress"
 							type="text"
 							placeholder="Ange adress"
-							required="">
+							required>
 						</div>
 
 						<div class="form-group">
@@ -121,12 +125,12 @@
 							cols="30">
 							</textarea>
 						</div>
-						<a
+						<button
 						class="btn btn-lg btn-block btn-default"
 						onclick="mySubmit()"
 						href="sidor/bekräftelse.html"
 						type="submit"
-						>Reservera rum</a>
+						>Reservera rum</button>
 					</div>
 				</div>
 			</form>
@@ -180,7 +184,6 @@
 		localStorage.setItem("specialRequests", customer.specialRequests);
 		return false;
 	}
-	//hej
 </script>
 </body>
 </html>
