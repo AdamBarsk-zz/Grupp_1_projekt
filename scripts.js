@@ -1,3 +1,4 @@
+/*datepicker*/
 $(function() {
   $("#checkin, #checkout").datepicker({
     inline: true,
@@ -6,3 +7,4 @@ $(function() {
     dateFormat: "dd/mm/yy"
   });
 });
+/*slut datepicker*/
