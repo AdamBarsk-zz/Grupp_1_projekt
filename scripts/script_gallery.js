@@ -1,55 +1,26 @@
-// GALLERY SLIDER
+//Make array of the thumbnails
 
-//Startar slidern
-var active_image;
-var falukorv = document.getElementsByClassName('flashy');
-var images = [];
-for (var i = 0; i < falukorv.length; i++) {
+var imgArray = $('flashy').toArray();
 
-	images.push(falukorv[i])
-	images[i].addEventListener('click', startZoom);
-}
+//Pop up carousel when clicking thumbnail 
+$(".flashy").click(function(){
+  var leftArrow = $("<span class='glyphicon glyphicon-chevron-left' id='left-arrow'></span>");
+	var rightArrow = $("<span class='glyphicon glyphicon-chevron-right' id='right-arrow'></span>");
+	var image = $("<img src='" + event.target.src + "' id='slider' class='active' />");
+  $("#white").empty(); //Refreshing/empty pop-up on every click
+  $("#black").css("display", "block"); //Make black bg visible
+  $("#white").css("display", "block"); //Make pop-up visible
+  $("#white").append(image, leftArrow, rightArrow); //Fill pop-up with img and arrows
+  listener(event.target);
+});
 
-function startZoom(event){
-  var zoombg = document.getElementById('black');
-	var div = document.getElementById('white');
-	active_image = event.target.id;
-	div.innerHTML = "<img src='"+event.target.src+"' id='test2' />"
-	 + '<span class="glyphicon glyphicon-chevron-left" id="left-arrow"></span>'
-	 + '<span class="glyphicon glyphicon-chevron-right" id="right-arrow"></span>'
-	listener(event.target);
-  zoombg.style.display = "block";
-	div.style.display = "block";
-}
+//Empties and hides carousel
+$("#black, #footer").click(function(){
+  $("#black").css("display", "none");
+  $("#white").css("display", "none");
+});
 
-//Avslutar slidern
-document.getElementById('black').addEventListener('click', stopZoom);
-document.getElementById('footer').addEventListener('click', stopZoom);
-
-function stopZoom(){
-  var zoombg = document.getElementById('black');
-	var div = document.getElementById('white');
-
-  zoombg.style.display = "none";
-	div.style.display = "none";
-}
-
-// Change image
-function listener(e){
-	$("span.glyphicon").on('click', move);
-	i=active_image-1;
-	function move(){
-		if (this.id == 'left-arrow') {
-			i--;
-		} else if (this.id == 'right-arrow') {
-			i++;
-		}
-		if (i < 0) {
-		 i = images.length - 1;
-		}
-		if (i > (images.length) - 1) {
-			i = 0;
-		}
-		$("#test2").prop('src', images[i].src);
-	}
-}
+//Slidefunction
+$("span.glyphicon").click(listener(event.target){
+  		console.log(event.target);
+	});
