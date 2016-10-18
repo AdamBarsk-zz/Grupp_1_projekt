@@ -1,6 +1,12 @@
+.book-start label {
+  color: #444444;
+  font-weight: normal;
+}
+
 /* Global */
 * {
-    margin: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -19,26 +25,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-  color: #444444;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #444444;
-}
-
-span {
-  background-color: #666666;
-}
-
-li {
-      text-align: center;
-      width:140px;
-      font-weight:bold;
-}
-
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -46,25 +32,31 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
 }
 
-label {
-  color: #444444;
-  font-weight: normal;
-}
-
 /* Navbar */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
   width: 100vw;
+  z-index: 1;
+}
+
+.navbar-nav li {
+      text-align: center;
+      width: 140px;
+      font-weight: bold;
 }
 
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.navbar-toggle{
+.navbar-toggle {
     background-color:rgba(255, 255, 255, 0.7);
     border-color: #666666;
+}
+
+.icon-bar {
+  background-color: #666666;
 }
 
 .collapse {
@@ -72,8 +64,11 @@ label {
   width: 600px;
 }
 
-@media not screen and (min-width: 765px) {
-  li {
+@media not screen and (min-width: 750px) {
+  .collapse {
+    width: 100%;
+  }
+  .navbar-nav li {
     width: 100%;
   }
 }
@@ -94,6 +89,8 @@ label {
 .calender h3 {
   margin-bottom: 0px;
 }
+
+/*VAD ÄR BOOKING??*/
 
 #booking {
   text-align: center;
@@ -136,21 +133,26 @@ bottom: 0;
 width: 100vw;
 }
 
+.footer a {
+  text-decoration: none;
+  color: #444444;
+}
+
 .social-logo {
   max-width: 30px;
   max-height: 30px;
-}
-
-.footer-text {
-  text-align: center;
-  margin-top: 10px;
-  font-style: none;
 }
 
 .social-icons {
   margin-top: 5px;
   margin-bottom: 5px;
   text-align: center;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 10px;
+  font-style: none;
 }
 
 .footer-effect {
@@ -175,8 +177,8 @@ width: 100vw;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   text-align: center;
-
 }
+
 .picture-gallery img {
   width: 170px;
   height: 170px;
@@ -192,7 +194,10 @@ width: 100vw;
 .picture-gallery img.brightness:hover {
 	-webkit-filter: brightness(0);
 }
-.flashy {-webkit-filter: sepia(100%);}
+
+.flashy {
+  -webkit-filter: sepia(100%);
+}
 
 #black{
   position: absolute;
@@ -227,15 +232,113 @@ width: 100vw;
    transform: translateY(-50%);
    color: #444444;
    background-color: rgba(255,255,255,0);
-
 }
 
 #left-arrow {
   left: 0%;
-
 }
 
 #right-arrow {
   right: 0%;
+}
 
+/*incheck utcheck kalender(Datepicker) */
+.ui-widget-content {
+    background-color: grey;
+}
+
+.ui-datepicker {
+  width: 216px;
+  height: auto;
+  margin: 5px auto;
+  font: Arial, sans-serif;
+}
+
+.ui-datepicker-table {
+  width: 100%;
+}
+
+.ui-datepicker-header {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  line-height: 30px;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #111;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    background-image: url("images/arrow.png");
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ui-datepicker-prev {
+  float: left;
+  background-position: center -30px;
+}
+
+.ui-datepicker-next {
+  float: right;
+  background-position: center 0px;
+}
+
+.ui-datepicker thead {
+  background-color: #FFF;
+  border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker th {
+  text-transform: uppercase;
+  font-size: 6pt;
+  padding: 10px 5px;
+  color: #666666;
+}
+
+.ui-datepicker tbody td {
+    padding: 0;
+    border-right: 1px solid #bbb;
+}
+
+.ut-datepicker tbody td:last-child {
+  border-right: 0px;
+}
+
+.ui-datepicker tbody tr {
+  border-bottom: 1px solid #bbb;
+}
+
+.ui-datepicker tbody tr:last-child {
+  border-bottom: 0px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #666666;
+}
+
+.ui-datepicker-unselectable .ui-state-default  {
+  background: #f4f4f3;
+  color: #b4b4b3;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+  background: #f7f7f7;
+  color: green;
 }

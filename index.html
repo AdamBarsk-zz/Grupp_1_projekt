@@ -2,17 +2,20 @@
 <html>
 
 <head>
-	<title>Välkomstsida</title>
+	<title>Den Glada Geten</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+
 	<!-- NAVBAR -->
+
 	<nav class="navbar navbar">
 		<div class="container-fluid header">
 			<div class="row">
@@ -27,13 +30,14 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul id="ul" class="nav navbar-nav">
 							<li><a id="a" href="index.html">Hem</a></li>
-							<li><a id="a2" href="#">Om</a></li>
+							<li><a id="a2" href="booking.html">Boka</a></li>
 							<li><a id="a3" href="gallery.html">Galleri</a></li>
 							<li><a id="a4" href="#">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+		</div>
 	</nav>
 
 	<!-- CONTENT -->
@@ -51,16 +55,16 @@
 				</div>
 				<form class="form-inline" id="booking">
 					<div class="form-group" id="check-in">
-						<label for="check-in-date">Incheckning</label><br />
+						<label for="check-in-date" class="book-start">Incheckning</label><br />
 						<input type="date" class="booking-dates form-control" id="check-in-date"></input>
 					</div>
 					<div class="form-group" id="check-out">
-						<label for="check-out-date">Utcheckning</label><br />
+						<label for="check-out-date" class="book-start">Utcheckning</label><br />
 						<input type="date" class="booking-dates form-control" id="check-out-date"></input>
 					</div>
 					<div class="form-group">
 						<div class="form-group" id="num-double">
-							<label for="double-beds">Dubbelsängar</label><br />
+							<label for="double-beds" class="book-start">Dubbelsängar</label><br />
 
 							<select class="booking-beds form-control" id="double-beds">
 
@@ -73,7 +77,7 @@
 							</select>
 						</div>
 						<div class="form-group" id="num-single">
-							<label for="single-beds">Enkelsängar</label><br />
+							<label for="single-beds" class="book-start">Enkelsängar</label><br />
 
 							<select class="booking-beds form-control" id="single-beds">
 
@@ -118,11 +122,8 @@
 			</div>
 		</div>
 	</div>
-	</div>
-
-<script src="scripts.js"></script>
 
 
+<script src="scripts/scripts.js"></script>
 </body>
-
 </html>
