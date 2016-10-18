@@ -1,17 +1,14 @@
-.book-start label {
-  color: #444444;
-  font-weight: normal;
-}
 
 /* GLOBAL */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   position: relative;
-  min-height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -36,7 +33,10 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
+
   /*ONÖDIG? --> width: 100vw;*/
+
+  width: 100%;
   z-index: 1;
 }
 
@@ -44,6 +44,10 @@ h1, h2, h3, h4, h5, h6 {
       text-align: center;
       width: 140px;
       font-weight: bold;
+}
+
+.navbar-nav li a {
+      color: #444444;
 }
 
 #a:hover, #a2:hover, #a3:hover, #a4:hover {
@@ -122,15 +126,19 @@ h1, h2, h3, h4, h5, h6 {
   width: 150px;
 }
 
+.book-start label {
+  color: #444444;
+  font-weight: normal;
+}
 
 /* FOOTER */
 
 .footer {
 background: rgba(255, 255, 255, 0.9);
-position: absolute;
+position: fixed;
 left: 0;
 bottom: 0;
-width: 100vw;
+width: 100%;
 }
 
 .footer a {
@@ -157,15 +165,15 @@ width: 100vw;
 
 .footer-effect {
   transition: 0.3s ease;
-  border-top: 2px solid rgba(255, 255, 255, 0);
-  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  border-top: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 .footer-effect:hover {
-  border-top: 2px solid #444444;
-  border-bottom: 2px solid #444444;
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -206,8 +214,8 @@ width: 100vw;
   opacity: 0.65;
   display: none;
   background-color: #000000;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 #white {
@@ -252,6 +260,10 @@ width: 100vw;
   height: auto;
   margin: 5px auto;
   font: Arial, sans-serif;
+}
+
+.ui-datepicker a {
+  text-decoration: none;
 }
 
 .ui-datepicker-table {
