@@ -259,6 +259,10 @@ width: 100%;
   font: Arial, sans-serif;
 }
 
+.ui-datepicker a {
+  text-decoration: none;
+}
+
 .ui-datepicker-table {
   width: 100%;
 }
