@@ -18,7 +18,6 @@ function startZoom(event){
 	div.innerHTML = "<img src='"+event.target.src+"' id='test2' />"
 	 + '<span class="glyphicon glyphicon-chevron-left" id="left-arrow"></span>'
 	 + '<span class="glyphicon glyphicon-chevron-right" id="right-arrow"></span>'
-	console.log(event.target)
 	listener(event.target);
   zoombg.style.display = "block";
 	div.style.display = "block";
@@ -53,7 +52,5 @@ function listener(e){
 			i = 0;
 		}
 		$("#test2").prop('src', images[i].src);
-		console.log(images[i]);
-		console.log(e)
 	}
 }
