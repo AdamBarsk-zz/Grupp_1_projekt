@@ -1,5 +1,5 @@
 
-/* Global */
+/* GLOBAL */
 * {
   margin: 0;
   padding: 0;
@@ -29,10 +29,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
 }
 
-/* Navbar */
+/* NAVBAR */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
+
+  /*ONÖDIG? --> width: 100vw;*/
+
   width: 100%;
   z-index: 1;
 }
@@ -65,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 600px;
 }
 
-@media not screen and (min-width: 750px) {
+@media screen and (max-width: 768px) {
   .collapse {
     width: 100%;
   }
@@ -74,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Content */
+/* CONTENT */
 .welcome, .calender {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
@@ -128,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-/* Footer */
+/* FOOTER */
 
 .footer {
 background: rgba(255, 255, 255, 0.9);
@@ -175,7 +178,7 @@ width: 100%;
   padding-bottom: 3px;
 }
 
-/* gallery */
+/* GALLERY */
 
 .picture-gallery {
   margin-top: 10%;
