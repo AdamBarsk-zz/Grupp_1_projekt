@@ -131,6 +131,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+.booking-beds {
+  text-indent:45%;
+}
+
+.center-date {
+  text-align:center;
+}
 /* FOOTER */
 
 .footer {
@@ -252,7 +259,7 @@ width: 100%;
 
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
-    background-color: grey;
+    background-color: #e6ffe6;
 }
 
 .ui-datepicker {
@@ -293,7 +300,7 @@ width: 100%;
     background-repeat: no-repeat;
     line-height: 600%;
     overflow: hidden;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .ui-datepicker-prev {
@@ -351,6 +358,21 @@ width: 100%;
 }
 
 .ui-datepicker-calendar .ui-state-hover {
-  background: #f7f7f7;
-  color: green;
+  background: lightblue;
+  color: blue;
+}
+
+.ui-datepicker-calendar td:first-child .ui-state-active {
+  width: 29px;
+  margin-left: 0;
+}
+
+.ui-datepicker-calendar td:last-child .ui-state-active {
+width: 29px;
+margin-right: 0;
+}
+
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+  height: 29px;
+  margin-bottom: 0;
 }

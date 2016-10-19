@@ -35,94 +35,95 @@
 					</div>
 				</div>
 			</div>
-	</nav>
+		</nav>
 
-  <!-- Content -->
-  <div class="container-fluid main-cont">
-      <div class="row">
-          <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
-              <h2 style="text-align:center">Gästinformation</h2>
+		<!-- Content -->
+		<div class="container-fluid main-cont">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
+					<h2 style="text-align:center">Gästinformation</h2>
 
-              <form data-toggle="validator" role="form" class="" action="index.html" method="post">
+					<form data-toggle="validator" role="form" class="" action="confirmation.html" method="post">
 
-                  <!-- Formulär -->
-                  <div class="form-group">
-                      <label class="control-label">Incheckning:</label>
-                      <input class="form-control" id="checkin" type="text" name="name" placeholder="Välj datum">
-                  </div>
+						<!-- Formulär -->
+						<div class="form-group">
+							<label class="control-label">Incheckning:</label>
+							<input class="form-control" id="checkin" type="text" name="name">
+						</div>
 
-                  <div class="form-group">
-                      <label class="control-label">Utcheckning:</label>
-                      <input class="form-control" id="checkout" type="text" name="name" placeholder="Välj datum">
+						<div class="form-group">
+							<label class="control-label">Utcheckning:</label>
+							<input class="form-control" id="checkout" type="text" name="name">
+						</div>
 
+						<div class="form-group">
+							<label class="control-label">Dubbelsängar:</label>
+							<input class="form-control" type="number" name="name" value="1">
+						</div>
 
-                      <div class="form-group">
-                          <label class="control-label">Förnamn:</label>
-                          <input class="form-control" id="firstname" type="text" placeholder="Ange förnamn" title="Förnamnet skall enbart innehålla bokstäver" required>
-                      </div>
+						<div class="form-group">
+							<label class="control-label">Enkelsängar:</label>
+							<input class="form-control" type="number" name="name" value="0">
+						</div>
 
-                      <div class="form-group">
-                          <label class="control-label" for="lastname">Efternamn:</label>
-                          <input class="form-control" id="lastname" type="text" placeholder="Ange efternamn" required>
-                      </div>
+						<div class="form-group">
+							<label class="control-label">Förnamn:</label>
+							<input class="form-control" id="firstname" type="text" placeholder="Ange förnamn" title="Förnamnet skall enbart innehålla bokstäver" required>
+						</div>
 
-                      <div class="form-group">
-                          <label class="control-label" for="email">Emailadress:</label>
-                          <input class="form-control" id="email" type="text" placeholder="Ange email" required>
-                      </div>
+						<div class="form-group">
+							<label class="control-label" for="lastname">Efternamn:</label>
+							<input class="form-control" id="lastname" type="text" placeholder="Ange efternamn" required>
+						</div>
 
-                      <div class="form-group">
-                          <label class="control-label" for="adress">Adress:</label>
-                          <input class="form-control" id="adress" type="text" placeholder="Ange adress" required="">
-                      </div>
+						<div class="form-group">
+							<label class="control-label" for="email">Emailadress:</label>
+							<input class="form-control" id="email" type="text" placeholder="Ange email" required>
+						</div>
 
-                      <div class="form-group">
-                          <label class="control-label" for="phonenumber">Telefonnummer:</label>
-                          <input class="form-control" id="phonenumber" type="text" placeholder="Ange telefonnummer" required>
-                      </div>
+						<div class="form-group">
+							<label class="control-label" for="adress">Adress:</label>
+							<input class="form-control" id="adress" type="text" placeholder="Ange adress" required="">
+						</div>
 
-                      <div class="form-group">
-                          <label for="requests">Önskemål:</label>
-                          <textarea class="form-control" id="requests" name="name" rows="3" cols="30">
-            </textarea>
-                      </div>
-                      <button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" href="sidor/bekräftelse.html" type="submit">Reservera rum</button>
-                  </div>
-                </form>
-          </div>
-      </div>
-  </div>
+						<div class="form-group">
+							<label class="control-label" for="phonenumber">Telefonnummer:</label>
+							<input class="form-control" id="phonenumber" type="text" placeholder="Ange telefonnummer" required>
+						</div>
+
+						<div class="form-group">
+							<label for="requests">Önskemål:</label>
+							<textarea class="form-control" id="requests" name="name" rows="3" cols="30"></textarea>
+						</div>
+						<button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" href="sidor/bekräftelse.html" type="submit">Reservera rum</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<!-- FOOTER -->
 	<div id="footer">
-	<div class="container-fluid footer">
-		<div class="row">
-			<p class="col-md-1 col-sm-1 footer-text"><a href="#" class="footer-effect">Admin</a></p>
-			<p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text">Email: <a href="#" class="footer-effect">get@goat.com</a> +70 1234567</p>
-			<div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
-				<a href="">
+		<div class="container-fluid footer">
+			<div class="row">
+				<p class="col-md-1 col-sm-1 footer-text"><a href="#" class="footer-effect">Admin</a></p>
+				<p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text">Email: <a href="#" class="footer-effect">get@goat.com</a> +70 1234567</p>
+				<div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
+					<a href="">
 
-				<!-- Social Media Logotypes -->
-					<img class="social-logo" src="icons/facebook.png" />
-				</a>
-				<a href="">
-					<img class="social-logo" src="icons/instagram.png" />
-				</a>
-
-
+						<!-- Social Media Logotypes -->
+						<img class="social-logo" src="icons/facebook.png" />
+					</a>
+					<a href="">
+						<img class="social-logo" src="icons/instagram.png" />
+					</a>
 					<a href="">
 						<img class="social-logo" src="icons/twitter.png" />
-
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-
-<script src="scripts/scripts.js"></script>
-
-
+</div>
+<script src="scripts/script_booking.js"></script>
 </body>
-
 </html>
