@@ -2,7 +2,7 @@
 
 var imgArray = $('flashy').toArray();
 
-//Pop up carousel when clicking thumbnail 
+//Pop up carousel when clicking thumbnail
 $(".flashy").click(function(){
   var leftArrow = $("<span class='glyphicon glyphicon-chevron-left' id='left-arrow'></span>");
 	var rightArrow = $("<span class='glyphicon glyphicon-chevron-right' id='right-arrow'></span>");
@@ -14,10 +14,10 @@ $(".flashy").click(function(){
   listener(event.target);
 });
 
-//Empties and hides carousel
+//Hides carousel
 $("#black, #footer").click(function(){
-  $("#black").css("display", "none");
-  $("#white").css("display", "none");
+  $("#black").css("display", "none"); //Hide the black bg
+  $("#white").css("display", "none"); //Hide pop-up div
 });
 
 //Slidefunction
