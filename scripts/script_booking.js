@@ -25,18 +25,27 @@ var tomorrow = year + "-" + month + "-" + tomorrow;
 document.getElementById("checkin").value = today;
 document.getElementById("checkout").value = tomorrow;
 
+window.onload = function() {
+  document.getElementsByTagName("input")[0].value = localStorage.getItem("inCheck");
+  document.getElementsByTagName("input")[1].value = localStorage.getItem("outCheck");
+  document.getElementsByTagName("input")[2].value = localStorage.getItem("doubleBeds");
+  document.getElementsByTagName("input")[3].value = localStorage.getItem("singleBeds");
+}
 
+// onsubmit
 var customers = [];
 
 function mySubmit() {
 	var customer = {
 		inCheck: 					document.getElementsByTagName("input")[0].value,
 		outCheck: 				document.getElementsByTagName("input")[1].value,
-		firstName: 				document.getElementsByTagName("input")[2].value,
-		lastName: 				document.getElementsByTagName("input")[3].value,
-		email: 						document.getElementsByTagName("input")[4].value,
-		adress: 					document.getElementsByTagName("input")[5].value,
-		phoneNumber: 			document.getElementsByTagName("input")[6].value,
+    doubleBeds:       document.getElementsByTagName("input")[2].value,
+    doubleBeds:       document.getElementsByTagName("input")[3].value,
+		firstName: 				document.getElementsByTagName("input")[4].value,
+		lastName: 				document.getElementsByTagName("input")[5].value,
+		email: 						document.getElementsByTagName("input")[6].value,
+		adress: 					document.getElementsByTagName("input")[7].value,
+		phoneNumber: 			document.getElementsByTagName("input")[8].value,
 		specialRequests: 	document.getElementsByTagName("textarea")[0].value
 	};
 	customers.push(customer);
