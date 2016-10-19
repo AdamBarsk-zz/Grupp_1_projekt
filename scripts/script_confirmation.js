@@ -7,7 +7,7 @@ var customer = {
   adress:						localStorage.getItem("adress"),
   phoneNumber:			localStorage.getItem("phoneNumber"),
   specialRequests:	localStorage.getItem("specialRequests")
-}
+};
 document.getElementsByTagName("p")[0].innerHTML = customer.inCheck;
 document.getElementsByTagName("p")[1].innerHTML = customer.outCheck;
 document.getElementsByTagName("p")[2].innerHTML = customer.firstName;
