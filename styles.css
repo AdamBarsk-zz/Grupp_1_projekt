@@ -208,9 +208,9 @@ width: 100%;
 }
 
 #black{
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  position:  fixed;
+  top: 0;
+  left: 0;
   opacity: 0.65;
   display: none;
   background-color: #000000;
