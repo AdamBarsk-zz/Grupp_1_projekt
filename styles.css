@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
       color: #444444;
 }
 
-#a:hover, #a2:hover, #a3:hover, #a4:hover {
+#ul-topnav li a:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
