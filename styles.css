@@ -253,6 +253,7 @@ width: 100%;
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
     background-color: grey;
+    border-bottom: 1px solid black;
 }
 
 .ui-datepicker {
@@ -293,7 +294,7 @@ width: 100%;
     background-repeat: no-repeat;
     line-height: 600%;
     overflow: hidden;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .ui-datepicker-prev {
@@ -353,4 +354,19 @@ width: 100%;
 .ui-datepicker-calendar .ui-state-hover {
   background: #f7f7f7;
   color: green;
+}
+
+.ui-datepicker-calendar td:first-child .ui-state-active {
+  width: 29px;
+  margin-left: 0;
+}
+
+.ui-datepicker-calendar td:last-child .ui-state-active {
+width: 29px;
+margin-right: 0;
+}
+
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+  height: 29px;
+  margin-bottom: 0;
 }
