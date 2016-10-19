@@ -253,7 +253,6 @@ width: 100%;
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
     background-color: grey;
-    border-bottom: 1px solid black;
 }
 
 .ui-datepicker {

@@ -1,7 +1,7 @@
 // BOKNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 
 $(function() {
-  $("#checkin, #checkout").datepicker({
+  $("#checkin, #checkout, #check-in-date, #check-out-date").datepicker({
     inline: true,
     showOtherMonths: true,
     dateFormat: "yy-mm-dd",
@@ -21,9 +21,9 @@ if (day < 10) day = "0" + day;
 
 var today = year + "-" + month + "-" + day;
 var tomorrow = year + "-" + month + "-" + tomorrow;
+
 document.getElementById("checkin").value = today;
 document.getElementById("checkout").value = tomorrow;
-
 
 
 var customers = [];
