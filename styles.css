@@ -252,7 +252,7 @@ width: 100%;
 
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
-    background-color: grey;
+    background-color: #e6ffe6;
 }
 
 .ui-datepicker {
@@ -351,8 +351,8 @@ width: 100%;
 }
 
 .ui-datepicker-calendar .ui-state-hover {
-  background: #f7f7f7;
-  color: green;
+  background: lightblue;
+  color: blue;
 }
 
 .ui-datepicker-calendar td:first-child .ui-state-active {
