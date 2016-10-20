@@ -8,7 +8,7 @@
 
 html {
   position: relative;
-  height: 100vh;
+  min-height: 100%;
 }
 
 body {
@@ -143,10 +143,9 @@ h1, h2, h3, h4, h5, h6 {
 .footer {
 background: rgba(255, 255, 255, 0.9);
 position: absolute;
-left: 0;
+width: 100%;
 bottom: 0;
-right: 0;
-margin-top: 50px;
+left: 0;
 }
 
 .footer a {
@@ -251,11 +250,11 @@ margin-top: 50px;
 }
 
 #left-arrow {
-  left: 0%;
+  left: 0;
 }
 
 #right-arrow {
-  right: 0%;
+  right: 0;
 }
 
 /*incheck utcheck kalender(Datepicker) */
@@ -311,7 +310,7 @@ margin-top: 50px;
 
 .ui-datepicker-next {
   float: right;
-  background-position: center 0px;
+  background-position: center 0;
 }
 
 .ui-datepicker thead {
@@ -332,7 +331,7 @@ margin-top: 50px;
 }
 
 .ut-datepicker tbody td:last-child {
-  border-right: 0px;
+  border-right: 0;
 }
 
 .ui-datepicker tbody tr {
@@ -340,7 +339,7 @@ margin-top: 50px;
 }
 
 .ui-datepicker tbody tr:last-child {
-  border-bottom: 0px;
+  border-bottom: 0;
 }
 
 .ui-datepicker td span, .ui-datepicker td a {
