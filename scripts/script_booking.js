@@ -30,7 +30,7 @@ window.onload = function() {
   document.getElementsByTagName("input")[1].value = localStorage.getItem("outCheck");
   document.getElementsByTagName("input")[2].value = localStorage.getItem("doubleBeds");
   document.getElementsByTagName("input")[3].value = localStorage.getItem("singleBeds");
-}
+};
 
 // onsubmit
 var customers = [];
