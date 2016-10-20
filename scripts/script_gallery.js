@@ -3,8 +3,8 @@ var imgArray = $('.flashy').toArray();
 
 //Pop up carousel when clicking thumbnail
 $(".flashy").click(function(){
-  var leftArrow = $("<div class='arrow'><span class='glyphicon glyphicon-chevron-left' id='left-arrow'></span></div>");
-  var rightArrow = $("<div class='arrow'><span class='glyphicon glyphicon-chevron-right' id='right-arrow'></span></div>");
+  var leftArrow = $("<span class='glyphicon glyphicon-chevron-left' id='left-arrow'></span>");
+  var rightArrow = $("<span class='glyphicon glyphicon-chevron-right' id='right-arrow'></span>");
   var image = $("<img src='" + event.target.src + "' id='slider' />");
   $("#white").empty(); //Refreshing/empty pop-up on every click
   $("#black").css("display", "block"); //Make black bg visible
