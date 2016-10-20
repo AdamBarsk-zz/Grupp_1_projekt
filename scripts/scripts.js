@@ -1,5 +1,7 @@
 // BOKNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 
+//Döp filen till det också!
+
 $(function() {
   $("#checkin, #checkout").datepicker({
     inline: true,

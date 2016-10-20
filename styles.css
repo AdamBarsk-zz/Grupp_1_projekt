@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-html {
+/*html {
   position: relative;
   height: 100vh;
-}
+}*/
 
 body {
     background: url("images/meadow.jpg") no-repeat center center fixed;
@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
 background: rgba(255, 255, 255, 0.9);
-position: fixed;
+position: absolute;
 left: 0;
 bottom: 0;
 width: 100%;
@@ -185,6 +185,7 @@ width: 100%;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   text-align: center;
+  height: 100vh;
 }
 
 .picture-gallery img {
@@ -204,7 +205,7 @@ width: 100%;
 }
 
 .flashy {
-  -webkit-filter: sepia(100%);
+  -webkit-filter: brightness(50%) contrast(80%);
 }
 
 #black{
