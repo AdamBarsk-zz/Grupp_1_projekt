@@ -22,7 +22,8 @@ function slide(e){
  function move(){
  	if (this.id == 'left-arrow') {
  		i--;
- 	} else if (this.id == 'right-arrow') {
+ 	}
+  else if (this.id == 'right-arrow') {
  		i++;
  	}
  	if (i < 0) {
