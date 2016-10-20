@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-/*html {
+html {
   position: relative;
-  height: 100vh;
-}*/
+  min-height: 100%;
+}
 
 body {
     background: url("images/meadow.jpg") no-repeat center center fixed;
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
       color: #444444;
 }
 
-#a:hover, #a2:hover, #a3:hover, #a4:hover {
+#ul-topnav li a:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -131,14 +131,21 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+.booking-beds {
+  text-indent:45%;
+}
+
+.center-date {
+  text-align:center;
+}
 /* FOOTER */
 
 .footer {
 background: rgba(255, 255, 255, 0.9);
 position: absolute;
-left: 0;
-bottom: 0;
 width: 100%;
+bottom: 0;
+left: 0;
 }
 
 .footer a {
@@ -209,9 +216,9 @@ width: 100%;
 }
 
 #black{
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  position:  fixed;
+  top: 0;
+  left: 0;
   opacity: 0.65;
   display: none;
   background-color: #000000;
@@ -244,16 +251,16 @@ width: 100%;
 }
 
 #left-arrow {
-  left: 0%;
+  left: 0;
 }
 
 #right-arrow {
-  right: 0%;
+  right: 0;
 }
 
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
-    background-color: grey;
+    background-color: #e6ffe6;
 }
 
 .ui-datepicker {
@@ -294,7 +301,7 @@ width: 100%;
     background-repeat: no-repeat;
     line-height: 600%;
     overflow: hidden;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .ui-datepicker-prev {
@@ -304,7 +311,7 @@ width: 100%;
 
 .ui-datepicker-next {
   float: right;
-  background-position: center 0px;
+  background-position: center 0;
 }
 
 .ui-datepicker thead {
@@ -325,7 +332,7 @@ width: 100%;
 }
 
 .ut-datepicker tbody td:last-child {
-  border-right: 0px;
+  border-right: 0;
 }
 
 .ui-datepicker tbody tr {
@@ -333,7 +340,7 @@ width: 100%;
 }
 
 .ui-datepicker tbody tr:last-child {
-  border-bottom: 0px;
+  border-bottom: 0;
 }
 
 .ui-datepicker td span, .ui-datepicker td a {
@@ -352,6 +359,21 @@ width: 100%;
 }
 
 .ui-datepicker-calendar .ui-state-hover {
-  background: #f7f7f7;
-  color: green;
+  background: lightblue;
+  color: blue;
+}
+
+.ui-datepicker-calendar td:first-child .ui-state-active {
+  width: 29px;
+  margin-left: 0;
+}
+
+.ui-datepicker-calendar td:last-child .ui-state-active {
+width: 29px;
+margin-right: 0;
+}
+
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+  height: 29px;
+  margin-bottom: 0;
 }

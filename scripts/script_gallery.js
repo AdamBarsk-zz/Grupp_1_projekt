@@ -11,6 +11,7 @@ $(".flashy").click(function(){
   $("#white").css("display", "block"); //Make pop-up visible
   $("#white").append(image, leftArrow, rightArrow); //Fill pop-up with img and arrows
   imgIndex = $('.flashy').index(this);
+<<<<<<< HEAD
   slide(imgIndex); 
   console.log(imgIndex);
 });
@@ -40,11 +41,41 @@ function slide(imgIndex) {
 }
 
 
+=======
+  slide(imgIndex);
+  console.log(imgIndex);
+});
+
+// Change image
+function slide(e){
+ $("span.glyphicon").on('click', move);
+ i=imgIndex;
+ function move(){
+ 	if (this.id == 'left-arrow') {
+ 		i--;
+ 	}
+  else if (this.id == 'right-arrow') {
+ 		i++;
+ 	}
+ 	if (i < 0) {
+ 	 i = imgArray.length - 1;
+ 	}
+ 	if (i > (imgArray.length) - 1) {
+ 		i = 0;
+ 	}
+ 	$("#slider").prop('src', imgArray[i].src);
+ }
+}
+
+>>>>>>> bf72c81b521aa8b471de06a51ac4f4b1b2594f85
 //Hides carousel
 $("#black, #footer").click(function(){
   $("#black").css("display", "none"); //Hide the black bg
   $("#white").css("display", "none"); //Hide pop-up div
 });
+<<<<<<< HEAD
 
 
 $("#test2").prop('src', images[i].src);
+=======
+>>>>>>> bf72c81b521aa8b471de06a51ac4f4b1b2594f85

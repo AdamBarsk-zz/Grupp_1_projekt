@@ -28,11 +28,11 @@
 						</button>
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul id="ul" class="nav navbar-nav">
-							<li><a id="a" href="index.html">Hem</a></li>
-							<li><a id="a2" href="booking.html">Boka</a></li>
-							<li><a id="a3" href="gallery.html">Galleri</a></li>
-							<li><a id="a4" href="#">Kontakt</a></li>
+						<ul id="ul-topnav" class="nav navbar-nav">
+							<li><a href="index.html">Hem</a></li>
+							<li><a href="booking.html">Boka</a></li>
+							<li><a href="gallery.html">Galleri</a></li>
+							<li><a href="#">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
@@ -53,14 +53,14 @@
 				<div class="row">
 					<h3>Boka nu</h3>
 				</div>
-				<form class="form-inline" id="booking">
+				<form action="booking.html" class="form-inline" id="booking">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date" class="book-start">Incheckning</label><br />
-						<input type="date" class="booking-dates form-control" id="check-in-date"></input>
+						<input type="text" class="form-control center-date" id="check-in-date" />
 					</div>
 					<div class="form-group" id="check-out">
 						<label for="check-out-date" class="book-start">Utcheckning</label><br />
-						<input type="date" class="booking-dates form-control" id="check-out-date"></input>
+						<input type="text" class="form-control center-date" id="check-out-date" />
 					</div>
 					<div class="form-group">
 						<div class="form-group" id="num-double">
@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<br />
-					<button type="submit" id="search">Sök rum</button>
+					<button onclick="mySubmit()" type="submit" id="search">Sök rum</button>
 				</form>
 			</section>
 		</div>
@@ -124,6 +124,6 @@
 	</div>
 
 
-<script src="scripts/scripts.js"></script>
+<script src="scripts/script_index.js"></script>
 </body>
 </html>
