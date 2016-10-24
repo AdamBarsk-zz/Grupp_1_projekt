@@ -10,7 +10,8 @@ var customer = {
   phoneNumber:			localStorage.getItem("phoneNumber"),
   specialRequests:	localStorage.getItem("specialRequests")
 };
-document.getElementsByTagName("p")[0].innerHTML = customer.inCheck;
+var paragraphs = document.getElementsByTagName("p");
+paragraphs[0].innerHTML = customer.inCheck;
 document.getElementsByTagName("p")[1].innerHTML = customer.outCheck;
 document.getElementsByTagName("p")[2].innerHTML = customer.doubleBeds;
 document.getElementsByTagName("p")[3].innerHTML = customer.singleBeds;
