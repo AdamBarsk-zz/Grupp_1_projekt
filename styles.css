@@ -192,12 +192,13 @@ left: 0;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   text-align: center;
-  height: 100vh;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .picture-gallery img {
-  width: 170px;
-  height: 170px;
+  width: 200px;
+  height: 130px;
   margin: 10px;
   -webkit-transition: all 0.7s;
 }
@@ -228,7 +229,7 @@ left: 0;
 
 #white {
   position: absolute;
-  top: 10%;
+  bottom: 20%;
   left: 20%;
   right: 20%;
   display: none;
@@ -240,10 +241,19 @@ left: 0;
   width: 100%;
   border-radius: 5px;
 }
+#arrow-holder {
+  border: 2px dotted green;
 
+  max-height: 200vh;
+  max-width: 200vw;
+  
+  display: block;
+  background: hotpink;
+
+}
 #left-arrow, #right-arrow {
    position: absolute;
-   top: 50%;
+   top: 90%;
    font-size: 40px;
    transform: translateY(-50%);
    color: #444444;
