@@ -2,21 +2,24 @@
 <html>
 
 <head>
-	<title>Galleri</title>
+	<title>Information</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
 </head>
 
 <body>
+
 	<!-- NAVBAR -->
+
 	<nav class="navbar navbar">
 		<div class="container-fluid header">
 			<div class="row">
-				<div class="col-xs-12">
+				<!--ONÖDIG? -> div class="col-xs-12">-->
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 							<span class="icon-bar"></span>
@@ -25,47 +28,26 @@
 						</button>
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul id="ul" class="nav navbar-nav">
-							<li><a id="a" href="index.html">Hem</a></li>
-							<li><a href="#">Aktiviteter</a></li>
-							<li><a id="a2" href="booking.html">Boka</a></li>
-							<li><a id="a3" href="gallery.html">Galleri</a></li>
-							<li><a id="a4" href="#">Kontakt</a></li>
+						<ul id="ul-topnav" class="nav navbar-nav">
+							<li><a href="index.html">Hem</a></li>
+							<li><a href="booking.html">Boka</a></li>
+							<li><a href="gallery.html">Galleri</a></li>
+							<li><a href="#">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+		</div>
 	</nav>
 
-	<!-- GALLERY -->
-	<!-- Black overlay in the background when img is zoomed -->
-	<div id="black"></div>
+	<!-- CONTENT -->
+	<div class="container">
+		<div class="row">
+			<article class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 welcome">
+				<h1>Den Glada Geten</h1>
 
-	<!--Picture container when img is zoomed -->
-
-	<div id="white">
-	</div>
-
-
-		<!-- The pictures -->
-		<div class="container picture-gallery" id="preview">
-			<div class="row">
-				<div class="col-md-12">
-					<img src="images/galleri1.jpg" class="img-rounded flashy">
-					<img src="images/galleri2.jpg" class="img-rounded flashy">
-					<img src="images/galleri3.jpg" class="img-rounded flashy">
-					<img src="images/galleri4.jpg" class="img-rounded flashy">
-					<img src="images/galleri5.jpg" class="img-rounded flashy">
-					<img src="images/galleri6.jpg" class="img-rounded flashy">
-					<img src="images/galleri7.jpg" class="img-rounded flashy">
-					<img src="images/galleri8.jpg" class="img-rounded flashy">
-					<img src="images/galleri9.jpg" class="img-rounded flashy">
-					<img src="images/galleri10.jpg" class="img-rounded flashy">
-					<div id="arrow-holder"></div>
-				</div>
-			</div>
-		</div>
-
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</article>
 
 	<!-- FOOTER -->
 	<div id="footer">
@@ -92,11 +74,8 @@
 			</div>
 		</div>
 	</div>
-	</div>
-
-<script src="scripts/script_gallery.js"></script>
 
 
+<script src="scripts/script_index.js"></script>
 </body>
-
 </html>
