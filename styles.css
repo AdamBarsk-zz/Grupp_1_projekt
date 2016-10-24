@@ -19,12 +19,12 @@ body {
     background-size: cover;
     color: #444444;
     margin: 0 0 150px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Pacifico', Palatino, serif;
   margin-bottom: 15px;
   margin-top: 0px;
 }
@@ -225,6 +225,7 @@ left: 0;
   background-color: #000000;
   height: 100vh;
   width: 100vw;
+  z-index: 1;
 }
 
 #white {
@@ -241,16 +242,7 @@ left: 0;
   width: 100%;
   border-radius: 5px;
 }
-#arrow-holder {
-  border: 2px dotted green;
 
-  max-height: 200vh;
-  max-width: 200vw;
-  
-  display: block;
-  background: hotpink;
-
-}
 #left-arrow, #right-arrow {
    position: absolute;
    top: 90%;
