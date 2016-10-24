@@ -28,6 +28,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   margin-top: 0px;
 }
+h1 {
+  font-size: 46px;
+}
 
 /* NAVBAR */
 .header {
@@ -82,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
-    margin-top: 10%;
+    margin-top: 10%
 }
 
 .welcome p {
