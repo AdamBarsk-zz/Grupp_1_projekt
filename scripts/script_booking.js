@@ -1,11 +1,12 @@
 // BOKNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 
 $(function() {
-  $("#checkin, #checkout, #check-in-date, #check-out-date").datepicker({
+  $("#checkin, #checkout").datepicker({
     inline: true,
     showOtherMonths: true,
     dateFormat: "yy-mm-dd",
-    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    minDate: today
   });
 });
 
