@@ -85,9 +85,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 10%;
 }
 
+.welcome h3 {
+  font-style: italic;
+}
+
 .welcome p {
   text-align: center;
-  font-style: italic;
 }
 
 .calender h3 {
@@ -225,7 +228,6 @@ left: 0;
   background-color: #000000;
   height: 100vh;
   width: 100vw;
-  z-index: 1;
 }
 
 #white {
