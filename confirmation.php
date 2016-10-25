@@ -8,7 +8,7 @@ $name = $_POST['fullname'];
 $message = <<<EMAIL
 "Hej $name!
 
-Du har nu bokat in dig hos oss"
+Du har nu bokat in dig hos oss."
 EMAIL;
 
 
@@ -60,7 +60,7 @@ if($_POST) {
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
-				<form class="" action="index.html" method="post">
+				<form>
 					<div class="form-group">
 						<label>Incheckningsdatum:</label>
 						<p></p>
@@ -70,11 +70,11 @@ if($_POST) {
 						<p></p>
 					</div>
 					<div class="form-group">
-						<label>Dubbelsängar:</label>
+						<label>Dubbelrum:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
-						<label>Enkelsängar:</label>
+						<label>Enkelrum:</label>
 						<p></p>
 					</div>
 					<div class="form-group">

@@ -44,7 +44,7 @@
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 style="text-align:center">Gästinformation</h2>
 
-				<form data-toggle="validator" role="form" class="" action="confirmation.html" method="post" autocomplete="off">
+				<form data-toggle="validator" role="form" action="confirmation.php" method="post" autocomplete="off">
 
 					<!-- Formulär -->
 					<div class="form-group">
@@ -58,23 +58,23 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-label">Dubbelsängar:</label>
+						<label class="control-label">Dubbelrum:</label>
 						<input class="form-control" type="number" name="name" value="1">
 					</div>
 
 					<div class="form-group">
-						<label class="control-label">Enkelsängar:</label>
+						<label class="control-label">Enkelrum:</label>
 						<input class="form-control" type="number" name="name" value="0">
 					</div>
 
 					<div class="form-group">
-						<label class="control-label">Namn:</label>
-						<input class="form-control" id="name" type="text" placeholder="Ange namn" required>
+						<label class="control-label" for="name">Namn:</label>
+						<input class="form-control" id="name" name="fullname" type="text" placeholder="Ange namn" required>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label" for="email">Emailadress:</label>
-						<input class="form-control" id="email" type="text" placeholder="Ange email" required>
+						<input class="form-control" id="email" name="email" type="text" placeholder="Ange email" required>
 					</div>
 
 					<div class="form-group">
