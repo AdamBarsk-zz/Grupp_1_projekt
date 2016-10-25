@@ -2,18 +2,24 @@
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
+$headers = "Content-Type: text/html; charset=UTF-8";
 
 $name = $_POST['fullname'];
+$inCheck = $_POST['incheck'];
+$outCheck = $_POST['outCheck'];
 
 $message = <<<EMAIL
 "Hej $name!
 
-Du har nu bokat in dig hos oss."
+Du har nu bokat in dig hos oss.
+Datum: $inCheck tillochmed $outCheck
+
+Tack för din bokning!"
 EMAIL;
 
 
 if($_POST) {
-	mail($to, $subject, $message);
+	mail($to, $subject, $message, $headers);
 	}
 ?>
 <!DOCTYPE html>
