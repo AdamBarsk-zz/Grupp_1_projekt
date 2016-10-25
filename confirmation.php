@@ -1,25 +1,24 @@
 <?php
+$name = $_POST['fullname'];
+$inCheck = $_POST['incheck'];
+$outCheck = $_POST['outcheck'];
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
-$headers = "Content-Type: text/html; charset=UTF-8";
-
-$name = $_POST['fullname'];
-$inCheck = $_POST['incheck'];
-$outCheck = $_POST['outCheck'];
+$header = "Content-type: text/html; charset=UTF-8";
 
 $message = <<<EMAIL
-"Hej $name!
+"Hej $name!\r\n
 
-Du har nu bokat in dig hos oss.
-Datum: $inCheck tillochmed $outCheck
+Du har nu bokat in dig hos oss.\r\n
+Datum: $inCheck tillochmed $outCheck\r\n
 
 Tack för din bokning!"
 EMAIL;
 
 
 if($_POST) {
-	mail($to, $subject, $message, $headers);
+	mail($to, $subject, $message, $header);
 	}
 ?>
 <!DOCTYPE html>
@@ -89,10 +88,6 @@ if($_POST) {
 					</div>
 					<div class="form-group">
 						<label>Emailadress:</label>
-						<p></p>
-					</div>
-					<div class="form-group">
-						<label>Adress:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
