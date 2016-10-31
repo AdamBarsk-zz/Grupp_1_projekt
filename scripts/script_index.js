@@ -3,7 +3,8 @@ $(function() {
     inline: true,
     showOtherMonths: true,
     dateFormat: "yy-mm-dd",
-    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    minDate: today
   });
 });
 

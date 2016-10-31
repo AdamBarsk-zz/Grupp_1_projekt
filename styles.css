@@ -88,9 +88,12 @@ h1 {
     margin-top: 10%
 }
 
+.welcome h3 {
+  font-style: italic;
+}
+
 .welcome p {
   text-align: center;
-  font-style: italic;
 }
 
 .calender h3 {
