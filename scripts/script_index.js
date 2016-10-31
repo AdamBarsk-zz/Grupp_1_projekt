@@ -3,7 +3,7 @@ $(function() {
       inline:true,
       showOtherMonths:true,
       dateFormat: "yy-mm-dd",
-      dayNamesMin: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      dayNamesMin: ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
       minDate: 0,
       onSelect: function (date) {
           var date2 = $("#check-in-date").datepicker("getDate");
@@ -17,6 +17,7 @@ $(function() {
       inline:true,
       showOtherMonths:true,
       dateFormat: "yy-mm-dd",
+      dayNamesMin: ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
       onClose: function () {
           var checkin = $("#check-in-date").datepicker("getDate");
           var checkout = $("#check-out-date").datepicker("getDate");
