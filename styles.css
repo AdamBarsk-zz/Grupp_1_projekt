@@ -392,3 +392,16 @@ margin-right: 0;
   display: -ms-flexbox;
   display:         flex;
 }
+
+/*CONTACT*/
+
+.contact a {
+  text-decoration: none;
+  color: #444444;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 10px;
+  font-style: none;
+}
