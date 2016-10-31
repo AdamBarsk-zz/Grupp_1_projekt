@@ -1,3 +1,26 @@
+<?php
+$name = $_POST['fullname'];
+$inCheck = $_POST['incheck'];
+$outCheck = $_POST['outcheck'];
+
+$to = $_POST['email'];
+$subject = "Från Den Glada Geten";
+$header = "Content-type: text/html; charset=UTF-8";
+
+$message = <<<EMAIL
+"Hej $name!\r\n
+
+Du har nu bokat in dig hos oss.\r\n
+Datum: $inCheck tillochmed $outCheck\r\n
+
+Tack för din bokning!"
+EMAIL;
+
+
+if($_POST) {
+	mail($to, $subject, $message, $header);
+	}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -42,7 +65,7 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
-				<form class="" action="index.html" method="post">
+				<form>
 					<div class="form-group">
 						<label>Incheckningsdatum:</label>
 						<p></p>
@@ -52,27 +75,19 @@
 						<p></p>
 					</div>
 					<div class="form-group">
-						<label>Dubbelsängar:</label>
+						<label>Dubbelrum:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
-						<label>Enkelsängar:</label>
+						<label>Enkelrum:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
-						<label>Förnamn:</label>
-						<p></p>
-					</div>
-					<div class="form-group">
-						<label>Efternamn:</label>
+						<label>Namn:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
 						<label>Emailadress:</label>
-						<p></p>
-					</div>
-					<div class="form-group">
-						<label>Adress:</label>
 						<p></p>
 					</div>
 					<div class="form-group">
