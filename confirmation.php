@@ -5,20 +5,24 @@ $outCheck = $_POST['outcheck'];
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
-$header = "Content-type: text/html; charset=UTF-8";
+
+$headers = "From: get@goat.com\r\n";
+$headers .= "Reply-To: get@goat.com\r\n";
+$headers .= "Return-Path: get@goat.com\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8";
 
 $message = <<<EMAIL
-"Hej $name!\r\n
+"Hej $name!
 
-Du har nu bokat in dig hos oss.\r\n
-Datum: $inCheck tillochmed $outCheck\r\n
+Du har nu bokat in dig hos oss.
+Datum: $inCheck tillochmed $outCheck
 
 Tack för din bokning!"
 EMAIL;
 
 
 if($_POST) {
-	mail($to, $subject, $message, $header);
+	mail($to, $subject, $message, $headers);
 	}
 ?>
 <!DOCTYPE html>
