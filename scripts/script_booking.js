@@ -4,8 +4,9 @@ $(function() {
   $("#checkin").datepicker({
       inline:true,
       showOtherMonths:true,
+      firstDay: 1,
       dateFormat: "yy-mm-dd",
-      dayNamesMin: ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"],
+      dayNamesMin: ["sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör",],
       minDate: 0,
       onSelect: function (date) {
           var date2 = $("#checkin").datepicker("getDate");
