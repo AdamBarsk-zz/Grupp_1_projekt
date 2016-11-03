@@ -27,13 +27,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   margin-top: 0px;
 }
+h1 {
+  font-size: 46px;
+}
 
 /* NAVBAR */
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
-
-  /*ONÖDIG? --> width: 100vw;*/
 
   width: 100%;
   z-index: 1;
@@ -41,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-nav li {
       text-align: center;
-      width: 140px;
+      width: 110px;
       font-weight: bold;
 }
 
@@ -81,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
-    margin-top: 10%;
+    margin-top: 10%
 }
 
 .welcome h3 {
@@ -223,6 +224,7 @@ left: 0;
   position:  fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   opacity: 0.65;
   display: none;
   background-color: #000000;
@@ -235,7 +237,7 @@ left: 0;
   max-width: 60vw;
   max-height: 70vh;
   display: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 #img_placeholder img {
@@ -389,4 +391,30 @@ margin-right: 0;
 .ui-datepicker-calendar tr:last-child .ui-state-active {
   height: 29px;
   margin-bottom: 0;
+<<<<<<< HEAD
 }
+=======
+}
+
+/*INFO*/
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+/*CONTACT*/
+
+.contact a {
+  text-decoration: none;
+  color: #444444;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 10px;
+  font-style: none;
+  list-style: none;
+}
+>>>>>>> 3c46b0a338120308727152823c1485a3c7a03fd5
