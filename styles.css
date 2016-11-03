@@ -227,6 +227,7 @@ left: 0;
   position:  fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   opacity: 0.65;
   display: none;
   background-color: #000000;
@@ -240,7 +241,7 @@ left: 0;
   left: 20%;
   right: 20%;
   display: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 #white img {
@@ -405,4 +406,5 @@ margin-right: 0;
   text-align: center;
   margin-top: 10px;
   font-style: none;
+  list-style: none;
 }
