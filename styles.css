@@ -1,3 +1,4 @@
+
 /* GLOBAL */
 * {
   margin: 0;
@@ -219,8 +220,7 @@ left: 0;
   -webkit-filter: sepia(100%);
 }
 
-#overlay{
-  z-index: 1;
+#black{
   position:  fixed;
   top: 0;
   left: 0;
@@ -232,28 +232,19 @@ left: 0;
   width: 100vw;
 }
 
-#img_placeholder {
+#white {
   position: absolute;
-  max-width: 60vw;
-  max-height: 70vh;
+  top: 10%;
+  left: 20%;
+  right: 20%;
   display: none;
   z-index: 2;
 }
 
-#img_placeholder img {
+#white img {
   height: 100%;
   width: 100%;
   border-radius: 5px;
-}
-
-#leftArrow_holder {
-  height: 50%;
-  width: 50%;
-  background-color: black;
-}
-
-#rightArrow_holder {
-
 }
 
 #left-arrow, #right-arrow {
@@ -391,9 +382,6 @@ margin-right: 0;
 .ui-datepicker-calendar tr:last-child .ui-state-active {
   height: 29px;
   margin-bottom: 0;
-<<<<<<< HEAD
-}
-=======
 }
 
 /*INFO*/
@@ -417,4 +405,3 @@ margin-right: 0;
   font-style: none;
   list-style: none;
 }
->>>>>>> 3c46b0a338120308727152823c1485a3c7a03fd5
