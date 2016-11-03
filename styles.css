@@ -29,6 +29,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   margin-top: 0px;
 }
+h1 {
+  font-size: 46px;
+}
 
 /* NAVBAR */
 .header {
@@ -83,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
-    margin-top: 10%;
+    margin-top: 10%
 }
 
 .welcome h3 {
@@ -382,5 +385,24 @@ margin-right: 0;
   height: 29px;
   margin-bottom: 0;
 }
-=======
->>>>>>> Stage
+
+/*INFO*/
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+/*CONTACT*/
+
+.contact a {
+  text-decoration: none;
+  color: #444444;
+}
+
+.contact {
+  text-align: center;
+  margin-top: 10px;
+  font-style: none;
+}
