@@ -55,6 +55,7 @@ if($_POST) {
 						<ul id="ul" class="nav navbar-nav">
 							<li><a id="a" href="index.html">Hem</a></li>
 							<li><a id="a2" href="booking.html">Boka</a></li>
+							<li><a href="info.html">Information</a></li>
 							<li><a id="a3" href="gallery.html">Galleri</a></li>
 							<li><a id="a4" href="#">Kontakt</a></li>
 						</ul>
