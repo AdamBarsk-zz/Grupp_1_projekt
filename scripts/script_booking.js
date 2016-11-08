@@ -34,7 +34,6 @@ $(function() {
   });
 });
 
-
 var date = new Date();
 
 var day = date.getDate();
@@ -52,18 +51,33 @@ var tomorrow = year + "-" + month + "-" + tomorrow;
 document.getElementById("checkin").value = today;
 document.getElementById("checkout").value = tomorrow;
 
+// Form logic
+var customers = [];
+var inputs = document.getElementsByTagName("input");
+
 window.onload = function() {
-  document.getElementsByTagName("input")[0].value = localStorage.getItem("inCheck");
-  document.getElementsByTagName("input")[1].value = localStorage.getItem("outCheck");
-  document.getElementsByTagName("input")[2].value = localStorage.getItem("doubleBeds");
-  document.getElementsByTagName("input")[3].value = localStorage.getItem("singleBeds");
+  Load();
 };
 
-// onsubmit
-var customers = [];
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener("change", Save);
+}
 
 function mySubmit() {
-	var customer = {
+  validate();
+}
+function Load() {
+  inputs[0].value = localStorage.getItem("inCheck");
+  inputs[1].value = localStorage.getItem("outCheck");
+  inputs[2].value = localStorage.getItem("doubleBeds");
+  inputs[3].value = localStorage.getItem("singleBeds");
+  inputs[4].value = localStorage.getItem("inCheck");
+  inputs[5].value = localStorage.getItem("outCheck");
+  inputs[6].value = localStorage.getItem("doubleBeds");
+  inputs[7].value = localStorage.getItem("singleBeds");
+}
+function Save(index) {
+  var customer = {
 		inCheck: 					document.getElementsByTagName("input")[0].value,
 		outCheck: 				document.getElementsByTagName("input")[1].value,
     doubleBeds:       document.getElementsByTagName("input")[2].value,
@@ -74,11 +88,27 @@ function mySubmit() {
 		specialRequests: 	document.getElementsByTagName("textarea")[0].value
 	};
 	customers.push(customer);
+
+  // Save data to localStorage
 	localStorage.setItem("inCheck", customer.inCheck);
 	localStorage.setItem("outCheck", customer.outCheck);
+  localStorage.setItem("doubleBeds", customer.doubleBeds);
+  localStorage.setItem("singleBeds", customer.singleBeds);
 	localStorage.setItem("name", customer.name);
 	localStorage.setItem("email", customer.email);
 	localStorage.setItem("phoneNumber", customer.phoneNumber);
 	localStorage.setItem("specialRequests", customer.specialRequests);
 	return false;
+}
+function validate() {
+
+  // Validation (check for spaces in name)
+  var name = document.getElementById('name');
+  chars = name.value.split(' ');
+  if (chars.length > 1) {
+    name.focus();
+  }
+  else {
+    alert('Skriv hela ditt namn');
+  }
 }
