@@ -1,3 +1,4 @@
+
 $(function() {
   $("#check-in-date").datepicker({
       inline:true,
