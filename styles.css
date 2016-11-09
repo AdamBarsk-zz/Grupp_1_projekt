@@ -79,11 +79,30 @@ h1 {
 }
 
 /* CONTENT */
-.welcome, .calender {
+.welcome1, .calender {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
     margin-top: 10%
+}
+
+.welcome2, .calender {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 2%;
+    max-height: 51,8900911318521%;
+}
+
+.welcome3, .calender {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.welcome4, .calender {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 2%;
 }
 
 .welcome h3 {
