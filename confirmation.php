@@ -102,8 +102,8 @@ if($_POST) {
 						<label>Önskemål:</label>
 						<p></p>
 					</div>
-					<button type="submit" class="btn btn-lg btn-block btn-success">Reservera rum</button>
-					<button type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</button>
+					<a href="index.html" type="submit" class="btn btn-lg btn-block btn-success">Reservera rum</a>
+					<a href="index.html" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
 			</div>
 			</form>
 		</div>

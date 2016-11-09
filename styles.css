@@ -28,8 +28,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   margin-top: 0px;
 }
-h1 {
-  font-size: 46px;
+.bigr {
+  font-size: 72px;
 }
 
 /* NAVBAR */
@@ -69,7 +69,7 @@ h1 {
   width: 600px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .collapse {
     width: 100%;
   }
@@ -79,30 +79,11 @@ h1 {
 }
 
 /* CONTENT */
-.welcome1, .calender {
+.welcome, .calender {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
-    margin-top: 10%
-}
-
-.welcome2, .calender {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-    padding: 2%;
-    max-height: 51,8900911318521%;
-}
-
-.welcome3, .calender {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-    padding: 2%;
-}
-
-.welcome4, .calender {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
-    padding: 2%;
+    margin-top: 10vh;
 }
 
 .welcome h3 {
@@ -211,7 +192,7 @@ left: 0;
 /* GALLERY */
 
 .picture-gallery {
-  margin-top: 10%;
+  margin-top: 10vh;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   text-align: center;
