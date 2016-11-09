@@ -208,12 +208,12 @@ left: 0;
 }
 
 .picture-gallery img:hover {
-	-webkit-filter: none;
+  -webkit-filter: none;
   cursor: pointer;
 }
 
 .picture-gallery img.brightness:hover {
-	-webkit-filter: brightness(0);
+  -webkit-filter: brightness(0);
 }
 
 .flashy {

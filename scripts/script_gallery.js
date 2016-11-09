@@ -20,19 +20,19 @@ function slide(e){
  $("span.glyphicon").on('click', move);
  i=imgIndex;
  function move(){
- 	if (this.id == 'left-arrow') {
- 		i--;
- 	}
+  if (this.id == 'left-arrow') {
+    i--;
+  }
   else if (this.id == 'right-arrow') {
- 		i++;
- 	}
- 	if (i < 0) {
- 	 i = imgArray.length - 1;
- 	}
- 	if (i > (imgArray.length) - 1) {
- 		i = 0;
- 	}
- 	$("#slider").prop('src', imgArray[i].src);
+    i++;
+  }
+  if (i < 0) {
+   i = imgArray.length - 1;
+  }
+  if (i > (imgArray.length) - 1) {
+    i = 0;
+  }
+  $("#slider").prop('src', imgArray[i].src);
  }
 }
 
