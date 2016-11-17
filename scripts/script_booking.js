@@ -53,7 +53,8 @@ var tomorrow = year + "-" + month + "-" + tomorrow;
 document.getElementById("checkin").value = today;
 document.getElementById("checkout").value = tomorrow;
 
-// Form logic
+// FORM LOGIC
+
 var customers = [];
 var inputs = document.getElementsByTagName("input");
 var textarea = document.getElementsByTagName("textarea")[0];
@@ -61,17 +62,34 @@ var textarea = document.getElementsByTagName("textarea")[0];
 window.onload = function() {
   // Load saved values
   Load();
-};
 
-for (var i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener("change", Save);
-}
+  // Check if user makes a change and save
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("change", Save);
+  }
+};
 
 function bookRooms() {
   // Check if demands are met
   validate();
+
+  // Create new object "customer"
+  var customer = {
+		inCheck: 					inputs[0].value,
+		outCheck: 				inputs[1].value,
+    doubleBeds:       inputs[2].value,
+    singleBeds:       inputs[3].value,
+		name: 				    inputs[4].value,
+		email: 						inputs[5].value,
+		phoneNumber: 			inputs[6].value,
+		specialRequests: 	textarea.value
+	};
+
+  // Add customer to a list of customers
+	customers.push(customer);
 }
 function Load() {
+  // Get values and save to localStorage
   inputs[0].value = localStorage.getItem("inCheck");
   inputs[1].value = localStorage.getItem("outCheck");
   inputs[2].value = localStorage.getItem("doubleBeds");
@@ -79,31 +97,19 @@ function Load() {
   inputs[4].value = localStorage.getItem("name");
   inputs[5].value = localStorage.getItem("email");
   inputs[6].value = localStorage.getItem("phoneNumber");
-  inputs[0].value = localStorage.getItem("specialRequests");
+  textarea.value = localStorage.getItem("specialRequests");
 }
 function Save(index) {
-  var customer = {
-		inCheck: 					document.getElementsByTagName("input")[0].value,
-		outCheck: 				document.getElementsByTagName("input")[1].value,
-    doubleBeds:       document.getElementsByTagName("input")[2].value,
-    singleBeds:       document.getElementsByTagName("input")[3].value,
-		name: 				    document.getElementsByTagName("input")[4].value,
-		email: 						document.getElementsByTagName("input")[5].value,
-		phoneNumber: 			document.getElementsByTagName("input")[6].value,
-		specialRequests: 	document.getElementsByTagName("textarea")[0].value
-	};
-	customers.push(customer);
 
   // Save data to localStorage
-	localStorage.setItem("inCheck", customer.inCheck);
-	localStorage.setItem("outCheck", customer.outCheck);
-  localStorage.setItem("doubleBeds", customer.doubleBeds);
-  localStorage.setItem("singleBeds", customer.singleBeds);
-	localStorage.setItem("name", customer.name);
-	localStorage.setItem("email", customer.email);
-	localStorage.setItem("phoneNumber", customer.phoneNumber);
-	localStorage.setItem("specialRequests", customer.specialRequests);
-	return false;
+	localStorage.setItem("inCheck", inputs[0].value);
+	localStorage.setItem("outCheck", inputs[1].value);
+  localStorage.setItem("doubleBeds", inputs[2].value);
+  localStorage.setItem("singleBeds", inputs[3].value);
+	localStorage.setItem("name", inputs[4].value);
+	localStorage.setItem("email", inputs[5].value);
+	localStorage.setItem("phoneNumber", inputs[6].value);
+	localStorage.setItem("specialRequests", textarea.value);
 }
 
 // Form validation
