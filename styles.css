@@ -404,3 +404,8 @@ margin-right: 0;
   font-style: none;
   list-style: none;
 }
+
+.error {
+  display: block;
+  color: darkred;
+}

@@ -115,6 +115,10 @@ function Save(index) {
 // Form validation
 var validate = $(function() {
     $("#bookingForm").validate({
+          errorPlacement: function(error, element){
+            error.appendTo("#hej");
+          },
+
       highlight: function(element) {
         $(element).closest(".form-group").addClass("has-error");
       },
