@@ -100,31 +100,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /*VAD ÄR BOOKING??*/
 
-#booking {
+.booking {
   text-align: center;
 }
 
-#booking label {
+.booking label {
   margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {
-  #booking input, #booking select {
+  .booking input, .booking select {
     width: 150px;
-    margin: 0px 10px;
+    margin: 0px 20px;
     border: 1px #AAAAAA solid;
     border-radius: 3px;
     padding: 3px;
   }
+
+  .rooms {
+    width: 100px !important;
+    margin: 0px 15px !important;
+  }
 }
 
-#booking input, #booking select {
-  border: 1px #AAAAAA solid;
-  border-radius: 3px;
-  padding: 3px;
-}
-
-#booking button {
+.booking button {
   margin-top: 20px;
   padding: 5px;
   width: 150px;
@@ -404,4 +403,9 @@ margin-right: 0;
   margin-top: 10px;
   font-style: none;
   list-style: none;
+}
+
+.error {
+  display: block;
+  color: darkred;
 }

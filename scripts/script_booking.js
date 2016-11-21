@@ -7,6 +7,7 @@ $(function() {
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: today,
+      required: true,
       onSelect: function (date) {
           var date2 = $("#checkin").datepicker("getDate");
           date2.setDate(date2.getDate() + 1);
@@ -22,6 +23,7 @@ $(function() {
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: tomorrow,
+      required: true,
       onClose: function () {
           var checkin = $("#checkin").datepicker("getDate");
           var checkout = $("#checkout").datepicker("getDate");
@@ -69,8 +71,8 @@ window.onload = function() {
   textArea.addEventListener("change", Save);
 };
 
-function mySubmit() {
-
+function bookRooms() {
+  
   // Check if demands are met
   validate();
 
@@ -130,15 +132,93 @@ function Save(index) {
 	localStorage.setItem("phoneNumber", inputs[6].value);
 	localStorage.setItem("specialRequests", textArea.value);
 }
-function validate() {
 
-  // Validation (check for spaces in name)
-  var name = document.getElementById('name');
-  chars = name.value.split(' ');
-  if (chars.length > 1) {
-    name.focus();
-  }
-  else {
-    alert('Skriv hela ditt namn');
-  }
-}
+// Form validation
+var validate = $(function() {
+    $("#bookingForm").validate({
+          errorPlacement: function(error, element){
+            error.appendTo("#hej");
+          },
+
+      highlight: function(element) {
+        $(element).closest(".form-group").addClass("has-error");
+      },
+      unhighlight: function(element) {
+        $(element).closest(".form-group").removeClass("has-error");
+      },
+
+      rules: {
+        doubleRooms: {
+          required: true,
+          digits: true
+      //  range: [0, available rooms]
+        },
+
+        singleRooms: {
+          required: true,
+          digits: true
+       // range: [0, available rooms]
+        },
+
+        familyRooms: {
+          required: true,
+          digits: true
+        //range: [0, available rooms]
+        },
+
+        firstname: {
+          required: true
+        },
+
+        lastname: {
+         required: true
+        },
+
+        email: {
+         required: true,
+          email: true
+        },
+
+        phonenumber: {
+          required: true
+        }
+      },
+
+      messages: {
+        doubleRooms: {
+          required: "Fyll i antal dubbelrum",
+          digits: "Använd endast siffror",
+      //  range: ""
+        },
+
+        singleRooms: {
+          required: "Fyll i antal enkelrum",
+          digits: "Använd endast siffror",
+      //  range: ""
+        },
+
+        familyRooms: {
+          required: "Fyll i antal familjerum",
+          digits: "Använd endast siffror",
+      //  range: ""
+        },
+
+        firstname: {
+          required: "Fyll i ditt förnamn"
+        },
+
+        lastname: {
+         required: "Fyll i ditt efternamn"
+        },
+
+        email: {
+          required: "Fyll i din emailadress",
+          email: "Ange en giltig emailadress"
+        },
+
+        phonenumber: {
+          required: "Fyll i ditt telefonnummer"
+        }
+      }
+    });
+  });

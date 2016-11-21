@@ -7,6 +7,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
@@ -47,8 +48,89 @@
 					<h2 style="text-align:center">Gästinformation</h2>
 				</div>
 
+				<form data-toggle="validator" role="form" action="confirmation.php" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
+
+					<!-- Formulär -->
+					<div class="row">
+						<div class="form-group">
+							<label class="control-label">Incheckning:</label><br />
+							<input class="form-control" id="checkin" name="incheck" type="text">
+						</div>
+
+						<div class="form-group">
+							<label class="control-label">Utcheckning:</label><br />
+							<input class="form-control" id="checkout" name="outcheck" type="text">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label class="control-label">Dubbelrum:</label><br />
+							<input id="doubleRooms" class="form-control rooms" type="number" name="doubleRooms" value="1" min="0" max="4">
+						</div>
+
+						<div class="form-group">
+							<label class="control-label">Enkelrum:</label><br />
+							<input id="singleRooms" class="form-control rooms" type="number" name="singleRooms" value="0" min="0" max="2">
+						</div>
+
+						<div class="form-group">
+							<label class="control-label">Familjerum:</label><br />
+							<input id="familyRooms" class="form-control rooms" type="number" name="familyRooms" value="0" min="0" max="2">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label class="control-label" for="">Förnamn:</label><br />
+							<input class="form-control" id="name" name="firstname" type="text" placeholder="Ange förnamn">
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="">Efternamn:</label><br />
+							<input class="form-control" id="lastname" name="lastname" type="text" placeholder="Ange efternamn">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label class="control-label" for="email">Emailadress:</label><br />
+							<input class="form-control" id="email" name="email" placeholder="Ange email">
+						</div>
+
+						<div class="form-group">
+							<label class="control-label" for="phonenumber">Telefonnummer:</label><br />
+							<input class="form-control" id="phonenumber" type="tel" placeholder="Ange telefonnummer" name="phonenumber">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label for="requests">Önskemål:</label><br>
+							<textarea class="form-control" id="requests" name="name" rows="3" cols="30" placeholder="T.ex barnsäng, extra kudde, etc"></textarea>
+						</div>
+					</div>
+
+					<div id="hej"></div>
+					<div class="row">
+						<div class="form-group">
+							<button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" type="submit">Reservera rum</button>
+						</div>
+					</div>
+
+				</form>
+			</section>
+		</div>
+	</div>
+
+<!--
+=======
+				<div class="row">
+					<h2 style="text-align:center">Gästinformation</h2>
+				</div>
+
 				<form data-toggle="validator" role="form" action="confirmation.php" method="post" autocomplete="off" class="form-inline" id="booking">
-					
+
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Incheckning:</label><br>
@@ -66,7 +148,7 @@
 							<label class="control-label">Dubbelrum:</label><br>
 							<input class="form-control" type="number" name="name" value="1" maxlength="2" required pattern="{1, 5}">
 						</div>
-		
+
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br>
 							<input class="form-control" type="number" name="name" value="0" maxlength="2" required pattern="{1, 5}">
@@ -97,6 +179,7 @@
 							<label for="requests">Önskemål:</label><br>
 							<textarea class="form-control" id="requests" name="name" rows="3" cols="30" placeholder="T.ex barnsäng, extra kudde, etc"></textarea>
 						</div>
+>>>>>>> d9bcd9d2b007751710c4f2759866c6a698a4776d
 					</div>
 
 					<div class="row">
@@ -104,11 +187,16 @@
 							<button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" type="submit">Reservera rum</button>
 						</div>
 					</div>
+<<<<<<< HEAD
+					<button class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit">Reservera rum</button>
+=======
 
+>>>>>>> d9bcd9d2b007751710c4f2759866c6a698a4776d
 				</form>
 			</section>
 		</div>
 	</div>
+-->
 
 	<!-- FOOTER -->
 	<div id="footer">
