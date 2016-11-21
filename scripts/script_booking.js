@@ -55,9 +55,10 @@ document.getElementById("checkout").value = tomorrow;
 
 var customers = [];
 var inputs = document.getElementsByTagName("input");
-var textarea = document.getElementsByTagName("textarea")[0];
+var textArea = document.getElementsByTagName("textarea")[0];
 
 window.onload = function() {
+
   // Load saved values
   Load();
 
@@ -65,9 +66,11 @@ window.onload = function() {
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("change", Save);
   }
+  textArea.addEventListener("change", Save);
 };
 
 function mySubmit() {
+
   // Check if demands are met
   validate();
 
@@ -87,15 +90,33 @@ function mySubmit() {
 	customers.push(customer);
 }
 function Load() {
-  // Get values and save to localStorage
-  inputs[0].value = localStorage.getItem("inCheck");
-  inputs[1].value = localStorage.getItem("outCheck");
-  inputs[2].value = localStorage.getItem("doubleBeds");
-  inputs[3].value = localStorage.getItem("singleBeds");
-  inputs[4].value = localStorage.getItem("name");
-  inputs[5].value = localStorage.getItem("email");
-  inputs[6].value = localStorage.getItem("phoneNumber");
-  textarea.value = localStorage.getItem("specialRequests");
+
+  // If found memory, load data
+  // How to make it to a switch?
+  if (typeof(localStorage.getItem("inCheck")) == 'string') {
+    inputs[0].value = localStorage.getItem("inCheck");
+  }
+  if (typeof(localStorage.getItem("outCheck")) == 'string') {
+    inputs[1].value = localStorage.getItem("outCheck");
+  }
+  if (typeof(localStorage.getItem("doubleBeds")) == 'string') {
+    inputs[2].value = localStorage.getItem("doubleBeds");
+  }
+  if (typeof(localStorage.getItem("singleBeds")) == 'string') {
+    inputs[3].value = localStorage.getItem("singleBeds");
+  }
+  if (typeof(localStorage.getItem("name")) == 'string') {
+    inputs[4].value = localStorage.getItem("name");
+  }
+  if (typeof(localStorage.getItem("email")) == 'string') {
+    inputs[5].value = localStorage.getItem("email");
+  }
+  if (typeof(localStorage.getItem("phoneNumber")) == 'string') {
+    inputs[6].value = localStorage.getItem("phoneNumber");
+  }
+  if (typeof(localStorage.getItem("specialRequests")) == 'string') {
+    textArea.value = localStorage.getItem("specialRequests");
+  }
 }
 function Save(index) {
 
@@ -107,7 +128,7 @@ function Save(index) {
 	localStorage.setItem("name", inputs[4].value);
 	localStorage.setItem("email", inputs[5].value);
 	localStorage.setItem("phoneNumber", inputs[6].value);
-	localStorage.setItem("specialRequests", textarea.value);
+	localStorage.setItem("specialRequests", textArea.value);
 }
 function validate() {
 
