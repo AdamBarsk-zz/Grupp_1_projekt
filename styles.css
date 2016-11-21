@@ -405,6 +405,7 @@ margin-right: 0;
   list-style: none;
 }
 
+/* Validation errors */
 .error {
   display: block;
   color: darkred;

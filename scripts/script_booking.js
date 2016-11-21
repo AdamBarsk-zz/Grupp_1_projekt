@@ -113,10 +113,10 @@ function Save(index) {
 }
 
 // Form validation
-var validate = $(function() {
+function validate() {
     $("#bookingForm").validate({
           errorPlacement: function(error, element){
-            error.appendTo("#hej");
+            error.appendTo("#errors");
           },
 
       highlight: function(element) {
@@ -200,4 +200,4 @@ var validate = $(function() {
         }
       }
     });
-  });
+  };
