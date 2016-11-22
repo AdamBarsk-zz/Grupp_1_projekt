@@ -50,16 +50,16 @@ if (tomorrow < 10) tomorrow = "0" + tomorrow;
 var today = year + "-" + month + "-" + day;
 var tomorrow = year + "-" + month + "-" + tomorrow;
 
-document.getElementById("checkin").value = today;
-document.getElementById("checkout").value = tomorrow;
-
 // FORM LOGIC
 
 var customers = [];
 var inputs = document.getElementsByTagName("input");
-var textarea = document.getElementsByTagName("textarea")[0];
 
 window.onload = function() {
+
+  document.getElementById("checkin").value = today;
+  document.getElementById("checkout").value = tomorrow;
+
   // Load saved values
   Load();
 
@@ -70,46 +70,40 @@ window.onload = function() {
 };
 
 function bookRooms() {
-  // Check if demands are met
+
+  // Validate form
   validate();
-
-  // Create new object "customer"
-  var customer = {
-		inCheck: 					inputs[0].value,
-		outCheck: 				inputs[1].value,
-    doubleBeds:       inputs[2].value,
-    singleBeds:       inputs[3].value,
-		name: 				    inputs[4].value,
-		email: 						inputs[5].value,
-		phoneNumber: 			inputs[6].value,
-		specialRequests: 	textarea.value
-	};
-
-  // Add customer to a list of customers
-	customers.push(customer);
 }
 function Load() {
-  // Get values and save to localStorage
-  inputs[0].value = localStorage.getItem("inCheck");
-  inputs[1].value = localStorage.getItem("outCheck");
-  inputs[2].value = localStorage.getItem("doubleBeds");
-  inputs[3].value = localStorage.getItem("singleBeds");
-  inputs[4].value = localStorage.getItem("name");
-  inputs[5].value = localStorage.getItem("email");
-  inputs[6].value = localStorage.getItem("phoneNumber");
-  textarea.value = localStorage.getItem("specialRequests");
+
+  // Get values and load from localStorage
+  document.getElementById("checkin").value = localStorage.getItem("checkin");
+  document.getElementById("checkout").value = localStorage.getItem("checkout");
+  document.getElementById("doublerooms").value = localStorage.getItem("doublerooms");
+  document.getElementById("singlerooms").value = localStorage.getItem("singlerooms");
+  document.getElementById("familyrooms").value = localStorage.getItem("familyrooms");
+  document.getElementById("firstname").value = localStorage.getItem("firstname");
+  document.getElementById("lastname").value = localStorage.getItem("lastname");
+  document.getElementById("email").value = localStorage.getItem("email");
+  document.getElementById("phonenumber").value = localStorage.getItem("phonenumber");
+  document.getElementById("requests").value = localStorage.getItem("requests");
 }
 function Save(index) {
 
+  // Validate on input change
+  validate();
+
   // Save data to localStorage
-	localStorage.setItem("inCheck", inputs[0].value);
-	localStorage.setItem("outCheck", inputs[1].value);
-  localStorage.setItem("doubleBeds", inputs[2].value);
-  localStorage.setItem("singleBeds", inputs[3].value);
-	localStorage.setItem("name", inputs[4].value);
-	localStorage.setItem("email", inputs[5].value);
-	localStorage.setItem("phoneNumber", inputs[6].value);
-	localStorage.setItem("specialRequests", textarea.value);
+	localStorage.setItem("checkin", document.getElementById("checkin").value);
+	localStorage.setItem("checkout", document.getElementById("checkout").value);
+  localStorage.setItem("doublerooms", document.getElementById("doublerooms").value);
+  localStorage.setItem("singlerooms", document.getElementById("singlerooms").value);
+  localStorage.setItem("familyrooms", document.getElementById("familyrooms").value);
+	localStorage.setItem("firstname", document.getElementById("firstname").value);
+  localStorage.setItem("lastname", document.getElementById("lastname").value);
+	localStorage.setItem("email", document.getElementById("email").value);
+	localStorage.setItem("phonenumber", document.getElementById("phonenumber").value);
+	localStorage.setItem("requests", document.getElementById("requests").value);
 }
 
 // Form validation
