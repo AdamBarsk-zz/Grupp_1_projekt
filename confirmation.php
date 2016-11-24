@@ -1,7 +1,8 @@
 <?php
-$name = $_POST['fullname'];
-$inCheck = $_POST['incheck'];
-$outCheck = $_POST['outcheck'];
+$inCheck = $_POST['checkin'];
+$outCheck = $_POST['checkout'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
@@ -12,7 +13,7 @@ $headers .= "Return-Path: get@goat.com\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 
 $message = <<<EMAIL
-"Hej $name!
+"Hej $firstname . " " . $lastname!
 
 Du har nu bokat in dig hos oss.
 Datum: $inCheck tillochmed $outCheck
@@ -87,6 +88,10 @@ if($_POST) {
 						<p></p>
 					</div>
 					<div class="form-group">
+						<label>Familjerum:</label>
+						<p></p>
+					</div>
+					<div class="form-group">
 						<label>Namn:</label>
 						<p></p>
 					</div>
@@ -104,7 +109,7 @@ if($_POST) {
 					</div>
 					<a href="index.html" type="submit" class="btn btn-lg btn-block btn-success">Reservera rum</a>
 					<a href="index.html" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
-			</div>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -128,7 +133,6 @@ if($_POST) {
 			</div>
 		</div>
 	</div>
-
 	<script src="scripts/script_confirmation.js"></script>
 </body>
 
