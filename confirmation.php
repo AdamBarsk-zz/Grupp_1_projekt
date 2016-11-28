@@ -42,29 +42,9 @@ if($_POST) {
 
 <body>
 	<!-- NAVBAR -->
-	<nav class="navbar navbar">
-		<div class="container-fluid header">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul id="ul" class="nav navbar-nav">
-							<li><a id="a" href="index.php">Hem</a></li>
-							<li><a id="a2" href="booking.php">Boka</a></li>
-							<li><a href="info.php">Information</a></li>
-							<li><a id="a3" href="gallery.php">Galleri</a></li>
-							<li><a id="a4" href="info.php">Kontakt</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-	</nav>
+	<?php
+		include('nav.php');
+	?>
 
 	<!-- Content -->
 	<div class="container-fluid main-cont">

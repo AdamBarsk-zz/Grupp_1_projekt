@@ -17,30 +17,9 @@
 
 	<!-- NAVBAR -->
 
-	<nav class="navbar navbar">
-		<div class="container-fluid header">
-			<div class="row">
-				<!--ONÖDIG? -> div class="col-xs-12">-->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul id="ul-topnav" class="nav navbar-nav">
-							<li><a href="index.php">Hem</a></li>
-							<li><a href="booking.php">Boka</a></li>
-							<li><a href="info.php">Information</a></li>
-							<li><a href="gallery.php">Galleri</a></li>
-							<li><a href="contact.php">Kontakt</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
+<?php
+	include('nav.php');
+?>
 
 	<!-- CONTENT -->
 	<div class="container">
@@ -55,7 +34,16 @@
 					}
 				?>
 				<h3>⸻ B&amp;B ⸻</h3>
-				<p id="welcome" class="admin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p id="welcome" class="admin">
+					<?php
+						include('config.php');
+						$query = 'SELECT text FROM HELA WHERE id = "welcome"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo $text;
+					?>
+				</p>
 			</article>
 
 
@@ -108,7 +96,17 @@
 		</div>
 
 			<div class="col-sm-4 col-sm-offset-1 welcome">
-				<h3>Detta erbjuder vi dig</h3><p id="offer" class="admin">Ad magna proident mollit pariatur aliquip aliquip Lorem duis ut fugiat magna. Voluptate ullamco est est laborum consequat officia excepteur do ullamco consequat sint. Laboris ipsum consectetur mollit nisi dolore consectetur occaecat ad eiusmod eu veniam sunt nisi. Do irure sit elit Lorem enim do labore dolore ullamco dolore esse incididunt laborum ut aliqua. Quis consequat elit adipisicing aliquip ex magna exercitation dolor nostrud duis duis. Ex fugiat tempor ad minim ipsum eiusmod velit do amet. Cillum sint consectetur nisi reprehenderit amet non qui. Ad magna proident mollit pariatur aliquip aliquip Lorem duis ut fugiat magna. Voluptate ullamco est est laborum consequat officia excepteur do ullamco consequat sint. Laboris ipsum consectetur mollit nisi dolore consectetur occaecat ad eiusmod eu veniam sunt nisi. Do irure sit elit Lorem enim do labore dolore ullamco dolore esse incididunt laborum ut aliqua. Quis consequat elit adipisicing aliquip ex magna exercitation dolor nostrud duis duis. Ex fugiat tempor ad minim ipsum eiusmod velit do amet. Cillum sint consectetur nisi reprehenderit amet non qui.</p>
+				<h3>Detta erbjuder vi dig</h3>
+				<p id="offer" class="admin">
+					<?php
+						include('config.php');
+						$query = 'SELECT text FROM HELA WHERE id = "offer"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo $text;
+					?>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -122,9 +120,8 @@
 <script src="scripts/script_index.js"></script>
 <?php
 	if (isset($_SESSION['admin'])) {
-		echo '<script>$(".admin").attr("contenteditable", "true");
-		  console.log("test");</script>';
-	}
+		echo '<script>$(".admin").attr("contenteditable", "true");</script>';
+	  }
 ?>
 </body>
 </html>
