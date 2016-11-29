@@ -47,17 +47,17 @@
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<input id="doublerooms" class="form-control rooms" type="number" name="doubleRooms" value="1" min="0" max="4">
+							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="1" min="0" max="4">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br />
-							<input id="singlerooms" class="form-control rooms" type="number" name="singleRooms" value="0" min="0" max="2">
+							<input id="singlerooms" class="form-control rooms" type="number" name="singlerooms" value="0" min="0" max="2">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<input id="familyrooms" class="form-control rooms" type="number" name="familyRooms" value="0" min="0" max="2">
+							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="0" min="0" max="2">
 						</div>
 					</div>
 
@@ -88,7 +88,7 @@
 					<div class="row">
 						<div class="form-group">
 							<label for="requests">Önskemål:</label><br>
-							<textarea class="form-control" id="requests" name="name" rows="3" cols="30" placeholder="T.ex barnsäng, extra kudde, etc"></textarea>
+							<textarea class="form-control" id="requests" name="requests" rows="3" cols="30" placeholder="T.ex barnsäng, extra kudde, etc"></textarea>
 						</div>
 					</div>
 

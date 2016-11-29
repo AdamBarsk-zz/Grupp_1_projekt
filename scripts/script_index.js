@@ -57,8 +57,8 @@ var inputs = document.getElementsByTagName("input");
 var selects = document.getElementsByTagName("select");
 
 function mySubmit() {
-  localStorage.setItem("inCheck", inputs[0].value);
-  localStorage.setItem("outCheck", inputs[1].value);
-  localStorage.setItem("doubleBeds", selects[0].value);
-  localStorage.setItem("singleBeds", selects[1].value);
+  localStorage.setItem("incheck", inputs[0].value);
+  localStorage.setItem("outcheck", inputs[1].value);
+  localStorage.setItem("doublerooms", selects[0].value);
+  localStorage.setItem("singlerooms", selects[1].value);
 }

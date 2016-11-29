@@ -25,7 +25,7 @@ EMAIL;
 
 if($_POST) {
 	mail($to, $subject, $message, $headers);
-	}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,11 +43,11 @@ if($_POST) {
 <body>
 	<!-- NAVBAR -->
 	<?php
-		include('nav.php');
+	include('nav.php');
 	?>
 
 	<!-- Content -->
-	<div class="container-fluid main-cont">
+	<div id="bookdiv" class="container-fluid main-cont">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
@@ -88,25 +88,34 @@ if($_POST) {
 						<label>Önskemål:</label>
 						<p></p>
 					</div>
-					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-success">Reservera rum</a>
+					<a type="submit" class="btn btn-lg btn-block btn-success" onclick="submit()">Reservera rum</a>
 					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
 	</div>
-	</div>
+</div>
 
-	<!-- FOOTER -->
+<div style="display: none;" id="thanksdiv" class="container-fluid main-cont">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
+			<h1>Tack för din bokning!</h1>
+			<p>Du kommer nu att omdirigeras till startsidan</p>
+	</div>
+</div>
+</div>
+
+<!-- FOOTER -->
 <?php
-	include("footer.php");
+include("footer.php");
 ?>
 <?php
-	if (isset($_SESSION['admin'])) {
-		echo '<script>$(".admin").attr("contenteditable", "true");
-		  console.log("test");</script>';
-	}
+if (isset($_SESSION['admin'])) {
+	echo '<script>$(".admin").attr("contenteditable", "true");
+	console.log("test");</script>';
+}
 ?>
-	<script src="scripts/script_confirmation.js"></script>
+<script src="scripts/script_confirmation.js"></script>
 </body>
 
 </html>
