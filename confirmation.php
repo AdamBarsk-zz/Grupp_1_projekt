@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-$time = new \DateTime())->format('Y-m-d H:i:s');
+$time = date("Y-m-d h:i:s");
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 $doublerooms = $_POST['doublerooms'];
