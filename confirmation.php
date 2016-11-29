@@ -15,18 +15,18 @@ $requests = $_POST['requests'];
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
 
-$headers = "From: get@goat.com\r\n";
+$headers = "From: glada.geten@kyh.se\r\n";
 $headers .= "Reply-To: get@goat.com\r\n";
 $headers .= "Return-Path: get@goat.com\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 
 $message = <<<EMAIL
-"Hej $firstname . " " . $lastname!
+Hej $firstname . ' ' . $lastname!
 
 Du har nu bokat in dig hos oss.
 Datum: $checkin till $checkout
 
-Tack för din bokning!"
+Tack för din bokning!
 EMAIL;
 
 
@@ -48,7 +48,6 @@ if($_POST) {
 	VALUES (
 	'$currenttime',
 	'$checkin',
-	'$checkout',
 	'$singlerooms',
 	'$doublerooms',
 	'$familyrooms',
@@ -107,7 +106,7 @@ if($_POST) {
 					</div>
 					<div class="form-group">
 						<label>Namn:</label>
-						<p><?php echo "$firstname.' '.$lastname"; ?></p>
+						<p><?php echo "$firstname.$lastname"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Emailadress:</label>

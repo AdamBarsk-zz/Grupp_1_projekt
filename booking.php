@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+	session_start(); 
+	$checkin = $_POST['checkin'];
+	$checkout = $_POST['checkout'];
+?>
 <!DOCTYPE html>
 <html>
 <head>

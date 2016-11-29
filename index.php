@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -52,14 +54,14 @@
 				<div class="row">
 					<h3>Boka nu</h3>
 				</div>
-				<form action="booking.php" class="form-inline" id="booking" autocomplete="off">
+				<form action="booking.php" class="form-inline" id="booking" autocomplete="off" method="post">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date" class="book-start">Incheckning</label><br />
-						<input type="text" class="form-control center-date" id="check-in-date" />
+						<input type="text" class="form-control center-date" id="check-in-date" name="checkin" />
 					</div>
 					<div class="form-group" id="check-out">
 						<label for="check-out-date" class="book-start">Utcheckning</label><br />
-						<input type="text" class="form-control center-date" id="check-out-date" />
+						<input type="text" class="form-control center-date" id="check-out-date" name="checkout" />
 					</div>
 					<div class="form-group">
 						<div class="form-group" id="num-double">
