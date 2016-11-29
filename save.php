@@ -6,4 +6,5 @@
   $query = "UPDATE HELA SET text = '".$editor."' WHERE id = '".$id."'";
   mysqli_query($db, $query);
   echo $query;
+  header("Refresh:2");
 ?>

@@ -10,7 +10,6 @@ for (var i = 0; i < admin.length; i++) {
 $("#save").click(function(texter){
   for (var i = 0; i < admin.length; i++) {
 
-
   $edit = $(admin[i]).html();
   $id = admin[i].id;
   $.ajax({

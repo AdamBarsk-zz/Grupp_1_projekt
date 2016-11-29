@@ -151,7 +151,7 @@
 						?>
 					</p>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4  margin-headline">
 					<h3 id="activity4-headline" class="admin">
 						<?php
 							include('config.php');
@@ -183,7 +183,7 @@
 						?>
 					</p>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 margin-headline">
 					<h3 id="activity5-headline" class="admin">
 						<?php
 							include('config.php');
