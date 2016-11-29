@@ -119,9 +119,9 @@
 
 <script src="scripts/script_index.js"></script>
 <?php
-	if (isset($_SESSION['admin'])) {
-		echo '<script>$(".admin").attr("contenteditable", "true");</script>';
-	  }
+if (isset($_SESSION['admin'])) {
+	echo '<script src="/scripts/script_change.js" type="text/javascript"></script>';
+}
 ?>
 </body>
 </html>

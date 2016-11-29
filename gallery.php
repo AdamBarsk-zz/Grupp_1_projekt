@@ -52,10 +52,9 @@
 		include("footer.php");
 	?>
 	<?php
-		if (isset($_SESSION['admin'])) {
-			echo '<script>$(".admin").attr("contenteditable", "true");
-			  console.log("test");</script>';
-		}
+	if (isset($_SESSION['admin'])) {
+		echo '<script src="/scripts/script_change.js" type="text/javascript"></script>';
+	}
 	?>
 <script src="scripts/script_gallery.js"></script>
 

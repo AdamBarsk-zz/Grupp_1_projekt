@@ -57,7 +57,7 @@ if ($_SESSION['admin']) {
 
 
 
-    <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text admin" id="footer-phone">Email: <a href="#" class="footer-effect admin" id="footer-mail">get@goat.com</a> +70 1234567</p>
+    <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email: <a href="#" class="footer-effect" id="footer-mail">get@goat.com</a> +70 1234567</p>
     <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
       <!-- Social Media Logotypes -->
       <a href="">

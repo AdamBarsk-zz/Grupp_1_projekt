@@ -1,25 +1,9 @@
 <?php
-
-if (isset($_POST['save'])){
+  session_start();
   include('config.php');
-
-  echo
-    '<script type="text/javascript">
-      $(document).ready(function(argument) {
-        $("#save").click(function(){
-          $edit = $("#offer").html();
-          $.ajax({
-            url: "save.php",
-            type: "post",
-            data: {data: $edit},
-            datatype: "html",
-            success: function(rsp){
-              alert(rsp);
-            }
-          });
-        });
-      });
-    </script>';
-}
-
+  $editor = $_POST['data'];
+  $id = $_POST['id'];
+  $query = "UPDATE HELA SET text = '".$editor."' WHERE id = '".$id."'";
+  mysqli_query($db, $query);
+  echo $query;
 ?>
