@@ -1,9 +1,16 @@
 <?php session_start(); ?>
 <?php
-$inCheck = $_POST['checkin'];
-$outCheck = $_POST['checkout'];
+$currenttime = date("Y-m-d h:i:s");
+$checkin = $_POST['checkin'];
+$checkout = $_POST['checkout'];
+$doublerooms = $_POST['doublerooms'];
+$singlerooms = $_POST['singlerooms'];
+$familyrooms = $_POST['familyrooms'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$phonenumber = $_POST['phonenumber'];
+$requests = $_POST['requests'];
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
@@ -17,7 +24,7 @@ $message = <<<EMAIL
 "Hej $firstname . " " . $lastname!
 
 Du har nu bokat in dig hos oss.
-Datum: $inCheck till $outCheck
+Datum: $checkin till $checkout
 
 Tack för din bokning!"
 EMAIL;
@@ -25,7 +32,33 @@ EMAIL;
 
 if($_POST) {
 	mail($to, $subject, $message, $headers);
-	}
+	include("config.php");
+	$query = "INSERT INTO bookings (
+	book_date,
+	check_in_date,
+	check_out_date,
+	single_rooms_amount,
+	double_rooms_amount,
+	family_rooms_amount,
+	first_name,
+	last_name,
+	email,
+	phone_number,
+	requests )
+	VALUES (
+	'$currenttime',
+	'$checkin',
+	'$checkout',
+	'$singlerooms',
+	'$doublerooms',
+	'$familyrooms',
+	'$firstname',
+	'$lastname',
+	'$email',
+	'$phonenumber',
+	'$requests' )";
+	mysqli_query($db, $query);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,70 +76,79 @@ if($_POST) {
 <body>
 	<!-- NAVBAR -->
 	<?php
-		include('nav.php');
+	include('nav.php');
 	?>
 
 	<!-- Content -->
-	<div class="container-fluid main-cont">
+	<div id="bookdiv" class="container-fluid main-cont">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
 				<form>
 					<div class="form-group">
 						<label>Incheckningsdatum:</label>
-						<p></p>
+						<p><?php echo "$checkin"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Utcheckningsdatum:</label>
-						<p></p>
+						<p><?php echo "$checkout"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Dubbelrum:</label>
-						<p></p>
+						<p><?php echo "$doublerooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Enkelrum:</label>
-						<p></p>
+						<p><?php echo "$singlerooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Familjerum:</label>
-						<p></p>
+						<p><?php echo "$familyrooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Namn:</label>
-						<p></p>
+						<p><?php echo "$firstname.' '.$lastname"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Emailadress:</label>
-						<p></p>
+						<p><?php echo "$email"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Telefonnummer:</label>
-						<p></p>
+						<p><?php echo "$phonenumber"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Önskemål:</label>
-						<p></p>
+						<p><?php echo "$requests"; ?></p>
 					</div>
-					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-success">Reservera rum</a>
+					<a type="submit" class="btn btn-lg btn-block btn-success" onclick="submit()">Reservera rum</a>
 					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
 	</div>
-	</div>
+</div>
 
-	<!-- FOOTER -->
+<div style="display: none;" id="thanksdiv" class="container-fluid main-cont">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
+			<h1>Tack för din bokning!</h1>
+			<p>Du kommer nu att omdirigeras till startsidan</p>
+	</div>
+</div>
+</div>
+
+<!-- FOOTER -->
 <?php
-	include("footer.php");
+include("footer.php");
 ?>
 <?php
-	if (isset($_SESSION['admin'])) {
-		echo '<script>$(".admin").attr("contenteditable", "true");
-		  console.log("test");</script>';
-	}
+if (isset($_SESSION['admin'])) {
+	echo '<script>$(".admin").attr("contenteditable", "true");
+	console.log("test");</script>';
+}
 ?>
-	<script src="scripts/script_confirmation.js"></script>
+<script src="scripts/script_confirmation.js"></script>
 </body>
 
 </html>

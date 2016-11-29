@@ -79,42 +79,36 @@ function Load() {
 
   // If found memory, load data
   // How to make it to a switch?
-  if (typeof(localStorage.getItem("inCheck")) == 'string') {
-    inputs[0].value = localStorage.getItem("inCheck");
+  if (typeof(localStorage.getItem("checkin")) == 'string') {
+    document.getElementById("checkin").value = localStorage.getItem("checkin");
   }
-  if (typeof(localStorage.getItem("outCheck")) == 'string') {
-    inputs[1].value = localStorage.getItem("outCheck");
+  if (typeof(localStorage.getItem("checkout")) == 'string') {
+    document.getElementById("checkout").value = localStorage.getItem("checkout");
   }
-  if (typeof(localStorage.getItem("doubleBeds")) == 'string') {
-    inputs[2].value = localStorage.getItem("doubleBeds");
+  if (typeof(localStorage.getItem("doublerooms")) == 'string') {
+    document.getElementById("doublerooms").value = localStorage.getItem("doublerooms");
   }
-  if (typeof(localStorage.getItem("singleBeds")) == 'string') {
-    inputs[3].value = localStorage.getItem("singleBeds");
+  if (typeof(localStorage.getItem("singlerooms")) == 'string') {
+    document.getElementById("singlerooms").value = localStorage.getItem("singlerooms");
   }
-  if (typeof(localStorage.getItem("name")) == 'string') {
-    inputs[4].value = localStorage.getItem("name");
+  if (typeof(localStorage.getItem("familyrooms")) == 'string') {
+    document.getElementById("familyrooms").value = localStorage.getItem("familyrooms");
+  }
+  if (typeof(localStorage.getItem("firstname"))){
+    document.getElementById("firstname").value = localStorage.getItem("firstname");
+  }
+  if (typeof(localStorage.getItem("lastname"))){
+    document.getElementById("lastname").value = localStorage.getItem("lastname");
   }
   if (typeof(localStorage.getItem("email")) == 'string') {
-    inputs[5].value = localStorage.getItem("email");
+    document.getElementById("email").value = localStorage.getItem("email");
   }
-  if (typeof(localStorage.getItem("phoneNumber")) == 'string') {
-    inputs[6].value = localStorage.getItem("phoneNumber");
+  if (typeof(localStorage.getItem("phonenumber")) == 'string') {
+    document.getElementById("phonenumber").value = localStorage.getItem("phonenumber");
   }
-  if (typeof(localStorage.getItem("specialRequests")) == 'string') {
-    textArea.value = localStorage.getItem("specialRequests");
+  if (typeof(localStorage.getItem("requests")) == 'string') {
+    document.getElementById("requests").value = localStorage.getItem("requests");
   }
-
-  // Get values and load from localStorage
-  document.getElementById("checkin").value = localStorage.getItem("checkin");
-  document.getElementById("checkout").value = localStorage.getItem("checkout");
-  document.getElementById("doublerooms").value = localStorage.getItem("doublerooms");
-  document.getElementById("singlerooms").value = localStorage.getItem("singlerooms");
-  document.getElementById("familyrooms").value = localStorage.getItem("familyrooms");
-  document.getElementById("firstname").value = localStorage.getItem("firstname");
-  document.getElementById("lastname").value = localStorage.getItem("lastname");
-  document.getElementById("email").value = localStorage.getItem("email");
-  document.getElementById("phonenumber").value = localStorage.getItem("phonenumber");
-  document.getElementById("requests").value = localStorage.getItem("requests");
 }
 function Save(index) {
 
