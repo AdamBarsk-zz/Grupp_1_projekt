@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-$time = date("Y-m-d h:i:s");
+$currenttime = date("Y-m-d h:i:s");
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 $doublerooms = $_POST['doublerooms'];
@@ -32,6 +32,32 @@ EMAIL;
 
 if($_POST) {
 	mail($to, $subject, $message, $headers);
+	include("config.php");
+	$query = "INSERT INTO bookings (
+	book_date,
+	check_in_date,
+	check_out_date,
+	single_rooms_amount,
+	double_rooms_amount,
+	family_rooms_amount,
+	first_name,
+	last_name,
+	email,
+	phone_number,
+	requests )
+	VALUES (
+	'$currenttime',
+	'$checkin',
+	'$checkout',
+	'$singlerooms',
+	'$doublerooms',
+	'$familyrooms',
+	'$firstname',
+	'$lastname',
+	'$email',
+	'$phonenumber',
+	'$requests' )";
+	mysqli_query($db, $query);
 }
 ?>
 <!DOCTYPE html>
