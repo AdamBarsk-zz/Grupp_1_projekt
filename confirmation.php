@@ -1,9 +1,16 @@
 <?php session_start(); ?>
 <?php
-$inCheck = $_POST['checkin'];
-$outCheck = $_POST['checkout'];
+$time = new \DateTime())->format('Y-m-d H:i:s');
+$checkin = $_POST['checkin'];
+$checkout = $_POST['checkout'];
+$doublerooms = $_POST['doublerooms'];
+$singlerooms = $_POST['singlerooms'];
+$familyrooms = $_POST['familyrooms'];
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$phonenumber = $_POST['phonenumber'];
+$requests = $_POST['requests'];
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
@@ -17,7 +24,7 @@ $message = <<<EMAIL
 "Hej $firstname . " " . $lastname!
 
 Du har nu bokat in dig hos oss.
-Datum: $inCheck till $outCheck
+Datum: $checkin till $checkout
 
 Tack för din bokning!"
 EMAIL;
@@ -54,39 +61,39 @@ if($_POST) {
 				<form>
 					<div class="form-group">
 						<label>Incheckningsdatum:</label>
-						<p></p>
+						<p><?php echo "$checkin"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Utcheckningsdatum:</label>
-						<p></p>
+						<p><?php echo "$checkout"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Dubbelrum:</label>
-						<p></p>
+						<p><?php echo "$doublerooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Enkelrum:</label>
-						<p></p>
+						<p><?php echo "$singlerooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Familjerum:</label>
-						<p></p>
+						<p><?php echo "$familyrooms"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Namn:</label>
-						<p></p>
+						<p><?php echo "$firstname.' '.$lastname"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Emailadress:</label>
-						<p></p>
+						<p><?php echo "$email"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Telefonnummer:</label>
-						<p></p>
+						<p><?php echo "$phonenumber"; ?></p>
 					</div>
 					<div class="form-group">
 						<label>Önskemål:</label>
-						<p></p>
+						<p><?php echo "$requests"; ?></p>
 					</div>
 					<a type="submit" class="btn btn-lg btn-block btn-success" onclick="submit()">Reservera rum</a>
 					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
