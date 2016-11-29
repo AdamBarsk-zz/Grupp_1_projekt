@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>Logga in-get-ing</h1>
+  <h1>Logga in</h1>
 
   <form action="" method="post">
     <label for="username">Användarnamn:</label>
@@ -30,7 +30,7 @@
         header('Location: http://www.dengladageten.se');
         exit();
       } else {
-        echo "<h1>Wrong username and/or password.</h1>";
+        echo "<h1>Fel användarnamn eller lösenord</h1>";
       }
     }
   ?>
