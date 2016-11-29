@@ -54,36 +54,36 @@
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Incheckning:</label><br />
-							<input class="form-control" id="checkin" name="incheck" type="text">
+							<input class="form-control" id="checkin" name="checkin" type="text">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Utcheckning:</label><br />
-							<input class="form-control" id="checkout" name="outcheck" type="text">
+							<input class="form-control" id="checkout" name="checkout" type="text">
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<input id="doubleRooms" class="form-control rooms" type="number" name="doubleRooms" value="1" min="0" max="4">
+							<input id="doublerooms" class="form-control rooms" type="number" name="doubleRooms" value="1" min="0" max="4">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br />
-							<input id="singleRooms" class="form-control rooms" type="number" name="singleRooms" value="0" min="0" max="2">
+							<input id="singlerooms" class="form-control rooms" type="number" name="singleRooms" value="0" min="0" max="2">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<input id="familyRooms" class="form-control rooms" type="number" name="familyRooms" value="0" min="0" max="2">
+							<input id="familyrooms" class="form-control rooms" type="number" name="familyRooms" value="0" min="0" max="2">
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label" for="">Förnamn:</label><br />
-							<input class="form-control" id="name" name="firstname" type="text" placeholder="Ange förnamn">
+							<input class="form-control" id="firstname" name="firstname" type="text" placeholder="Ange förnamn">
 						</div>
 
 						<div class="form-group">
@@ -111,10 +111,10 @@
 						</div>
 					</div>
 
-					<div id="hej"></div>
+					<div id="errors"></div>
 					<div class="row">
 						<div class="form-group">
-							<button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" type="submit">Reservera rum</button>
+							<button class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit">Reservera rum</button>
 						</div>
 					</div>
 
@@ -122,81 +122,6 @@
 			</section>
 		</div>
 	</div>
-
-<!--
-=======
-				<div class="row">
-					<h2 style="text-align:center">Gästinformation</h2>
-				</div>
-
-				<form data-toggle="validator" role="form" action="confirmation.php" method="post" autocomplete="off" class="form-inline" id="booking">
-
-					<div class="row">
-						<div class="form-group">
-							<label class="control-label">Incheckning:</label><br>
-							<input class="form-control" id="checkin" name="incheck" type="text" required>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Utcheckning:</label><br>
-							<input class="form-control" id="checkout" name="outcheck" type="text" required>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group">
-							<label class="control-label">Dubbelrum:</label><br>
-							<input class="form-control" type="number" name="name" value="1" maxlength="2" required pattern="{1, 5}">
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Enkelrum:</label><br>
-							<input class="form-control" type="number" name="name" value="0" maxlength="2" required pattern="{1, 5}">
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group">
-							<label class="control-label" for="name">Namn:</label><br>
-							<input class="form-control" id="name" name="fullname" type="text" placeholder="Ange namn" maxlength="30" required>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label" for="email">Emailadress:</label><br>
-							<input class="form-control" id="email" name="email" type="email" placeholder="Ange email" maxlength="30" required>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group">
-							<label class="control-label" for="phonenumber">Telefonnummer:</label><br>
-							<input class="form-control" id="phonenumber" type="tel" placeholder="Ange telefonnummer" maxlength="30" required>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group">
-							<label for="requests">Önskemål:</label><br>
-							<textarea class="form-control" id="requests" name="name" rows="3" cols="30" placeholder="T.ex barnsäng, extra kudde, etc"></textarea>
-						</div>
->>>>>>> d9bcd9d2b007751710c4f2759866c6a698a4776d
-					</div>
-
-					<div class="row">
-						<div class="form-group">
-							<button class="btn btn-lg btn-block btn-default" onclick="mySubmit()" type="submit">Reservera rum</button>
-						</div>
-					</div>
-<<<<<<< HEAD
-					<button class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit">Reservera rum</button>
-=======
-
->>>>>>> d9bcd9d2b007751710c4f2759866c6a698a4776d
-				</form>
-			</section>
-		</div>
-	</div>
--->
 
 	<!-- FOOTER -->
 	<div id="footer">
