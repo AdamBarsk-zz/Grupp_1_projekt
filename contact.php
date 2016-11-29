@@ -25,20 +25,54 @@
         <div class="row">
           <div class="col-sm-5 welcome">
             <h2>Kontakt</h2>
-            <p id="contact" class="admin">Non duis culpa sint cupidatat aute aliquip aliqua et exercitation ex culpa non qui ad. Cillum mollit elit est eiusmod proident minim et velit. Culpa aliquip eiusmod elit officia quis ex commodo culpa sint elit duis pariatur. Ullamco aute quis sunt et labore ipsum sunt enim exercitation. Ullamco exercitation ipsum reprehenderit id dolor laboris culpa culpa minim id incididunt nulla aliqua qui. Mollit nostrud incididunt ullamco incididunt ad anim qui dolore dolore proident incididunt. Anim in ut sint ad consequat ullamco sit sunt.</p>
+            <p id="contact" class="admin">
+              <?php
+                include('config.php');
+                $query = 'SELECT text FROM HELA WHERE id = "contact"';
+                $result = mysqli_query($db, $query);
+                $row = $result->fetch_row();
+                $text = (string)$row[0];
+                echo $text;
+              ?>
+            </p>
             <ul><br><br>
-              <li class="contact"><a href="#" class="admin" id="contact-adress">981 94 Riksgränsen, Sverige</a></li>
-              <li class="contact"><a href="#" class="admin" id="contact-mail">get@goat.com</a></li>
-              <li class="contact"><a href="#" class="admin" id="contact-phone">+46 70 1234567</a></li>
+              <li class="contact"><a href="#" class="admin" id="contact-adress">
+                <?php
+                  include('config.php');
+                  $query = 'SELECT text FROM HELA WHERE id = "contact-adress"';
+                  $result = mysqli_query($db, $query);
+                  $row = $result->fetch_row();
+                  $text = (string)$row[0];
+                  echo $text;
+                ?>
+              </a></li>
+              <li class="contact"><a href="#" class="admin" id="contact-mail">
+                <?php
+                  include('config.php');
+                  $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
+                  $result = mysqli_query($db, $query);
+                  $row = $result->fetch_row();
+                  $text = (string)$row[0];
+                  echo $text;
+                ?>
+              </a></li>
+              <li class="contact"><a href="#" class="admin" id="contact-phone">
+                <?php
+                  include('config.php');
+                  $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
+                  $result = mysqli_query($db, $query);
+                  $row = $result->fetch_row();
+                  $text = (string)$row[0];
+                  echo $text;
+                ?>
+              </a></li>
             </ul>
           </div>
 
 
           <div class="col-sm-6 col-sm-offset-1 welcome">
                 <h2>Hitta hit</h2>
-                <iframe width="100%" height="500" frameborder="0" style="border: 0"         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyButmtpXCAGC0yYoDPJsYXbec7PcOM_uYE
-                &q=Riksgränsen,sweden&z=5" allowfullscreen>
-                </iframe>
+                <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJB1nGvW9nf0YRlu8ipR47lLE&zoom=6&key=AIzaSyAGJpYxhLOnZ4PNK96Z8z4SPc6iKR2WPK8&"  allowfullscreen></iframe>
           </div>
         </div>
 

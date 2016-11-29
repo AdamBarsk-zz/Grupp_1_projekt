@@ -10,31 +10,32 @@ if ($_SESSION['admin']) {
 
   echo '<style>
   .save-button {
-  	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-  	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-  	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-  	background-color:#b8e356;
+  	-moz-box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  	-webkit-box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  	box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  	background-color:#ff5bb0;
   	-moz-border-radius:6px;
   	-webkit-border-radius:6px;
   	border-radius:6px;
-  	border:1px solid #83c41a;
+  	border:1px solid #ee1eb5;
   	display:inline-block;
   	cursor:pointer;
   	color:#ffffff;
   	font-family:Arial;
-  	font-size:15px;
+  	font-size:28px;
   	font-weight:bold;
   	padding:6px 24px;
   	text-decoration:none;
-  	text-shadow:0px 1px 0px #86ae47;
+  	text-shadow:0px 1px 0px #c70067;
   }
   .save-button:hover {
-  	background-color:#a5cc52;
+  	background-color:#ef027d;
   }
   .save-button:active {
   	position:relative;
   	top:1px;
   }
+
 
   .save-button-form {
     text-align: center;
@@ -57,7 +58,25 @@ if ($_SESSION['admin']) {
 
 
 
-    <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email: <a href="#" class="footer-effect" id="footer-mail">get@goat.com</a> +70 1234567</p>
+    <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email:<a href="#" class="footer-effect" id="footer-mail">
+      <?php
+        include('config.php');
+        $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
+        $result = mysqli_query($db, $query);
+        $row = $result->fetch_row();
+        $text = (string)$row[0];
+        echo $text;
+      ?>
+    </a>
+    <?php
+      include('config.php');
+      $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
+      $result = mysqli_query($db, $query);
+      $row = $result->fetch_row();
+      $text = (string)$row[0];
+      echo "| Tel: ".$text;
+    ?>
+  </p>
     <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
       <!-- Social Media Logotypes -->
       <a href="">
