@@ -16,6 +16,7 @@
 	<!-- NAVBAR -->
 	<?php
 		include('nav.php');
+		include('img_upload.php');
 	?>
 
 	<!-- GALLERY -->
@@ -32,16 +33,10 @@
 		<div class="container " id="preview">
 			<div class="row">
 				<div class="col-md-12 picture-gallery">
-					<img src="images/10.jpg" class="img-rounded flashy">
-					<img src="images/11.jpg" class="img-rounded flashy">
-					<img src="images/12.jpg" class="img-rounded flashy">
-					<img src="images/20.jpg" class="img-rounded flashy">
-					<img src="images/14.jpg" class="img-rounded flashy">
-					<img src="images/snö.jpg" class="img-rounded flashy">
-					<img src="images/22.jpg" class="img-rounded flashy">
-					<img src="images/17.jpg" class="img-rounded flashy">
-					<img src="images/18.jpg" class="img-rounded flashy">
-					<img src="images/19.jpg" class="img-rounded flashy">
+					<?php 
+						include('img_download.php');
+					?>
+					<!--<img src="images/19.jpg" class="img-rounded flashy">-->
 				</div>
 			</div>
 		</div>
@@ -49,7 +44,7 @@
 
 		<!-- FOOTER -->
 	<?php
-		include("footer.php");
+		include('footer.php');
 	?>
 	<?php
 	if (isset($_SESSION['admin'])) {

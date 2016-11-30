@@ -1,8 +1,7 @@
-<form action="imgUpload.php" method="post" enctype="multipart/form-data">
+<form action="img_upload.php" method="post" enctype="multipart/form-data">
     Välj get-porträttering att ladda upp:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input id="add" type="submit" value="Upload Image" name="submit">
-    <div id="container2" style="background-color: blue; min-width: 100px; min-height: 100px;"></div>
 </form>
 
 <?php
@@ -48,4 +47,6 @@ if ($uploadOk == 0) {
 		echo "Tyvärr, geten blev förvirrad på vägen och försvann.";
 	}
 }
+
+
 ?>
