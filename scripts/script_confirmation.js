@@ -1,13 +1,23 @@
+var bookingdiv = document.getElementById("bookingdiv");
+var bookeddiv = document.getElementById("bookeddiv");
+var abortdiv = document.getElementById("abortdiv");
+
 function submit() {
 
-	var bookdiv = document.getElementById("bookdiv");
-	var thanksdiv = document.getElementById("thanksdiv");
+	bookingdiv.style.display = "none";
+	bookeddiv.style.display = "block";
 
-	bookdiv.style.display = "none";
-	thanksdiv.style.display = "block";
-
-	// after 6 seconds, go back to home page
+	// after 4 seconds, go back to home page
 	setTimeout(function() {
 		window.location.href = "/index.php";
-	}, 6000);
+	}, 4000);
+}
+function abort() {
+	bookingdiv.style.display = "none";
+	abortdiv.style.display = "block";
+
+	// after 4 seconds, go back to home page
+	setTimeout(function() {
+		window.location.href = "/index.php";
+	}, 4000);
 }

@@ -98,10 +98,9 @@
 					<div id="errors"></div>
 					<div class="row">
 						<div class="form-group">
-							<button class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit">Reservera rum</button>
+							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="book">Reservera rum</input>
 						</div>
 					</div>
-
 				</form>
 			</section>
 		</div>
