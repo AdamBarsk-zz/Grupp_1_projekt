@@ -98,14 +98,27 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0px;
 }
 
-/*VAD ÄR BOOKING??*/
-
 .booking {
   text-align: center;
 }
 
 .booking label {
   margin-top: 20px;
+}
+
+table {
+  margin: 20px auto 50px auto;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+th {
+  width: 200px;
 }
 
 @media screen and (min-width: 768px) {
