@@ -52,7 +52,8 @@
 				<div class="row">
 					<h3>Boka nu</h3>
 				</div>
-				<form action="booking.php" class="form-inline" id="booking" autocomplete="off">
+				<div class="row">
+				<form action="booking.php" style="text-align: center"class="form-inline col-sm-12" id="booking" autocomplete="off">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date" class="book-start">Incheckning</label><br />
 						<input type="text" class="form-control center-date" id="check-in-date" />
@@ -90,8 +91,9 @@
 						</div>
 					</div>
 					<br />
-					<button onclick="bookRooms()" type="submit" id="search" class="btn btn-lg btn-default" style="text-align: center">Sök rum</button>
+					<button onclick="bookRooms()" type="submit" id="search" class="btn btn-lg btn-default" style="text-align: center; margin-top: 10px">Sök rum</button>
 				</form>
+			</div>
 			</section>
 		</div>
 
