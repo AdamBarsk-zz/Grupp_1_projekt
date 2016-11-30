@@ -1,13 +1,8 @@
 $(".admin").attr("contenteditable", "true");
 
 admin = $(".admin");
-texter = [];
-for (var i = 0; i < admin.length; i++) {
-  texter.push(admin[i].id);
-  console.log(texter[i]);
-}
 
-$("#save").click(function(texter){
+$("#save").click(function(){
   for (var i = 0; i < admin.length; i++) {
 
 
