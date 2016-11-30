@@ -12,7 +12,6 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul id="ul-topnav" class="nav navbar-nav">
             <li><a href="index.php">Hem</a></li>
-
             <?php
               if (isset($_SESSION['admin'])) {
                 echo "<li><a href='reservations.php'>Bokningar</a></li>";
@@ -20,8 +19,6 @@
                 echo "<li><a href='booking.php'>Boka</a></li>";
               }
             ?>
-
-            <li><a href="booking.php">Boka</a></li>
             <li><a href="info.php">Information</a></li>
             <li><a href="gallery.php">Galleri</a></li>
             <li><a href="contact.php">Kontakt</a></li>
