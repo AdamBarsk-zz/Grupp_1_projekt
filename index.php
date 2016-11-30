@@ -91,6 +91,19 @@
 								<option>5</option>
 							</select>
 						</div>
+						<div class="form-group" id="num-family">
+							<label for="family-beds" class="book-start">Familjerum</label><br />
+
+							<select class="booking-beds form-control" id="family-beds">
+
+								<option selected>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
 					</div>
 					<br />
 					<button onclick="bookRooms()" type="submit" id="search" class="btn btn-lg btn-default" style="text-align: center; margin-top: 10px">Sök rum</button>
