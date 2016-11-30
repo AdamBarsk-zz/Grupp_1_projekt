@@ -10,9 +10,9 @@ $("#save").click(function(){
   $.ajax({
     url: "save.php",
     type: "post",
-    data: {data: $edit, id: $id},
+    data: {data:$edit, id:$id},
     // processData: false,
     datatype: "html",
-  });
+    });
 }
 });

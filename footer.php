@@ -2,9 +2,7 @@
 if ($_SESSION['admin']) {
   echo '<div class="container">
           <div class="row">
-            <form method="post" action="" class="col-xs-12 save-button-form">
-              <button type="submit" name="save" class="save-button" id="save">Spara</button>
-            </form>
+              <button name="save" class="save-button col-xs-12 save-button-form" id="save">Spara</button>
           </div>
         </div>';
 

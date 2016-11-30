@@ -45,7 +45,7 @@
 						$text = (string)$row[0];
 						echo $text;
 					?>
-				</p>
+			</p>
 			</article>
 
 
