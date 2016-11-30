@@ -1,5 +1,5 @@
-<?php 
-	session_start(); 
+<?php
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +54,8 @@
 				<div class="row">
 					<h3>Boka nu</h3>
 				</div>
-				<form action="booking.php" class="form-inline" id="booking" autocomplete="off" method="post">
+				<div class="row">
+				<form action="booking.php" style="text-align: center"class="form-inline col-sm-12" id="booking" autocomplete="off" method="post">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date" class="book-start">Incheckning</label><br />
 						<input type="text" class="form-control center-date" id="check-in-date" name="checkin" />
@@ -90,10 +91,24 @@
 								<option>5</option>
 							</select>
 						</div>
+						<div class="form-group" id="num-family">
+							<label for="family-beds" class="book-start">Familjerum</label><br />
+
+							<select class="booking-beds form-control" id="family-beds">
+
+								<option selected>0</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
 					</div>
 					<br />
-					<button onclick="bookRooms()" type="submit" id="search" class="btn btn-lg btn-default" style="text-align: center">Sök rum</button>
+					<button onclick="bookRooms()" type="submit" id="search" class="btn btn-lg btn-default" style="text-align: center; margin-top: 10px">Sök rum</button>
 				</form>
+			</div>
 			</section>
 		</div>
 

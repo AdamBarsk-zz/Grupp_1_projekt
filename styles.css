@@ -391,6 +391,15 @@ margin-right: 0;
   display:         flex;
 }
 
+.margin-headline {
+  margin-top: 10vh !important;
+}
+
+@media screen and (max-width: 767px) {
+  .margin-headline {
+    margin-top: 0;
+  }
+}
 /*CONTACT*/
 
 .contact a {

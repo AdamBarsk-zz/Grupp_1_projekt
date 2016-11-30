@@ -5,7 +5,6 @@ admin = $(".admin");
 $("#save").click(function(){
   for (var i = 0; i < admin.length; i++) {
 
-
   $edit = $(admin[i]).html();
   $id = admin[i].id;
   $.ajax({
