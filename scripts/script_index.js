@@ -58,4 +58,5 @@ function bookRooms() {
   localStorage.setItem("checkout", document.getElementById("check-out-date").value);
   localStorage.setItem("doublerooms", selects[0].value);
   localStorage.setItem("singlerooms", selects[1].value);
+  localStorage.setItem("familyrooms", selects[2].value);
 }

@@ -30,7 +30,7 @@ Tack för din bokning!
 EMAIL;
 
 
-if($_POST) {
+if(isset($_POST['book'])) {
 	mail($to, $subject, $message, $headers);
 	include("config.php");
 	$query = "INSERT INTO bookings (
@@ -48,6 +48,7 @@ if($_POST) {
 	VALUES (
 	'$currenttime',
 	'$checkin',
+	'$checkout',
 	'$singlerooms',
 	'$doublerooms',
 	'$familyrooms',
@@ -79,7 +80,7 @@ if($_POST) {
 	?>
 
 	<!-- Content -->
-	<div id="bookdiv" class="container-fluid main-cont">
+	<div id="bookingdiv" class="container-fluid main-cont">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
@@ -120,8 +121,8 @@ if($_POST) {
 						<label>Önskemål:</label>
 						<p><?php echo "$requests"; ?></p>
 					</div>
-					<a type="submit" class="btn btn-lg btn-block btn-success" onclick="submit()">Reservera rum</a>
-					<a href="index.php" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
+					<a type="submit" class="btn btn-lg btn-block btn-success" name="book" onclick="submit()">Reservera rum</a>
+					<a onclick="abort()" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
@@ -133,8 +134,16 @@ if($_POST) {
 		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 			<h1>Tack för din bokning!</h1>
 			<p>Du kommer nu att omdirigeras till startsidan</p>
+		</div>
 	</div>
 </div>
+<div style="display: none;" id="abortdiv" class="container-fluid main-cont">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
+			<h1>Bokning avbruten</h1>
+			<p>Du kommer nu att omdirigeras till startsidan</p>
+		</div>
+	</div>
 </div>
 
 <!-- FOOTER -->
