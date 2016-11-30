@@ -1,29 +1,5 @@
 <?php
   session_start();
-  include('config.php');
-  $date = $_POST['reservation-date'];
-
-  function reservationsOnDate() {
-    if (mysqli_num_rows($result) > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "
-        <tr>
-          <td>{$row['book_id']}</td>
-          <td>{$row['book_date']}</td>
-          <td>{$row['check_in_date']}</td>
-          <td>{$row['check_out_date']}</td>
-          <td>{$row['single_rooms_amount']}</td>
-          <td>{$row['first_name']} {$row['last_name']}</td>
-          <td>{$row['email']}</td>
-          <td>{$row['phone_number']}</td>
-          <td>{$row['requests']}</td>
-        </tr>";
-      }
-    } else {
-      echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
-    }
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -82,10 +58,29 @@
                   <th>Önskemål</th>
                 </tr>
 								<?php
+                  include('config.php');
+                  $date = $_POST['reservation-date'];
 									$query = "SELECT * FROM bookings WHERE check_in_date = '".$date."'";
 									$result = mysqli_query($db, $query);
 
-                  reservationsOnDate();
+                  if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+  										echo "
+  										<tr>
+  											<td>{$row['book_id']}</td>
+  											<td>{$row['book_date']}</td>
+  											<td>{$row['check_in_date']}</td>
+  											<td>{$row['check_out_date']}</td>
+  											<td>{$row['single_rooms_amount']}</td>
+  											<td>{$row['first_name']} {$row['last_name']}</td>
+  											<td>{$row['email']}</td>
+  											<td>{$row['phone_number']}</td>
+  											<td>{$row['requests']}</td>
+  										</tr>";
+                    }
+									} else {
+                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                  }
 								?>
               </table>
 
@@ -107,7 +102,24 @@
 									$query = "SELECT * FROM bookings WHERE check_out_date = '".$date."'";
 									$result = mysqli_query($db, $query);
 
-                  reservationsOnDate();
+                  if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+  										echo "
+  										<tr>
+  											<td>{$row['book_id']}</td>
+  											<td>{$row['book_date']}</td>
+  											<td>{$row['check_in_date']}</td>
+  											<td>{$row['check_out_date']}</td>
+  											<td>{$row['single_rooms_amount']}</td>
+  											<td>{$row['first_name']} {$row['last_name']}</td>
+  											<td>{$row['email']}</td>
+  											<td>{$row['phone_number']}</td>
+  											<td>{$row['requests']}</td>
+  										</tr>";
+                    }
+									} else {
+                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                  }
 								?>
               </table>
 
@@ -129,7 +141,24 @@
 									$query = "SELECT * FROM bookings WHERE check_in_date < '".$date."' AND check_out_date > '".$date."'";
 									$result = mysqli_query($db, $query);
 
-                  reservationsOnDate();
+                  if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+  										echo "
+  										<tr>
+  											<td>{$row['book_id']}</td>
+  											<td>{$row['book_date']}</td>
+  											<td>{$row['check_in_date']}</td>
+  											<td>{$row['check_out_date']}</td>
+  											<td>{$row['single_rooms_amount']}</td>
+  											<td>{$row['first_name']} {$row['last_name']}</td>
+  											<td>{$row['email']}</td>
+  											<td>{$row['phone_number']}</td>
+  											<td>{$row['requests']}</td>
+  										</tr>";
+                    }
+									} else {
+                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                  }
 								?>
 							</table>
             </div>
