@@ -47,7 +47,7 @@
 
               <table>
                 <tr>
-                  <th>Reservation</th>
+                  <th>Reservationsnummer</th>
                   <th>Bokningsdatum</th>
                   <th>Incheckning</th>
                   <th>Utcheckning</th>
@@ -66,17 +66,29 @@
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
-  										<tr>
-  											<td>{$row['book_id']}</td>
-  											<td>{$row['book_date']}</td>
-  											<td>{$row['check_in_date']}</td>
-  											<td>{$row['check_out_date']}</td>
-  											<td>{$row['single_rooms_amount']}</td>
-  											<td>{$row['first_name']} {$row['last_name']}</td>
-  											<td>{$row['email']}</td>
-  											<td>{$row['phone_number']}</td>
-  											<td>{$row['requests']}</td>
-  										</tr>";
+    										<tr>
+    											<td>{$row['book_id']}</td>
+    											<td>{$row['book_date']}</td>
+                          <td>{$row['first_name']} {$row['last_name']}</td>
+                          <td>{$row['email']}</td>
+                          <td>{$row['phone_number']}</td>
+    											<td>{$row['check_in_date']}</td>
+    											<td>{$row['check_out_date']}</td>
+                          <td>"
+
+                        if ($row[double_rooms_amount > 0]) {
+                          echo "{$row['double_rooms_amount']}<br />";
+                        }
+                        if ($row[single_rooms_amount > 0]) {
+                          echo "{$row['single_rooms_amount']} <br />";
+                        }
+                        if ($row[family_rooms_amount > 0]) {
+                          echo "{$row['family_rooms_amount']}";
+                        }
+  										echo "
+                          </td>
+                          <td>{$row['requests']}</td>
+    										</tr>";
                     }
 									} else {
                     echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
@@ -169,54 +181,9 @@
 	</div>
 
 	<!-- FOOTER -->
-  <div id="footer">
-  <div class="container-fluid footer">
-    <div class="row">
-      <?php if ($_SESSION['admin']):
-        echo "<p class='col-md-1 col-sm-1 footer-text'><a href='logout.php' class='footer-effect'>Logga ut</a></p>";
-        ?>
-      <?php else:
-        echo "<p class='col-md-1 col-sm-1 footer-text'><a href='login.php' class='footer-effect'>Admin</a></p>";
-        ?>
-      <?php endif; ?>
-
-
-
-      <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email:<a href="#" class="footer-effect" id="footer-mail">
-        <?php
-          include('config.php');
-          $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
-          $result = mysqli_query($db, $query);
-          $row = $result->fetch_row();
-          $text = (string)$row[0];
-          echo $text;
-        ?>
-      </a>
-      <?php
-        include('config.php');
-        $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
-        $result = mysqli_query($db, $query);
-        $row = $result->fetch_row();
-        $text = (string)$row[0];
-        echo "| Tel: ".$text;
-      ?>
-    </p>
-      <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
-        <!-- Social Media Logotypes -->
-        <a href="">
-          <img class="social-logo" src="images/icons/facebook.png" />
-        </a>
-        <a href="">
-          <img class="social-logo" src="images/icons/instagram.png" />
-        </a>
-        <a href="">
-          <img class="social-logo" src="images/icons/twitter.png" />
-        </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<?php
+	include("footer.php");
+?>
 
 	<script src="scripts/script_reservations.js"></script>
 </body>
