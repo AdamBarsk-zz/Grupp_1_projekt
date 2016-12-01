@@ -98,7 +98,7 @@
 					<div id="errors"></div>
 					<div class="row">
 						<div class="form-group">
-							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="book">Reservera rum</input>
+							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit" value="Reservera rum" name="book">
 						</div>
 					</div>
 				</form>
