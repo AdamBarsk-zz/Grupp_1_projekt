@@ -54,7 +54,7 @@
 		</div>
 		<div class="row">
 			<article class="col-sm-12 welcome">
-				<h1>Events</h1>
+				<h1>Aktiviteter</h1>
 				<div class="col-sm-4">
 					<h3 id="activity1-headline" class="admin">
 						<?php

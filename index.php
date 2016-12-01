@@ -36,16 +36,16 @@
 					}
 				?>
 				<h3>⸻ B&amp;B ⸻</h3>
-				<p id="welcome" class="admin">
+				<p id="offer" class="admin">
 					<?php
 						include('config.php');
-						$query = 'SELECT text FROM HELA WHERE id = "welcome"';
+						$query = 'SELECT text FROM HELA WHERE id = "offer"';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
 						echo $text;
 					?>
-			</p>
+				</p>
 			</article>
 
 
@@ -106,11 +106,42 @@
 		</div>
 
 			<div class="col-sm-4 col-sm-offset-1 welcome">
-				<h3>Detta erbjuder vi dig</h3>
-				<p id="offer" class="admin">
+				<h3>Kalendarium</h3>
+				<h4 id="event1-headline" class="admin">
 					<?php
 						include('config.php');
-						$query = 'SELECT text FROM HELA WHERE id = "offer"';
+						$query = 'SELECT text FROM HELA WHERE id = "event1-headline"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo $text;
+					?>
+				</h4>
+				<p id="event1-text" class="admin">
+					<?php
+						include('config.php');
+						$query = 'SELECT text FROM HELA WHERE id = "event1-text"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo $text;
+					?>
+				</p>
+
+				<h4 id="event2-headline" class="admin">
+					<?php
+						include('config.php');
+						$query = 'SELECT text FROM HELA WHERE id = "event2-headline"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo $text;
+					?>
+				</h4>
+				<p id="event2-text" class="admin">
+					<?php
+						include('config.php');
+						$query = 'SELECT text FROM HELA WHERE id = "event2-text"';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
