@@ -1,8 +1,70 @@
 <?php
-	session_start();
-	$checkin = $_POST['checkin'];
-	$checkout = $_POST['checkout'];
-?>
+
+session_start();
+
+$checkin = $_POST['checkin'];
+$checkout = $_POST['checkout'];
+
+$action = '';
+$redirect = true;
+
+if (isset($_POST['submit'])) {
+
+	$singlerooms = $_POST['singlerooms'];
+	$doublerooms = $_POST['doublerooms'];
+	$familyrooms = $_POST['familyrooms'];
+
+	include("config.php");
+
+	// Go through single rooms
+	if ($singlerooms > 0) {
+		$query = "
+		SELECT *
+		FROM rooms
+		WHERE type = 1
+		";
+		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
+			while($row = mysqli_fetch_assoc($result)){
+				echo $row[''];
+			}
+		} else {
+			echo "Tyvärr, det finns bara ".$num_rows." rum tillgängliga";
+		}
+	}
+	if ($doublerooms > 0) {
+		$query = "
+		SELECT *
+		FROM rooms
+		WHERE type = 2
+		";
+		if (mysqli_num_rows($result) > 0) {
+			while($row = mysqli_fetch_assoc($result)){
+
+			}
+		}
+	}
+	if ($familyrooms > 0) {
+		$query = "
+		SELECT *
+		FROM rooms
+		WHERE type = 3
+		";
+		if (mysqli_num_rows($result) > 0) {
+			while($row = mysqli_fetch_assoc($result)){
+
+			}
+		}
+	}
+	$result = mysqli_query($db, $query);
+
+	// Check if room is vacant
+
+}
+if(isset($redirect) && $redirect == "true") {
+  $action = "confirmation.php";
+} else {
+  $action = "#";
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +94,7 @@
 					<h2 style="text-align:center">Gästinformation</h2>
 				</div>
 
-				<form data-toggle="validator" role="form" action="confirmation.php" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
+				<form data-toggle="validator" role="form" action="<?php echo "$action"; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
 
 					<!-- Formulär -->
 					<div class="row">
@@ -98,7 +160,9 @@
 					<div id="errors"></div>
 					<div class="row">
 						<div class="form-group">
-							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" type="submit" value="Reservera rum" name="book">
+
+							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
+
 						</div>
 					</div>
 				</form>
