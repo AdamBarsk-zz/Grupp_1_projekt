@@ -401,7 +401,7 @@ margin-right: 0;
 }
 
 .margin-headline {
-  margin-top: 10vh !important;
+  margin-top: 5vh !important;
 }
 
 @media screen and (max-width: 767px) {
