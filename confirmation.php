@@ -115,7 +115,7 @@ if(isset($_POST['book'])) {
 	</div>
 </div>
 
-<div style="display: none;" id="thanksdiv" class="container-fluid main-cont">
+<div style="display: none;" id="bookeddiv" class="container-fluid main-cont">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 			<h1>Tack för din bokning!</h1>
