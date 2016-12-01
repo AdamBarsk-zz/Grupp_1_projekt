@@ -24,6 +24,27 @@
 ?>
 
   <!-- ADMIN LOGIN -->
+	<?php
+		include("config.php");
+
+		if (isset ($_POST['username'], $_POST['password'])){
+
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$query = "SELECT username, password FROM Users WHERE username = '".$username."' AND password = '".$password."'";
+
+			$result = mysqli_query($db, $query);
+
+			if(mysqli_num_rows($result) > 0){
+				$_SESSION['admin'] = TRUE;
+				header('Location: http://www.dengladageten.se');
+				exit();
+			} else {
+				echo '<h1 style="margin-top: 100px !important">Fel användarnamn eller lösenord</h1>';
+			}
+		}
+	?>
+	
 <div class="container">
   <div class="row">
     <div class="col-sm-12 welcome">
@@ -40,26 +61,6 @@
       </div>
         <input type="submit" value="Logga in" class="btn btn-default" style="margin-top: 25px"/>
       </form>
-      <?php
-        include("config.php");
-
-        if (isset ($_POST['username'], $_POST['password'])){
-
-          $username = $_POST['username'];
-          $password = $_POST['password'];
-          $query = "SELECT username, password FROM Users WHERE username = '".$username."' AND password = '".$password."'";
-
-          $result = mysqli_query($db, $query);
-
-          if(mysqli_num_rows($result) > 0){
-            $_SESSION['admin'] = TRUE;
-            header('Location: http://www.dengladageten.se');
-            exit();
-          } else {
-            echo '<h1 style="margin-top: 100px !important">Fel användarnamn eller lösenord</h1>';
-          }
-        }
-      ?>
     </div>
   </div>
 </div>
