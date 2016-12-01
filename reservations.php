@@ -206,9 +206,53 @@
 	</div>
 
 	<!-- FOOTER -->
-<?php
-	include("footer.php");
-?>
+  <div id="footer">
+  <div class="container-fluid footer">
+    <div class="row">
+      <?php if ($_SESSION['admin']):
+        echo "<p class='col-md-1 col-sm-1 footer-text'><a href='logout.php' class='footer-effect'>Logga ut</a></p>";
+        ?>
+      <?php else:
+        echo "<p class='col-md-1 col-sm-1 footer-text'><a href='login.php' class='footer-effect'>Admin</a></p>";
+        ?>
+      <?php endif; ?>
+
+
+
+      <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email:<a href="#" class="footer-effect" id="footer-mail">
+        <?php
+          include('config.php');
+          $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
+          $result = mysqli_query($db, $query);
+          $row = $result->fetch_row();
+          $text = (string)$row[0];
+          echo $text;
+        ?>
+      </a>
+      <?php
+        include('config.php');
+        $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
+        $result = mysqli_query($db, $query);
+        $row = $result->fetch_row();
+        $text = (string)$row[0];
+        echo "| Tel: ".$text;
+      ?>
+    </p>
+      <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
+        <!-- Social Media Logotypes -->
+        <a href="">
+          <img class="social-logo" src="images/icons/facebook.png" />
+        </a>
+        <a href="">
+          <img class="social-logo" src="images/icons/instagram.png" />
+        </a>
+        <a href="">
+          <img class="social-logo" src="images/icons/twitter.png" />
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 	<script src="scripts/script_reservations.js"></script>
 </body>
