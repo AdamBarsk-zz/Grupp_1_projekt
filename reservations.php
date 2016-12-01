@@ -161,6 +161,7 @@
                   <th>Önskemål</th>
                 </tr>
 
+
 								<?php
 									$query = "SELECT * FROM bookings WHERE check_in_date < '".$date."' AND check_out_date > '".$date."'";
 									$result = mysqli_query($db, $query);
