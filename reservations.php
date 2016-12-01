@@ -47,7 +47,7 @@
 
               <table>
                 <tr>
-                  <th>Reservation</th>
+                  <th>ID</th>
                   <th>Bokningsdatum</th>
                   <th>Incheckning</th>
                   <th>Utcheckning</th>
@@ -87,7 +87,7 @@
               <h3>Utcheckningar</h3>
               <table>
 								<tr>
-									<th>Reservationsnummer</th>
+									<th>ID</th>
 									<th>Bokningsdatum</th>
 									<th>Incheckning</th>
 									<th>Utcheckning</th>
@@ -126,7 +126,7 @@
 							<h3>Pågående vistelser</h3>
 							<table>
 								<tr>
-									<th>Reservationsnummer</th>
+									<th>ID</th>
 									<th>Bokningsdatum</th>
 									<th>Incheckning</th>
 									<th>Utcheckning</th>
