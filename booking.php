@@ -65,6 +65,7 @@ if(isset($redirect) && $redirect == "true") {
 } else {
   $action = "#";
 }
+?>
 <!DOCTYPE html>
 <html>
 <head>
