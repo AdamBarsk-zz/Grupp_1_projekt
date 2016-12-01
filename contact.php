@@ -35,7 +35,7 @@
                 echo $text;
               ?>
             </p>
-            <ul><br><br>
+            <ul>
               <li class="contact"><a href="#" class="admin" id="contact-adress">
                 <?php
                   include('config.php');

@@ -43,18 +43,30 @@
 				<p id="prices" class="admin">
 					<?php
 						include('config.php');
-						$query = 'SELECT text FROM HELA WHERE id = "prices"';
+						$query = 'SELECT price FROM rooms WHERE type = "1"';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
-						echo $text;
+						echo "Enkelrum: ".$text." kr per natt<br>";
+
+						$query = 'SELECT price FROM rooms WHERE type = "2"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo "Dubbelrum: ".$text." kr per natt<br>";
+
+						$query = 'SELECT price FROM rooms WHERE type = "3"';
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo "Familjerum: ".$text." kr per natt";
 					?>
 				</p>
 			</article>
 		</div>
 		<div class="row">
 			<article class="col-sm-12 welcome">
-				<h1>Events</h1>
+				<h1>Aktiviteter</h1>
 				<div class="col-sm-4">
 					<h3 id="activity1-headline" class="admin">
 						<?php

@@ -47,14 +47,14 @@
 
               <table>
                 <tr>
-                  <th>Reservation</th>
+                  <th>ID</th>
                   <th>Bokningsdatum</th>
+                  <th>Namn</th>
+                  <th>Email</th>
+                  <th>Telefon</th>
                   <th>Incheckning</th>
                   <th>Utcheckning</th>
                   <th>Rum</th>
-                  <th>Namn</th>
-                  <th>Email</th>
-                  <th>Telefonnummer</th>
                   <th>Önskemål</th>
                 </tr>
 								<?php
@@ -66,17 +66,29 @@
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
-  										<tr>
-  											<td>{$row['book_id']}</td>
-  											<td>{$row['book_date']}</td>
-  											<td>{$row['check_in_date']}</td>
-  											<td>{$row['check_out_date']}</td>
-  											<td>{$row['single_rooms_amount']}</td>
-  											<td>{$row['first_name']} {$row['last_name']}</td>
-  											<td>{$row['email']}</td>
-  											<td>{$row['phone_number']}</td>
-  											<td>{$row['requests']}</td>
-  										</tr>";
+    										<tr>
+    											<td>{$row['book_id']}</td>
+    											<td>{$row['book_date']}</td>
+                          <td>{$row['first_name']} {$row['last_name']}</td>
+                          <td>{$row['email']}</td>
+                          <td>{$row['phone_number']}</td>
+    											<td>{$row['check_in_date']}</td>
+    											<td>{$row['check_out_date']}</td>
+                          <td>";
+
+                        if ($row[double_rooms_amount] > 0) {
+                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        }
+                        if ($row[single_rooms_amount] > 0) {
+                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        }
+                        if ($row[family_rooms_amount] > 0) {
+                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        }
+  										echo "
+                          </td>
+                          <td>{$row['requests']}</td>
+    										</tr>";
                     }
 									} else {
                     echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
@@ -86,17 +98,17 @@
 
               <h3>Utcheckningar</h3>
               <table>
-								<tr>
-									<th>Reservationsnummer</th>
-									<th>Bokningsdatum</th>
-									<th>Incheckning</th>
-									<th>Utcheckning</th>
-									<th>Rum</th>
-									<th>Namn</th>
-									<th>Email</th>
-									<th>Telefonnummer</th>
-									<th>Önskemål</th>
-								</tr>
+                <tr>
+                  <th>ID</th>
+                  <th>Bokningsdatum</th>
+                  <th>Namn</th>
+                  <th>Email</th>
+                  <th>Telefon</th>
+                  <th>Incheckning</th>
+                  <th>Utcheckning</th>
+                  <th>Rum</th>
+                  <th>Önskemål</th>
+                </tr>
 
 								<?php
 									$query = "SELECT * FROM bookings WHERE check_out_date = '".$date."'";
@@ -105,17 +117,29 @@
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
-  										<tr>
-  											<td>{$row['book_id']}</td>
-  											<td>{$row['book_date']}</td>
-  											<td>{$row['check_in_date']}</td>
-  											<td>{$row['check_out_date']}</td>
-  											<td>{$row['single_rooms_amount']}</td>
-  											<td>{$row['first_name']} {$row['last_name']}</td>
-  											<td>{$row['email']}</td>
-  											<td>{$row['phone_number']}</td>
-  											<td>{$row['requests']}</td>
-  										</tr>";
+    										<tr>
+    											<td>{$row['book_id']}</td>
+    											<td>{$row['book_date']}</td>
+                          <td>{$row['first_name']} {$row['last_name']}</td>
+                          <td>{$row['email']}</td>
+                          <td>{$row['phone_number']}</td>
+    											<td>{$row['check_in_date']}</td>
+    											<td>{$row['check_out_date']}</td>
+                          <td>";
+
+                        if ($row[double_rooms_amount] > 0) {
+                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        }
+                        if ($row[single_rooms_amount] > 0) {
+                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        }
+                        if ($row[family_rooms_amount] > 0) {
+                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        }
+  										echo "
+                          </td>
+                          <td>{$row['requests']}</td>
+    										</tr>";
                     }
 									} else {
                     echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
@@ -125,17 +149,18 @@
 
 							<h3>Pågående vistelser</h3>
 							<table>
-								<tr>
-									<th>Reservationsnummer</th>
-									<th>Bokningsdatum</th>
-									<th>Incheckning</th>
-									<th>Utcheckning</th>
-									<th>Rum</th>
-									<th>Namn</th>
-									<th>Email</th>
-									<th>Telefonnummer</th>
-									<th>Önskemål</th>
-								</tr>
+                <tr>
+                  <th>ID</th>
+                  <th>Bokningsdatum</th>
+                  <th>Namn</th>
+                  <th>Email</th>
+                  <th>Telefon</th>
+                  <th>Incheckning</th>
+                  <th>Utcheckning</th>
+                  <th>Rum</th>
+                  <th>Önskemål</th>
+                </tr>
+
 
 								<?php
 									$query = "SELECT * FROM bookings WHERE check_in_date < '".$date."' AND check_out_date > '".$date."'";
@@ -144,17 +169,29 @@
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
-  										<tr>
-  											<td>{$row['book_id']}</td>
-  											<td>{$row['book_date']}</td>
-  											<td>{$row['check_in_date']}</td>
-  											<td>{$row['check_out_date']}</td>
-  											<td>{$row['single_rooms_amount']}</td>
-  											<td>{$row['first_name']} {$row['last_name']}</td>
-  											<td>{$row['email']}</td>
-  											<td>{$row['phone_number']}</td>
-  											<td>{$row['requests']}</td>
-  										</tr>";
+    										<tr>
+    											<td>{$row['book_id']}</td>
+    											<td>{$row['book_date']}</td>
+                          <td>{$row['first_name']} {$row['last_name']}</td>
+                          <td>{$row['email']}</td>
+                          <td>{$row['phone_number']}</td>
+    											<td>{$row['check_in_date']}</td>
+    											<td>{$row['check_out_date']}</td>
+                          <td>";
+
+                        if ($row[double_rooms_amount] > 0) {
+                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        }
+                        if ($row[single_rooms_amount] > 0) {
+                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        }
+                        if ($row[family_rooms_amount] > 0) {
+                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        }
+  										echo "
+                          </td>
+                          <td>{$row['requests']}</td>
+    										</tr>";
                     }
 									} else {
                     echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
@@ -182,14 +219,14 @@
 
 
 
-      <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">Email:<a href="#" class="footer-effect" id="footer-mail">
+      <p class="col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 footer-text" id="footer-phone">
         <?php
           include('config.php');
           $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
           $result = mysqli_query($db, $query);
           $row = $result->fetch_row();
           $text = (string)$row[0];
-          echo $text;
+          echo "Email: <a href='mailto:".$text."' class='footer-effect' id='footer-mail'>".$text;
         ?>
       </a>
       <?php
@@ -216,7 +253,6 @@
       </div>
     </div>
   </div>
-
 
 	<script src="scripts/script_reservations.js"></script>
 </body>
