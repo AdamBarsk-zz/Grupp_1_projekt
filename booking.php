@@ -1,5 +1,5 @@
-<?php 
-	session_start(); 
+<?php
+	session_start();
 	$checkin = $_POST['checkin'];
 	$checkout = $_POST['checkout'];
 ?>
@@ -50,7 +50,7 @@
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="1" min="0" max="4">
+							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="1" min="0" max="3">
 						</div>
 
 						<div class="form-group">
@@ -60,7 +60,7 @@
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="0" min="0" max="2">
+							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="0" min="0" max="3">
 						</div>
 					</div>
 
