@@ -39,11 +39,14 @@ var date = new Date();
 var day = date.getDate();
 var tomorrow = date.getDate() + 1;
 var month = date.getMonth() + 1;
+var tomorrowMonth = date.getMonth() + 1;
 var year = date.getFullYear();
 
 if (month < 10) month = "0" + month;
 if (day < 10) day = "0" + day;
+if (tomorrowMonth < 10) tomorrowMonth = "0" + tomorrowMonth;
 if (tomorrow < 10) tomorrow = "0" + tomorrow;
+
 
 var today = year + "-" + month + "-" + day;
 var tomorrow = year + "-" + month + "-" + tomorrow;
