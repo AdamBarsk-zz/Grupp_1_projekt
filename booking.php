@@ -1,6 +1,23 @@
 <?php
 
 session_start();
+include("config.php");
+
+$query = "SELECT price FROM singleroom";
+$result = mysqli_query($db, $query);
+$row = $result->fetch_row();
+$singlePrice = (string)$row[0];
+
+$query = "SELECT price FROM doubleroom";
+$result = mysqli_query($db, $query);
+$row = $result->fetch_row();
+$doublePrice = (string)$row[0];
+
+$query = "SELECT price FROM familyroom";
+$result = mysqli_query($db, $query);
+$row = $result->fetch_row();
+$familyPrice = (string)$row[0];
+
 
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
@@ -14,15 +31,9 @@ if (isset($_POST['submit'])) {
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
 
-	include("config.php");
-
 	// Go through single rooms
 	if ($singlerooms > 0) {
-		$query = "
-		SELECT *
-		FROM rooms
-		WHERE type = 1
-		";
+		$query = "SELECT * FROM singleroom";
 		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
 			while($row = mysqli_fetch_assoc($result)){
 				echo $row[''];
@@ -32,11 +43,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
 	if ($doublerooms > 0) {
-		$query = "
-		SELECT *
-		FROM rooms
-		WHERE type = 2
-		";
+		$query = "SELECT * FROM doubleroom";
 		if (mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)){
 
@@ -44,11 +51,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
 	if ($familyrooms > 0) {
-		$query = "
-		SELECT *
-		FROM rooms
-		WHERE type = 3
-		";
+		$query = "SELECT * FROM familyroom";
 		if (mysqli_num_rows($result) > 0) {
 			while($row = mysqli_fetch_assoc($result)){
 
@@ -181,6 +184,18 @@ if (isset($_SESSION['admin'])) {
 }
 ?>
 	<script src="scripts/script_booking.js"></script>
+	<?php
+
+	echo "
+	$('.rooms').click() {
+	    var singleTot = $singlePrice * $('#singlerooms').val();
+	    var doubleTot = $doublePrice * $('#doublerooms').val();
+	    var familyTot = $familyPrice * $('#familyrooms').val();
+
+	    var totalPrice = singleTot + doubleTot + familyTot;
+	});
+	"
+	?>
 </body>
 
 </html>
