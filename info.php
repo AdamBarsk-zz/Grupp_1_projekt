@@ -43,19 +43,19 @@
 				<p id="prices" class="admin">
 					<?php
 						include('config.php');
-						$query = 'SELECT price FROM rooms WHERE type = "1"';
+						$query = 'SELECT price FROM singleroom';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
 						echo "Enkelrum: ".$text." kr per natt<br>";
 
-						$query = 'SELECT price FROM rooms WHERE type = "2"';
+						$query = 'SELECT price FROM doubleroom';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
 						echo "Dubbelrum: ".$text." kr per natt<br>";
 
-						$query = 'SELECT price FROM rooms WHERE type = "3"';
+						$query = 'SELECT price FROM familyroom';
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
