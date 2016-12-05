@@ -8,7 +8,7 @@
 
 html {
   position: relative;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: #444444;
-    margin: 0 0 70px;
+    margin: 0 0 150px;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 15px;
   margin-top: 0px;
 }
+
 .bigr {
   font-size: 72px;
 }
@@ -83,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     padding: 2%;
-    margin-top: 7vh;
+    margin-top: 10vh;
 }
 
 .welcome h3 {
@@ -274,11 +275,11 @@ left: 0;
 
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
-    background-color: #e6ffe6;
+    background-color: silver;
 }
 
 .ui-datepicker {
-  width: 216px;
+  width: 220px;
   height: auto;
   margin: 5px auto;
   font: Arial, sans-serif;
@@ -325,7 +326,7 @@ left: 0;
 
 .ui-datepicker-next {
   float: right;
-  background-position: center 0;
+  background-position: center 0px;
 }
 
 .ui-datepicker thead {
@@ -342,11 +343,11 @@ left: 0;
 
 .ui-datepicker tbody td {
     padding: 0;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid black;
 }
 
 .ut-datepicker tbody td:last-child {
-  border-right: 0;
+  border-right: 0px;
 }
 
 .ui-datepicker tbody tr {
@@ -354,7 +355,7 @@ left: 0;
 }
 
 .ui-datepicker tbody tr:last-child {
-  border-bottom: 0;
+  border-bottom: 0px;
 }
 
 .ui-datepicker td span, .ui-datepicker td a {
@@ -383,8 +384,8 @@ left: 0;
 }
 
 .ui-datepicker-calendar td:last-child .ui-state-active {
-width: 29px;
-margin-right: 0;
+  width: 29px;
+  margin-left: 0;
 }
 
 .ui-datepicker-calendar tr:last-child .ui-state-active {
@@ -401,7 +402,7 @@ margin-right: 0;
 }
 
 .margin-headline {
-  margin-top: 5vh !important;
+  margin-top: 10vh !important;
 }
 
 @media screen and (max-width: 767px) {

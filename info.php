@@ -43,11 +43,23 @@
 				<p id="prices" class="admin">
 					<?php
 						include('config.php');
-						$query = 'SELECT text FROM HELA WHERE id = "prices"';
+						$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'singleroom'";
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
-						echo $text;
+						echo "Enkelrum: ".$text." kr per natt<br>";
+
+						$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'doubleroom'";
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo "Dubbelrum: ".$text." kr per natt<br>";
+
+						$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'familyroom'";
+						$result = mysqli_query($db, $query);
+						$row = $result->fetch_row();
+						$text = (string)$row[0];
+						echo "Familjerum: ".$text." kr per natt";
 					?>
 				</p>
 			</article>
