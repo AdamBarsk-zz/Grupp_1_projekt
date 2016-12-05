@@ -3,17 +3,17 @@
 session_start();
 include("config.php");
 
-$query = "SELECT price FROM singleroom";
+$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'singleroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $singlePrice = (string)$row[0];
 
-$query = "SELECT price FROM doubleroom";
+$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'doubleroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $doublePrice = (string)$row[0];
 
-$query = "SELECT price FROM familyroom";
+$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'familyroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $familyPrice = (string)$row[0];
@@ -25,50 +25,50 @@ $checkout = $_POST['checkout'];
 $action = '';
 $redirect = true;
 
-if (isset($_POST['submit'])) {
-
-	$singlerooms = $_POST['singlerooms'];
-	$doublerooms = $_POST['doublerooms'];
-	$familyrooms = $_POST['familyrooms'];
-
-	// Go through single rooms
-	if ($singlerooms > 0) {
-		$query = "SELECT * FROM singleroom";
-		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-			while($row = mysqli_fetch_assoc($result)){
-				echo $row[''];
-			}
-		} else {
-			echo "Tyvärr, det finns bara ".$num_rows." rum tillgängliga";
-		}
-	}
-	if ($doublerooms > 0) {
-		$query = "SELECT * FROM doubleroom";
-		if (mysqli_num_rows($result) > 0) {
-			while($row = mysqli_fetch_assoc($result)){
-
-			}
-		}
-	}
-	if ($familyrooms > 0) {
-		$query = "SELECT * FROM familyroom";
-		if (mysqli_num_rows($result) > 0) {
-			while($row = mysqli_fetch_assoc($result)){
-
-			}
-		}
-	}
-	$result = mysqli_query($db, $query);
-
-	// Check if room is vacant
-
-}
-if(isset($redirect) && $redirect == "true") {
-  $action = "confirmation.php";
-} else {
-  $action = "#";
-}
-?>
+// if (isset($_POST['submit'])) {
+//
+// 	$singlerooms = $_POST['singlerooms'];
+// 	$doublerooms = $_POST['doublerooms'];
+// 	$familyrooms = $_POST['familyrooms'];
+//
+// 	// Go through single rooms
+// 	if ($singlerooms > 0) {
+// 		$query = "SELECT * FROM Room_type WHERE typeOfRoom = 'singleroom'";
+// 		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
+// 			while($row = mysqli_fetch_assoc($result)){
+// 				echo $row[''];
+// 			}
+// 		} else {
+// 			echo "Tyvärr, det finns bara ".$num_rows." rum tillgängliga";
+// 		}
+// 	}
+// 	if ($doublerooms > 0) {
+// 		$query = "SELECT * FROM Room_type WHERE typeOfRoom = 'doubleroom'";
+// 		if (mysqli_num_rows($result) > 0) {
+// 			while($row = mysqli_fetch_assoc($result)){
+//
+// 			}
+// 		}
+// 	}
+// 	if ($familyrooms > 0) {
+// 		$query = "SELECT * FROM Room_type WHERE typeOfRoom = 'familyroom'";
+// 		if (mysqli_num_rows($result) > 0) {
+// 			while($row = mysqli_fetch_assoc($result)){
+//
+// 			}
+// 		}
+// 	}
+// 	$result = mysqli_query($db, $query);
+//
+// 	// Check if room is vacant
+//
+// }
+// if(isset($redirect) && $redirect == "true") {
+//   $action = "confirmation.php";
+// } else {
+//   $action = "#";
+// }
+// ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -162,9 +162,13 @@ if(isset($redirect) && $redirect == "true") {
 					</div>
 
 					<div id="errors"></div>
+
+					<div style="margin-top: 1vh">
+						<p id="price" style='font-size: 2rem; font-weight: bold;'><p>
+					</div>
+
 					<div class="row">
 						<div class="form-group">
-
 							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
 
 						</div>
@@ -185,16 +189,23 @@ if (isset($_SESSION['admin'])) {
 ?>
 	<script src="scripts/script_booking.js"></script>
 	<?php
+	echo "<script>
 
-	echo "
-	$('.rooms').click() {
+		$(document).ready(calcPrice);
+		$('.rooms').click(calcPrice);
+
+	 function calcPrice() {
 	    var singleTot = $singlePrice * $('#singlerooms').val();
 	    var doubleTot = $doublePrice * $('#doublerooms').val();
 	    var familyTot = $familyPrice * $('#familyrooms').val();
 
 	    var totalPrice = singleTot + doubleTot + familyTot;
-	});
-	"
+
+			$('#price').html('Ditt pris: ' + totalPrice + ' kr');
+	};
+
+	</script>
+	";
 	?>
 </body>
 
