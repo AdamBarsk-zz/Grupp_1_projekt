@@ -14,41 +14,53 @@ $email = $_POST['email'];
 $phonenumber = $_POST['phonenumber'];
 $requests = $_POST['requests'];
 
-include("mail.php");
-
 if(isset($_POST['book'])) {
+
+	// Create mail
+	include("mail.php");
 	mail($to, $subject, $message, $headers);
+
+	// Connect to database
 	include("config.php");
-	$query = "INSERT INTO bookings (
-	book_date,
-	check_in_date,
-	check_out_date,
-	single_rooms_amount,
-	double_rooms_amount,
-	family_rooms_amount,
-	first_name,
-	last_name,
-	email,
-	phone_number,
-	requests )
+
+	// Save reservation
+	$query = "
+	INSERT INTO Reservation (
+	dateCreated,
+	checkIn,
+	checkOut,
+	requests 
+	)
 	VALUES (
 	'$currenttime',
 	'$checkin',
 	'$checkout',
-	'$singlerooms',
-	'$doublerooms',
-	'$familyrooms',
+	'$firstname',
+	'$requests' 
+	)";
+
+	mysqli_query($db, $query);
+
+	// Save guest
+	$query = "
+	INSERT INTO Guest (
+	firstName,
+	lastName,
+	email,
+	phoneNumber
+	)
+	VALUES (
 	'$firstname',
 	'$lastname',
 	'$email',
-	'$phonenumber',
-	'$requests' )";
+	'$phonenumber'
+	)";
+
 	mysqli_query($db, $query);
 }
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Bekräftelse</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8" />
@@ -58,19 +70,17 @@ if(isset($_POST['book'])) {
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
 </head>
-
 <body>
+
 	<!-- NAVBAR -->
-	<?php
-	include('nav.php');
-	?>
+	<?php include('nav.php'); ?>
 
 	<!-- Content -->
 	<div id="bookingdiv" class="container-fluid main-cont">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
 				<h2 for="" style="text-align:center">Bekräftelse</h2>
-				<form>
+				<form method="post" onsubmit="return submit()">
 					<div class="form-group">
 						<label>Incheckningsdatum:</label>
 						<p><?php echo "$checkin"; ?></p>
@@ -107,14 +117,13 @@ if(isset($_POST['book'])) {
 						<label>Önskemål:</label>
 						<p><?php echo "$requests"; ?></p>
 					</div>
-					<a type="submit" class="btn btn-lg btn-block btn-success" name="book" onclick="submit()">Reservera rum</a>
+					<input type="submit" class="btn btn-lg btn-block btn-success" name="book" value="Reservera rum">
 					<a onclick="abort()" type="submit" class="btn btn-lg btn-block btn-danger">Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-
 <div style="display: none;" id="bookeddiv" class="container-fluid main-cont">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome">
@@ -144,5 +153,4 @@ if (isset($_SESSION['admin'])) {
 ?>
 <script src="scripts/script_confirmation.js"></script>
 </body>
-
 </html>
