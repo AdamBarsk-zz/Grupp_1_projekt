@@ -24,7 +24,6 @@
 	<div id="black"></div>
 
 	<!--Picture container when img is zoomed -->
-
 	<div id="white">
 	</div>
 
@@ -33,10 +32,9 @@
 		<div class="container " id="preview">
 			<div class="row">
 				<div class="col-md-12 picture-gallery">
-					<?php 
+					<?php
 						include('img_download.php');
 					?>
-					<!--<img src="images/19.jpg" class="img-rounded flashy">-->
 				</div>
 			</div>
 		</div>
@@ -46,14 +44,14 @@
 	<?php
 		include('footer.php');
 	?>
+
 	<?php
 	if (isset($_SESSION['admin'])) {
 		echo '<script src="/scripts/script_change.js" type="text/javascript"></script>';
 	}
 	?>
+
 <script src="scripts/script_gallery.js"></script>
 
-
 </body>
-
 </html>
