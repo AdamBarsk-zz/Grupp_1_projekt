@@ -55,7 +55,7 @@
 					<h3>Boka nu</h3>
 				</div>
 				<div class="row">
-				<form action="booking.php" style="text-align: center"class="form-inline col-sm-12" id="booking" autocomplete="off" method="post">
+				<form action="booking.php" style="text-align: center" class="form-inline col-sm-12" id="booking" autocomplete="off" method="post">
 					<div class="form-group" id="check-in">
 						<label for="check-in-date" class="book-start">Incheckning</label><br />
 						<input type="text" class="form-control center-date" id="check-in-date" name="checkin" />
