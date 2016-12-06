@@ -35,36 +35,26 @@ if (isset($_POST['submit'])) {
 
 	// Go through rooms
 	if ($singlerooms > 0) {
-		// $query = "SELECT * FROM singleroom";
-		// if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-		// 	while($row = mysqli_fetch_assoc($result)){
-		// 		echo $row[''];
-		// 	}
-		// } else {
-		// 	echo "Tyvärr, det finns bara ".$num_rows." rum tillgängliga";
-		// }
+
+		$query = "
+		SELECT * 
+		FROM Room_type
+		WHERE typeOfRoom = 'singleroom'
+		AND currentlyFree = 1;
+		";
+
+		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
+			while($row = mysqli_fetch_assoc($result)){
+				echo $row['roomType_id'];
+			}
+		} else {
+			echo "";
+		}
+
+		for ($i = 0; $i < $singlerooms; $i++) { 
+			// Make reservation for each room
+		}
 	}
-	if ($doublerooms > 0) {
-		// $query = "SELECT * FROM doubleroom";
-		// if (mysqli_num_rows($result) > 0) {
-		// 	while($row = mysqli_fetch_assoc($result)){
-
-		// 	}
-		// }
-	}
-	if ($familyrooms > 0) {
-		// $query = "SELECT * FROM familyroom";
-		// if (mysqli_num_rows($result) > 0) {
-		// 	while($row = mysqli_fetch_assoc($result)){
-
-		// 	}
-		// }
-	}
-
-	// $result = mysqli_query($db, $query);
-
-	// Check if room is vacant
-
 }
 if(isset($redirect) && $redirect == "true") {
   $action = "confirmation.php";
