@@ -1,6 +1,6 @@
 <?php
 $dir = "images/uploads/*";
-foreach(glob($dir) as $file)   {   
+foreach(glob($dir, GLOB_NOSORT) as $file)   {   
 
 	if (isset($_SESSION['admin'])) {
 	
