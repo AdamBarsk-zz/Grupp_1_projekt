@@ -70,7 +70,7 @@ if(isset($_POST['book'])) {
 	if ($singlerooms > 0) {
 
 		$query = "
-		SELECT @roomType_id:=id as roomType_id
+		SELECT roomType_id
 		FROM Room_type
 		WHERE typeOfRoom = 'singleroom'
 		AND currentlyFree = 1
@@ -78,11 +78,8 @@ if(isset($_POST['book'])) {
 		";
 
 		$result = mysqli_query($db, $query);
-		$row = mysqli_fetch_assoc($result);
-
-		echo "
-		<h1>Rummet som har bokats är: $roomType_id</h1>
-		";
+		$row = mysqli_fetch_row($result);
+		$roomType_id = $row[0];
 
 		// Save reservation
 		$query = "
@@ -104,8 +101,6 @@ if(isset($_POST['book'])) {
 		)";
 
 		mysqli_query($db, $query);
-
-		printf("Errormessage: %s\n", mysqli_error($db));
 	}
 }
 
