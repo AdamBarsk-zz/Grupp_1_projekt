@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 	}
 }
 if(isset($redirect) && $redirect == "true") {
-  $action = "#";
+  $action = "confirmation.php";
 } else {
   $action = "#";
 }

@@ -14,6 +14,21 @@ $email = $_POST['email'];
 $phonenumber = $_POST['phonenumber'];
 $requests = $_POST['requests'];
 
+echo "
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bekräftelse</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' charset='utf-8' />
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+	<link rel='stylesheet' type='text/css' href='styles.css' />
+	<script src='http://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>
+	<link href='https://fonts.googleapis.com/css?family=Lato|Pacifico' rel='stylesheet'>
+</head>
+<body>
+";
+
 if(isset($_POST['book'])) {
 
 	$firstname = $_POST['firstname'];
@@ -51,25 +66,6 @@ if(isset($_POST['book'])) {
 
 	$guestid = mysqli_insert_id($db);
 
-	// Save reservation
-	$query = "
-	INSERT INTO Reservation (
-	dateCreated,
-	checkIn,
-	checkOut,
-	guest_id,
-	requests
-	)
-	VALUES (
-	'$currenttime',
-	'$checkin',
-	'$checkout',
-	 $guestid,
-	'$requests' 
-	)";
-
-	mysqli_query($db, $query);
-
 	// Go through rooms
 	if ($singlerooms > 0) {
 
@@ -81,38 +77,38 @@ if(isset($_POST['book'])) {
 		";
 
 		$result = mysqli_query($db, $query);
+		$roomType_id = mysqli_insert_id($db);
+		$row = mysqli_fetch_assoc($result);
 
-		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-			while($row = mysqli_fetch_assoc($result)){
-				echo "
-				<h1>{$row['roomType_id']}</h1>
-				";
-			}
-			$redirect = false;
-		} else {
-			echo "";
-		}
+		echo "
+		Rummet som har bokats är:
+		<h1>$roomType_id</h1>
+		";
 
-		for ($i = 0; $i < $singlerooms; $i++) { 
-			// Make reservation for each room
-		}
+		// Save reservation
+		$query = "
+		INSERT INTO Reservation (
+		dateCreated,
+		checkIn,
+		checkOut,
+		guest_id,
+		requests,
+		roomType_id
+		)
+		VALUES (
+		'$currenttime',
+		'$checkin',
+		'$checkout',
+		 $guestid,
+		'$requests',
+		 $roomType_id
+		)";
+
+		mysqli_query($db, $query);
+
+		printf("Errormessage: %s\n", mysqli_error($db));
 	}
 }
-
-echo "
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Bekräftelse</title>
-	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' charset='utf-8' />
-	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
-	<link rel='stylesheet' type='text/css' href='styles.css' />
-	<script src='http://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>
-	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>
-	<link href='https://fonts.googleapis.com/css?family=Lato|Pacifico' rel='stylesheet'>
-</head>
-<body>
-";
 
 // Navbar
 include('nav.php');
