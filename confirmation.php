@@ -58,7 +58,7 @@ if(isset($_POST['book'])) {
 	checkIn,
 	checkOut,
 	guest_id,
-	requests 
+	requests
 	)
 	VALUES (
 	'$currenttime',
@@ -69,6 +69,34 @@ if(isset($_POST['book'])) {
 	)";
 
 	mysqli_query($db, $query);
+
+	// Go through rooms
+	if ($singlerooms > 0) {
+
+		$query = "
+		SELECT * 
+		FROM Room_type
+		WHERE typeOfRoom = 'singleroom'
+		AND currentlyFree = 1
+		";
+
+		$result = mysqli_query($db, $query);
+
+		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
+			while($row = mysqli_fetch_assoc($result)){
+				echo "
+				<h1>{$row['roomType_id']}</h1>
+				";
+			}
+			$redirect = false;
+		} else {
+			echo "";
+		}
+
+		for ($i = 0; $i < $singlerooms; $i++) { 
+			// Make reservation for each room
+		}
+	}
 }
 
 echo "

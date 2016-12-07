@@ -33,22 +33,27 @@ if (isset($_POST['submit'])) {
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
 
-	// Go through rooms
+	// Look for vacant room
 	if ($singlerooms > 0) {
-
 		$query = "
 		SELECT * 
 		FROM Room_type
 		WHERE typeOfRoom = 'singleroom'
-		AND currentlyFree = 1;
+		AND currentlyFree = 1
+		LIMIT 1
 		";
 
+		$result = mysqli_query($db, $query);
+
 		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-			while($row = mysqli_fetch_assoc($result)){
-				echo $row['roomType_id'];
+			while($row = mysqli_fetch_assoc($result)) {
+				echo "
+				<h1>{$row['roomType_id']}</h1>
+				";
 			}
+			$redirect = false;
 		} else {
-			echo "";
+			echo "Det finns inte så många lediga rum.";
 		}
 
 		for ($i = 0; $i < $singlerooms; $i++) { 
@@ -57,7 +62,7 @@ if (isset($_POST['submit'])) {
 	}
 }
 if(isset($redirect) && $redirect == "true") {
-  $action = "confirmation.php";
+  $action = "#";
 } else {
   $action = "#";
 }
@@ -164,7 +169,6 @@ if(isset($redirect) && $redirect == "true") {
 					<div class="row">
 						<div class="form-group">
 							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
-
 						</div>
 					</div>
 				</form>
