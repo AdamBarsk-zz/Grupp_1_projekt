@@ -190,9 +190,9 @@ if (isset($_SESSION['admin'])) {
 	echo "<script>
 
 		$(document).ready(calcPrice);
-		$('.rooms').click(calcPrice);
-		$('#checkin').click(calcPrice);
-		$('#checkout').click(calcPrice);
+		$('.rooms').change(calcPrice);
+		$('#checkin').change(calcPrice);
+		$('#checkout').change(calcPrice);
 
 		function calcNights() {
 			var day = 1000 * 60 * 60 * 24;
