@@ -31,15 +31,6 @@ echo "
 
 if(isset($_POST['book'])) {
 
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$email = $_POST['email'];
-	$phonenumber = $_POST['phonenumber'];
-
-	$checkin = $_POST['checkin'];
-	$checkout = $_POST['checkout'];
-	$requests = $_POST['requests'];
-
 	// Create mail
 	include("mail.php");
 	mail($to, $subject, $message, $headers);
@@ -47,7 +38,7 @@ if(isset($_POST['book'])) {
 	// Connect to database
 	include("config.php");
 
-	// Save guest
+	// Save guest once
 	$query = "
 	INSERT INTO Guest (
 	firstName,
@@ -66,41 +57,155 @@ if(isset($_POST['book'])) {
 
 	$guestid = mysqli_insert_id($db);
 
-	// Go through rooms
 	if ($singlerooms > 0) {
 
-		$query = "
-		SELECT roomType_id
-		FROM Room_type
-		WHERE typeOfRoom = 'singleroom'
-		AND currentlyFree = 1
-		LIMIT 1
-		";
+		// Create a reservaton for each room
+		for ($i=0; $i < $singlerooms; $i++) { 
 
-		$result = mysqli_query($db, $query);
-		$row = mysqli_fetch_row($result);
-		$roomType_id = $row[0];
+			// Get vacant room
+			$query = "
+			SELECT roomType_id
+			FROM Room_type
+			WHERE typeOfRoom = 'singleroom'
+			AND currentlyFree = 1
+			LIMIT 1
+			";
 
-		// Save reservation
-		$query = "
-		INSERT INTO Reservation (
-		dateCreated,
-		checkIn,
-		checkOut,
-		guest_id,
-		requests,
-		roomType_id
-		)
-		VALUES (
-		'$currenttime',
-		'$checkin',
-		'$checkout',
-		 $guestid,
-		'$requests',
-		 $roomType_id
-		)";
+			// Get room id
+			$result = mysqli_query($db, $query);
+			$row = mysqli_fetch_row($result);
+			$roomType_id = $row[0];
 
-		mysqli_query($db, $query);
+			// Insert reservation with room id and guest id
+			$query = "
+			INSERT INTO Reservation (
+			dateCreated,
+			checkIn,
+			checkOut,
+			guest_id,
+			requests,
+			roomType_id
+			)
+			VALUES (
+			'$currenttime',
+			'$checkin',
+			'$checkout',
+			 $guestid,
+			'$requests',
+			 $roomType_id
+			)";
+
+			mysqli_query($db, $query);
+
+			// Make room occupied
+			$query = "
+			UPDATE Room_type
+			SET currentlyFree = 0
+			WHERE roomType_id = $roomType_id;
+			";
+
+			mysqli_query($db, $query);
+		}
+	}
+	if ($doublerooms > 0) {
+
+		// Create a reservaton for each room
+		for ($i=0; $i < $doublerooms; $i++) { 
+
+			// Get vacant room
+			$query = "
+			SELECT roomType_id
+			FROM Room_type
+			WHERE typeOfRoom = 'doubleroom'
+			AND currentlyFree = 1
+			LIMIT 1
+			";
+
+			// Get room id
+			$result = mysqli_query($db, $query);
+			$row = mysqli_fetch_row($result);
+			$roomType_id = $row[0];
+
+			// Insert reservation with room id and guest id
+			$query = "
+			INSERT INTO Reservation (
+			dateCreated,
+			checkIn,
+			checkOut,
+			guest_id,
+			requests,
+			roomType_id
+			)
+			VALUES (
+			'$currenttime',
+			'$checkin',
+			'$checkout',
+			 $guestid,
+			'$requests',
+			 $roomType_id
+			)";
+
+			mysqli_query($db, $query);
+
+			// Make room occupied
+			$query = "
+			UPDATE Room_type
+			SET currentlyFree = 0
+			WHERE roomType_id = $roomType_id;
+			";
+
+			mysqli_query($db, $query);
+		}
+	}
+	if ($familyrooms > 0) {
+
+		// Create a reservaton for each room
+		for ($i=0; $i < $familyrooms; $i++) { 
+
+			// Get vacant room
+			$query = "
+			SELECT roomType_id
+			FROM Room_type
+			WHERE typeOfRoom = 'familyroom'
+			AND currentlyFree = 1
+			LIMIT 1
+			";
+
+			// Get room id
+			$result = mysqli_query($db, $query);
+			$row = mysqli_fetch_row($result);
+			$roomType_id = $row[0];
+
+			// Insert reservation with room id and guest id
+			$query = "
+			INSERT INTO Reservation (
+			dateCreated,
+			checkIn,
+			checkOut,
+			guest_id,
+			requests,
+			roomType_id
+			)
+			VALUES (
+			'$currenttime',
+			'$checkin',
+			'$checkout',
+			 $guestid,
+			'$requests',
+			 $roomType_id
+			)";
+
+			mysqli_query($db, $query);
+
+			// Make room occupied
+			$query = "
+			UPDATE Room_type
+			SET currentlyFree = 0
+			WHERE roomType_id = $roomType_id;
+			";
+
+			mysqli_query($db, $query);
+		}
 	}
 }
 
@@ -166,24 +271,30 @@ echo "
 			</form>
 		</div>
 	</div>
-</div>
-<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
-	<div class='row'>
-		<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
-			<h1>Tack för din bokning!</h1>
-			<p>Du kommer nu att omdirigeras till startsidan</p>
+</div>";
+if (isset($_POST['book'])) {
+	echo "
+		<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
+			<div class='row'>
+				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
+					<h1>Tack för din bokning!</h1>
+					<p>Du kommer nu att omdirigeras till startsidan</p>
+				</div>
+			</div>
+		</div>
+	";
+} else {
+	echo "
+		<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
+		<div class='row'>
+			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
+				<h1>Bokning avbruten</h1>
+				<p>Du kommer nu att omdirigeras till startsidan</p>
+			</div>
 		</div>
 	</div>
-</div>
-<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
-	<div class='row'>
-		<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
-			<h1>Bokning avbruten</h1>
-			<p>Du kommer nu att omdirigeras till startsidan</p>
-		</div>
-	</div>
-</div>
-";
+	";
+}
 
 include("footer.php");
 

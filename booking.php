@@ -191,11 +191,24 @@ if (isset($_SESSION['admin'])) {
 
 		$(document).ready(calcPrice);
 		$('.rooms').click(calcPrice);
+		$('#checkin').click(calcPrice);
+		$('#checkout').click(calcPrice);
 
-	 function calcPrice() {
-	    var singleTot = $singlePrice * $('#singlerooms').val();
-	    var doubleTot = $doublePrice * $('#doublerooms').val();
-	    var familyTot = $familyPrice * $('#familyrooms').val();
+		function calcNights() {
+			var day = 1000 * 60 * 60 * 24;
+
+			var checkin = Date.parse($('#checkin').val());
+			var checkout = Date.parse($('#checkout').val());
+
+			return Math.round((checkout - checkin) / day);
+		}
+
+	 	function calcPrice() {
+			numNights = calcNights();
+
+	    var singleTot = $singlePrice * $('#singlerooms').val() * numNights;
+	    var doubleTot = $doublePrice * $('#doublerooms').val() * numNights;
+	    var familyTot = $familyPrice * $('#familyrooms').val() * numNights;
 
 	    var totalPrice = singleTot + doubleTot + familyTot;
 
