@@ -60,7 +60,7 @@
 								<?php
                   include('config.php');
                   $date = $_POST['reservation-date'];
-									$query = "SELECT * FROM bookings WHERE check_in_date = '".$date."'";
+									$query = "SELECT * FROM Reservation WHERE checkIn = '".$date."'";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -111,7 +111,7 @@
                 </tr>
 
 								<?php
-									$query = "SELECT * FROM bookings WHERE check_out_date = '".$date."'";
+									$query = "SELECT * FROM Reservation WHERE checkOut = '".$date."'";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -163,7 +163,7 @@
 
 
 								<?php
-									$query = "SELECT * FROM bookings WHERE check_in_date < '".$date."' AND check_out_date > '".$date."'";
+									$query = "SELECT * FROM Reservation WHERE checkIn < '".$date."' AND checkOut > '".$date."'";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {

@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 	// Look for vacant room
 	if ($singlerooms > 0) {
 		$query = "
-		SELECT * 
+		SELECT *
 		FROM Room_type
 		WHERE typeOfRoom = 'singleroom'
 		AND currentlyFree = 1
@@ -56,13 +56,13 @@ if (isset($_POST['submit'])) {
 			echo "Det finns inte så många lediga rum.";
 		}
 
-		for ($i = 0; $i < $singlerooms; $i++) { 
+		for ($i = 0; $i < $singlerooms; $i++) {
 			// Make reservation for each room
 		}
 	}
 }
 if(isset($redirect) && $redirect == "true") {
-  $action = "confirmation.php";
+  $action = "#";
 } else {
   $action = "#";
 }
