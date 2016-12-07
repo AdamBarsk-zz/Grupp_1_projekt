@@ -271,7 +271,7 @@ echo "
 			</form>
 		</div>
 	</div>
-</div>"
+</div>";
 if (isset($_POST['book'])) {
 	echo "
 		<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
