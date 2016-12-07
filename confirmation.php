@@ -70,19 +70,18 @@ if(isset($_POST['book'])) {
 	if ($singlerooms > 0) {
 
 		$query = "
-		SELECT * 
+		SELECT @roomType_id:=id as roomType_id
 		FROM Room_type
 		WHERE typeOfRoom = 'singleroom'
 		AND currentlyFree = 1
+		LIMIT 1
 		";
 
 		$result = mysqli_query($db, $query);
-		$roomType_id = mysqli_insert_id($db);
 		$row = mysqli_fetch_assoc($result);
 
 		echo "
-		Rummet som har bokats är:
-		<h1>$roomType_id</h1>
+		<h1>Rummet som har bokats är: $roomType_id</h1>
 		";
 
 		// Save reservation
@@ -133,14 +132,17 @@ echo "
 					<div class='form-group'>
 						<label>Dubbelrum:</label>
 						<p>$doublerooms</p>
+						<input type='hidden' name='doublerooms' value=' $doublerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Enkelrum:</label>
 						<p>$singlerooms</p>
+						<input type='hidden' name='singlerooms' value=' $singlerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Familjerum:</label>
 						<p>$familyrooms</p>
+						<input type='hidden' name='familyrooms' value=' $familyrooms'>
 					</div>
 					<div class='form-group'>
 						<label>Namn:</label>
