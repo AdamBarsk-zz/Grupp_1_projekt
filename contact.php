@@ -21,7 +21,7 @@
     ?>
 
     <!-- CONTENT -->
-    <div class="container">
+      <div class="container">
         <div class="row">
           <div class="col-sm-5 welcome">
             <h2>Kontakt</h2>
@@ -36,47 +36,51 @@
               ?>
             </p>
             <ul>
-              <li class="contact"><a href="#" class="admin" id="contact-adress">
-                <?php
-                  include('config.php');
-                  $query = 'SELECT text FROM HELA WHERE id = "contact-adress"';
-                  $result = mysqli_query($db, $query);
-                  $row = $result->fetch_row();
-                  $text = (string)$row[0];
-                  echo $text;
-                ?>
-              </a></li>
-              <li class="contact"><a href="#" class="admin" id="contact-mail">
-                <?php
-                  include('config.php');
-                  $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
-                  $result = mysqli_query($db, $query);
-                  $row = $result->fetch_row();
-                  $text = (string)$row[0];
-                  echo $text;
-                ?>
-              </a></li>
-              <li class="contact"><a href="#" class="admin" id="contact-phone">
-                <?php
-                  include('config.php');
-                  $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
-                  $result = mysqli_query($db, $query);
-                  $row = $result->fetch_row();
-                  $text = (string)$row[0];
-                  echo $text;
-                ?>
-              </a></li>
+              <li class="contact">
+                <a href="#" class="admin" id="contact-adress">
+                  <?php
+                    include('config.php');
+                    $query = 'SELECT text FROM HELA WHERE id = "contact-adress"';
+                    $result = mysqli_query($db, $query);
+                    $row = $result->fetch_row();
+                    $text = (string)$row[0];
+                    echo $text;
+                  ?>
+                </a>
+              </li>
+              <li class="contact">
+                <a href="#" class="admin" id="contact-mail">
+                  <?php
+                    include('config.php');
+                    $query = 'SELECT text FROM HELA WHERE id = "contact-mail"';
+                    $result = mysqli_query($db, $query);
+                    $row = $result->fetch_row();
+                    $text = (string)$row[0];
+                    echo $text;
+                  ?>
+                </a>
+              </li>
+              <li class="contact">
+                <a href="#" class="admin" id="contact-phone">
+                  <?php
+                    include('config.php');
+                    $query = 'SELECT text FROM HELA WHERE id = "contact-phone"';
+                    $result = mysqli_query($db, $query);
+                    $row = $result->fetch_row();
+                    $text = (string)$row[0];
+                    echo $text;
+                  ?>
+                </a>
+              </li>
             </ul>
           </div>
 
-
           <div class="col-sm-6 col-sm-offset-1 welcome">
                 <h2>Hitta hit</h2>
-                <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJB1nGvW9nf0YRlu8ipR47lLE&zoom=6&key=AIzaSyAGJpYxhLOnZ4PNK96Z8z4SPc6iKR2WPK8&"  allowfullscreen></iframe>
+                <iframe class="google-map" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJB1nGvW9nf0YRlu8ipR47lLE&zoom=6&key=AIzaSyAGJpYxhLOnZ4PNK96Z8z4SPc6iKR2WPK8&"  allowfullscreen></iframe>
           </div>
         </div>
-
-    </div>
+      </div>
     <!-- FOOTER -->
   <?php
   	include("footer.php");
@@ -86,7 +90,5 @@
   	echo '<script src="/scripts/script_change.js" type="text/javascript"></script>';
   }
   ?>
-    <script src="scripts/script_index.js"></script>
 </body>
-
 </html>
