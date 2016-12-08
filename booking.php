@@ -32,33 +32,6 @@ if (isset($_POST['submit'])) {
 	$singlerooms = $_POST['singlerooms'];
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
-
-	// Look for vacant room
-	if ($singlerooms > 0) {
-		$query = "
-		SELECT *
-		FROM Room_type
-		WHERE typeOfRoom = 'singleroom'
-		AND currentlyFree = 1
-		LIMIT 1
-		";
-
-		$result = mysqli_query($db, $query);
-
-		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-			while($row = mysqli_fetch_assoc($result)) {
-				echo "
-				<h1>{$row['roomType_id']}</h1>
-				";
-			}
-			$redirect = false;
-		} else {
-			echo "Det finns inte så många lediga rum.";
-		}
-
-		for ($i = 0; $i < $singlerooms; $i++) {
-			// Make reservation for each room
-		}
 	}
 }
 if(isset($redirect) && $redirect == "true") {

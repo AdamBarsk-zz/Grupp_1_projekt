@@ -33,7 +33,6 @@ if(isset($_POST['book'])) {
 
 	// Create mail
 	include("mail.php");
-	mail($to, $subject, $message, $headers);
 
 	// Connect to database
 	include("config.php");
@@ -67,7 +66,6 @@ if(isset($_POST['book'])) {
 			SELECT roomType_id
 			FROM Room_type
 			WHERE typeOfRoom = 'singleroom'
-			AND currentlyFree = 1
 			LIMIT 1
 			";
 
@@ -94,15 +92,6 @@ if(isset($_POST['book'])) {
 			'$requests',
 			 $roomType_id
 			)";
-
-			mysqli_query($db, $query);
-
-			// Make room occupied
-			$query = "
-			UPDATE Room_type
-			SET currentlyFree = 0
-			WHERE roomType_id = $roomType_id;
-			";
 
 			mysqli_query($db, $query);
 		}
@@ -117,7 +106,6 @@ if(isset($_POST['book'])) {
 			SELECT roomType_id
 			FROM Room_type
 			WHERE typeOfRoom = 'doubleroom'
-			AND currentlyFree = 1
 			LIMIT 1
 			";
 
@@ -144,15 +132,6 @@ if(isset($_POST['book'])) {
 			'$requests',
 			 $roomType_id
 			)";
-
-			mysqli_query($db, $query);
-
-			// Make room occupied
-			$query = "
-			UPDATE Room_type
-			SET currentlyFree = 0
-			WHERE roomType_id = $roomType_id;
-			";
 
 			mysqli_query($db, $query);
 		}
@@ -167,7 +146,6 @@ if(isset($_POST['book'])) {
 			SELECT roomType_id
 			FROM Room_type
 			WHERE typeOfRoom = 'familyroom'
-			AND currentlyFree = 1
 			LIMIT 1
 			";
 
@@ -194,15 +172,6 @@ if(isset($_POST['book'])) {
 			'$requests',
 			 $roomType_id
 			)";
-
-			mysqli_query($db, $query);
-
-			// Make room occupied
-			$query = "
-			UPDATE Room_type
-			SET currentlyFree = 0
-			WHERE roomType_id = $roomType_id;
-			";
 
 			mysqli_query($db, $query);
 		}
@@ -218,7 +187,7 @@ echo "
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h2 for=' style='text-align:center'>Bekräftelse</h2>
-				<form method='post' onsubmit='submit()'>
+				<form method='post'>
 					<div class='form-group'>
 						<label>Incheckningsdatum:</label>
 						<p>$checkin</p>
@@ -265,7 +234,7 @@ echo "
 						<p>$requests</p>
 						<input type='hidden' name='requests' value='$requests'>
 					</div>
-					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' value='Reservera rum'>
+					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' onclick='submit()' value='Reservera rum'>
 					<a onclick='abort()' type='submit' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
 				</div>
 			</form>
@@ -278,6 +247,7 @@ if (isset($_POST['book'])) {
 			<div class='row'>
 				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 					<h1>Tack för din bokning!</h1>
+					<h2>Ett mail har blivit skickat till dig.</h2>
 					<p>Du kommer nu att omdirigeras till startsidan</p>
 				</div>
 			</div>
