@@ -32,78 +32,109 @@ if (isset($_POST['submit'])) {
 	$singlerooms = $_POST['singlerooms'];
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
+	$checkin = $_POST['checkin'];
+	$checkout = $_POST['checkout'];
 
-	// Look for vacant room
 
-	// $result = mysqli_query($db, $query);
-	//$row = mysqli_fetch_row($result);
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'doubleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedDoubleRooms = mysqli_query($db, $query);
 
-	// if ($singlerooms > 0) {
-	// 	$query = "
-	// 	SELECT *
-	// 	FROM Room_type
-	// 	WHERE typeOfRoom = 'singleroom'
-	// 	AND currentlyFree = 1
-	// 	LIMIT 1
-	// 	";
-	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkIn < '".$checkin."' AND r.checkOut > '".$checkout."'";
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'singleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedSingleRooms = mysqli_query($db, $query);
 
-		$result = mysqli_query($db, $query);
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedFamilyRooms = mysqli_query($db, $query);
 
+	function checkFamilyRooms() {
+		GLOBAL $bookedFamilyRooms;
+		GLOBAL $familyrooms;
 		switch ($familyrooms) {
 			case 1:
-				if (mysqli_num_rows($result) < 3) {
+				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
 					echo '<h1>GRATTIS</h1>';
 				} else {
-					echo '<h1>FULLT</h1>';
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
 				break;
 			case 2:
-				if (mysqli_num_rows($result) < 2) {
+				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
 					echo '<h1>GRATTIS</h1>';
 				} else {
-					echo '<h1>FULLT</h1>';
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
 				break;
 			case 3:
-				if (mysqli_num_rows($result) < 0) {
+				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
 					echo '<h1>GRATTIS</h1>';
 				} else {
-					echo '<h1>FULLT</h1>';
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
 				break;
+			default:
+					echo '<h1>fffffuuuuu</h1>';
 		}
+	}
 
-		// $diff = $familyrooms - mysqli_num_rows($result);
-		//
-		// if($diff < $familyrooms){
-		// 	echo '<h1>GRATTIS</h1>';
-		// } else {
-		// 	echo '<h1>FULLT</h1>';
-		// }
+	function checkSingleRooms() {
+
+		GLOBAL $bookedSingleRooms;
+		GLOBAL $singlerooms;
+		switch ($singlerooms) {
+			case 1:
+				if (mysqli_num_rows($bookedSingleRooms) < 2) {
+					checkFamilyRooms();
+				} else {
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA ENKELRUM</h1>';
+				}
+				break;
+			case 2:
+				if (mysqli_num_rows($bookedSingleRooms) < 1) {
+					checkFamilyRooms();
+				} else {
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA ENKELRUM</h1>';
+				}
+				break;
+			default:
+					checkFamilyRooms();
+		}
+	}
+
+	function checkDoubleRooms() {
+
+		GLOBAL $bookedDoubleRooms;
+		GLOBAL $doublerooms;
+		switch ($doublerooms) {
+			case 1:
+				if (mysqli_num_rows($bookedDoubleRooms) < 3) {
+					checkSingleRooms();
+				} else {
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+				}
+				break;
+			case 2:
+				if (mysqli_num_rows($bookedDoubleRooms) < 2) {
+					checkSingleRooms();
+				} else {
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+				}
+				break;
+			case 3:
+				if (mysqli_num_rows($bookedDoubleRooms) < 1) {
+					checkSingleRooms();
+				} else {
+					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+				}
+				break;
+			default:
+					checkSingleRooms();
+		}
+	}
+
+	checkDoubleRooms();
+
 }
 
-// 		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-// 			while($row = mysqli_fetch_assoc($result)) {
-// 				echo "
-// 				<h1>{$row['roomType_id']}</h1>
-// 				";
-// 			}
-// 			$redirect = false;
-// 		} else {
-// 			echo "Det finns inte så många lediga rum.";
-// 		}
-//
-// 		for ($i = 0; $i < $singlerooms; $i++) {
-// 			// Make reservation for each room
-// 		}
-// 	}
-// }
-// if(isset($redirect) && $redirect == "true") {
-//   $action = "#";
-// } else {
-//   $action = "#";
-// }
+
 ?>
 
 <!DOCTYPE html>
