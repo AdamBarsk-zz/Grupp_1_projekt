@@ -22,7 +22,6 @@ $familyPrice = (string)$row[0];
 
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
-
 $action = '';
 $redirect = true;
 
@@ -51,7 +50,8 @@ if (isset($_POST['submit'])) {
 		switch ($familyrooms) {
 			case 1:
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
-					echo '<h1>GRATTIS</h1>';
+					GLOBAL $action;
+					header('Location: '.$action.'');
 				} else {
 					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
@@ -129,8 +129,7 @@ if (isset($_POST['submit'])) {
 					checkSingleRooms();
 		}
 	}
-
-	checkDoubleRooms();
+ checkDoubleRooms();
 
 }
 
@@ -166,7 +165,7 @@ if (isset($_POST['submit'])) {
 					<h2 style="text-align:center">Gästinformation</h2>
 				</div>
 
-				<form data-toggle="validator" role="form" action="<?php echo "$action"; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
+				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
 
 					<!-- Formulär -->
 					<div class="row">
