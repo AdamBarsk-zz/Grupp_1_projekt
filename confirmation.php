@@ -3,16 +3,16 @@
 session_start();
 
 $currenttime = date("Y-m-d h:i:s");
-$checkin = $_POST['checkin'];
-$checkout = $_POST['checkout'];
-$doublerooms = $_POST['doublerooms'];
-$singlerooms = $_POST['singlerooms'];
-$familyrooms = $_POST['familyrooms'];
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$email = $_POST['email'];
-$phonenumber = $_POST['phonenumber'];
-$requests = $_POST['requests'];
+$checkin = $_SESSION['booking']['checkin'];
+$checkout = $_SESSION['booking']['checkout'];
+$doublerooms = $_SESSION['booking']['doublerooms'];
+$singlerooms = $_SESSION['booking']['singlerooms'];
+$familyrooms = $_SESSION['booking']['familyrooms'];
+$firstname = $_SESSION['booking']['firstname'];
+$lastname = $_SESSION['booking']['lastname'];
+$email = $_SESSION['booking']['email'];
+$phonenumber = $_SESSION['booking']['phonenumber'];
+$requests = $_SESSION['booking']['requests'];
 
 echo "
 <!DOCTYPE html>

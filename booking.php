@@ -27,7 +27,7 @@ $redirect = true;
 
 
 if (isset($_POST['submit'])) {
-	$_SESSION['booking'] += $_POST;
+	$_SESSION['booking'] = $_POST;
 
 
 
@@ -60,14 +60,14 @@ if (isset($_POST['submit'])) {
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
-					echo '<h1>GRATTIS</h1>';
+					header('Location: confirmation.php');
 				} else {
 					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
-					echo '<h1>GRATTIS</h1>';
+					header('Location: confirmation.php');
 				} else {
 					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
