@@ -50,8 +50,7 @@ if (isset($_POST['submit'])) {
 		switch ($familyrooms) {
 			case 1:
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
-					GLOBAL $action;
-					header('Location: '.$action.'');
+
 				} else {
 					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
