@@ -22,7 +22,6 @@ $familyPrice = (string)$row[0];
 
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
-
 $action = '';
 $redirect = true;
 
@@ -32,40 +31,109 @@ if (isset($_POST['submit'])) {
 	$singlerooms = $_POST['singlerooms'];
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
+	$checkin = $_POST['checkin'];
+	$checkout = $_POST['checkout'];
 
-	// Look for vacant room
-	if ($singlerooms > 0) {
-		$query = "
-		SELECT *
-		FROM Room_type
-		WHERE typeOfRoom = 'singleroom'
-		AND currentlyFree = 1
-		LIMIT 1
-		";
 
-		$result = mysqli_query($db, $query);
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'doubleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedDoubleRooms = mysqli_query($db, $query);
 
-		if ($num_rows = mysqli_num_rows($result) - $singlerooms >= 0) {
-			while($row = mysqli_fetch_assoc($result)) {
-				echo "
-				<h1>{$row['roomType_id']}</h1>
-				";
-			}
-			$redirect = false;
-		} else {
-			echo "Det finns inte så många lediga rum.";
-		}
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'singleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedSingleRooms = mysqli_query($db, $query);
 
-		for ($i = 0; $i < $singlerooms; $i++) {
-			// Make reservation for each room
+	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+	$bookedFamilyRooms = mysqli_query($db, $query);
+
+	function checkFamilyRooms() {
+		GLOBAL $bookedFamilyRooms;
+		GLOBAL $familyrooms;
+		switch ($familyrooms) {
+			case 1:
+				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
+					GLOBAL $action;
+					header('Location: '.$action.'');
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+				}
+				break;
+			case 2:
+				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
+					echo '<h1>GRATTIS</h1>';
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+				}
+				break;
+			case 3:
+				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
+					echo '<h1>GRATTIS</h1>';
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+				}
+				break;
+			default:
+					echo '<h1>fffffuuuuu</h1>';
 		}
 	}
+
+	function checkSingleRooms() {
+
+		GLOBAL $bookedSingleRooms;
+		GLOBAL $singlerooms;
+		switch ($singlerooms) {
+			case 1:
+				if (mysqli_num_rows($bookedSingleRooms) < 2) {
+					checkFamilyRooms();
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
+				}
+				break;
+			case 2:
+				if (mysqli_num_rows($bookedSingleRooms) < 1) {
+					checkFamilyRooms();
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
+				}
+				break;
+			default:
+					checkFamilyRooms();
+		}
+	}
+
+	function checkDoubleRooms() {
+
+		GLOBAL $bookedDoubleRooms;
+		GLOBAL $doublerooms;
+		switch ($doublerooms) {
+			case 1:
+				if (mysqli_num_rows($bookedDoubleRooms) < 3) {
+					checkSingleRooms();
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+				}
+				break;
+			case 2:
+				if (mysqli_num_rows($bookedDoubleRooms) < 2) {
+					checkSingleRooms();
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+				}
+				break;
+			case 3:
+				if (mysqli_num_rows($bookedDoubleRooms) < 1) {
+					checkSingleRooms();
+				} else {
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+				}
+				break;
+			default:
+					checkSingleRooms();
+		}
+	}
+ checkDoubleRooms();
+
 }
-if(isset($redirect) && $redirect == "true") {
-  $action = "confirmation.php";
-} else {
-  $action = "#";
-}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +165,7 @@ if(isset($redirect) && $redirect == "true") {
 					<h2 style="text-align:center">Gästinformation</h2>
 				</div>
 
-				<form data-toggle="validator" role="form" action="<?php echo "$action"; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
+				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
 
 					<!-- Formulär -->
 					<div class="row">
@@ -190,9 +258,9 @@ if (isset($_SESSION['admin'])) {
 	echo "<script>
 
 		$(document).ready(calcPrice);
-		$('.rooms').click(calcPrice);
-		$('#checkin').click(calcPrice);
-		$('#checkout').click(calcPrice);
+		$('.rooms').change(calcPrice);
+		$('#checkin').change(calcPrice);
+		$('#checkout').change(calcPrice);
 
 		function calcNights() {
 			var day = 1000 * 60 * 60 * 24;
@@ -217,6 +285,6 @@ if (isset($_SESSION['admin'])) {
 
 	</script>
 	";
-	?>
+?>
 </body>
 </html>
