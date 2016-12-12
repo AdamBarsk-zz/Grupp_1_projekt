@@ -1,15 +1,15 @@
 $(function() {
   $("#check-in-date").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: today
   });
   $("#check-out-date").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
@@ -39,10 +39,10 @@ document.getElementById("check-out-date").value = tomorrow;
 
 var selects = document.getElementsByTagName("select");
 
-function bookRooms() {
-  localStorage.setItem("checkin", document.getElementById("check-in-date").value);
-  localStorage.setItem("checkout", document.getElementById("check-out-date").value);
-  localStorage.setItem("doublerooms", selects[0].value);
-  localStorage.setItem("singlerooms", selects[1].value);
-  localStorage.setItem("familyrooms", selects[2].value);
-}
+$('#search').click(function bookRooms(){
+ localStorage.setItem("checkin", document.getElementById("check-in-date").value);
+ localStorage.setItem("checkout", document.getElementById("check-out-date").value);
+ localStorage.setItem("doublerooms", selects[0].value);
+ localStorage.setItem("singlerooms", selects[1].value);
+ localStorage.setItem("familyrooms", selects[2].value);
+});

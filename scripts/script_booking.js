@@ -6,15 +6,9 @@ $(function() {
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: today,
-      required: true,
-      onSelect: function (date) {
-          var date2 = $("#checkin").datepicker("getDate");
-          date2.setDate(date2.getDate() + 1);
-          $("#checkout").datepicker("setDate", date2);
-          //sets minDate to checkin date + 1
-          $("#checkout").datepicker("option", "minDate", date2);
-      }
+      required: true
   });
+
   $("#checkout").datepicker({
       inline:true,
       showOtherMonths:true,
@@ -22,16 +16,7 @@ $(function() {
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: tomorrow,
-      required: true,
-      onClose: function () {
-          var checkin = $("#checkin").datepicker("getDate");
-          var checkout = $("#checkout").datepicker("getDate");
-          //check to prevent a user from entering a date below date of checkin
-          if (checkout <= checkin) {
-              var minDate = $("#checkout").datepicker("option", "minDate");
-              $("#checkout").datepicker("setDate", minDate);
-          }
-      }
+      required: true
   });
 });
 
@@ -40,15 +25,20 @@ var date = new Date();
 var day = date.getDate();
 var tomorrow = date.getDate() + 1;
 var month = date.getMonth() + 1;
+var tomorrowMonth = date.getMonth() + 1;
 var year = date.getFullYear();
 
-if (month < 10) month = "0" + month;
-if (day < 10) day = "0" + day;
-if (tomorrow < 10) tomorrow = "0" + tomorrow;
+  if (month < 10) month = "0" + month;
+  if (day < 10) day = "0" + day;
+  if (tomorrowMonth < 10) tomorrowMonth = "0" + tomorrowMonth;
+  if (tomorrow < 10) tomorrow = "0" + tomorrow;
+
 
 var today = year + "-" + month + "-" + day;
-var tomorrow = year + "-" + month + "-" + tomorrow;
+var tomorrow = year + "-" + tomorrowMonth + "-" + tomorrow;
 
+document.getElementById("checkin").value = today;
+document.getElementById("checkout").value = tomorrow;
 // FORM LOGIC
 
 var customers = [];
@@ -56,11 +46,8 @@ var inputs = document.getElementsByTagName("input");
 var textArea = document.getElementsByTagName("textarea")[0];
 window.onload = function() {
 
-  document.getElementById("checkin").value = today;
-  document.getElementById("checkout").value = tomorrow;
-
   // Load saved values
-  Load();
+Load();
 
   // Check if user makes a change and save
   for (var i = 0; i < inputs.length; i++) {
