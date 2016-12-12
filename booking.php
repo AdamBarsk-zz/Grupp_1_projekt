@@ -47,25 +47,23 @@ if (isset($_POST['submit'])) {
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
 				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
 				}
 				break;
-			default:
-					echo '<h1>fffffuuuuu</h1>';
 		}
 	}
 	function checkSingleRooms() {
@@ -76,14 +74,14 @@ if (isset($_POST['submit'])) {
 				if (mysqli_num_rows($bookedSingleRooms) < 2) {
 					checkFamilyRooms();
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA ENKELRUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedSingleRooms) < 1) {
 					checkFamilyRooms();
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA ENKELRUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
 				}
 				break;
 			default:
@@ -98,21 +96,21 @@ if (isset($_POST['submit'])) {
 				if (mysqli_num_rows($bookedDoubleRooms) < 3) {
 					checkSingleRooms();
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedDoubleRooms) < 2) {
 					checkSingleRooms();
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
 				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedDoubleRooms) < 1) {
 					checkSingleRooms();
 				} else {
-					echo '<h1>INTE TILLRÄCKLIGT MÅNGA DUBBELRUM</h1>';
+					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
 				}
 				break;
 			default:
