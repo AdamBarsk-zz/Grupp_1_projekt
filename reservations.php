@@ -60,7 +60,7 @@
 								<?php
                   include('config.php');
                   $date = $_POST['reservation-date'];
-									$query = "SELECT * FROM bookings WHERE check_in_date = '".$date."'";
+									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkIn = '".$date."'";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -111,7 +111,7 @@
                 </tr>
 
 								<?php
-									$query = "SELECT * FROM bookings WHERE check_out_date = '".$date."'";
+									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkOut = '".$date."'";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -163,30 +163,31 @@
 
 
 								<?php
-									$query = "SELECT * FROM bookings WHERE check_in_date < '".$date."' AND check_out_date > '".$date."'";
+									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkIn < '".$date."' AND r.checkOut > '".$date."'";
+
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
     										<tr>
-    											<td>{$row['book_id']}</td>
-    											<td>{$row['book_date']}</td>
-                          <td>{$row['first_name']} {$row['last_name']}</td>
+    											<td>{$row['id']}</td>
+    											<td>{$row['dateCreated']}</td>
+                          <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
-                          <td>{$row['phone_number']}</td>
-    											<td>{$row['check_in_date']}</td>
-    											<td>{$row['check_out_date']}</td>
+                          <td>{$row['phoneNumber']}</td>
+    											<td>{$row['checkIn']}</td>
+    											<td>{$row['checkOut']}</td>
                           <td>";
 
-                        if ($row[double_rooms_amount] > 0) {
-                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        if ($row['roomType_id'] = 5 || 8 || 9) {
+                          echo "{$row['']} dubbelrum<br>";
                         }
-                        if ($row[single_rooms_amount] > 0) {
-                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        if () {
+                          echo "{$row['']} enkelrum<br>";
                         }
-                        if ($row[family_rooms_amount] > 0) {
-                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        if () {
+                          echo "{$row['']} familjerum<br>";
                         }
   										echo "
                           </td>

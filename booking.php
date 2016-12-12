@@ -50,18 +50,15 @@ if (isset($_POST['submit'])) {
 		switch ($familyrooms) {
 			case 1:
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
-					GLOBAL $action;
-					header('Location: '.$action.'');
+
 				} else {
-					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
-				}
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
 					echo '<h1>GRATTIS</h1>';
 				} else {
-					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
-				}
+					echo '<p style="color:darkred; font-weight:bold;">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedFamilyRooms) < 1) {

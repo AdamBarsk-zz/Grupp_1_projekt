@@ -1,4 +1,3 @@
-
 $(function() {
   $("#checkin").datepicker({
       inline:true,
