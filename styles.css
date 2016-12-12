@@ -143,11 +143,6 @@ th {
   width: 150px;
 }
 
-.book-start label {
-  color: #444444;
-  font-weight: normal;
-}
-
 .center-date {
   text-align:center;
 }
@@ -424,4 +419,21 @@ left: 0;
 .error {
   display: block;
   color: darkred;
+  font-weight: bold;
 }
+
+/* Login.php */
+
+.login-fail {
+  margin-top: 100px;
+}
+
+.login-submit {
+  margin-top: 5px;
+}
+
+.book-start label {
+  color: #444444;
+  font-weight: normal;
+}
+/*end login.php */
