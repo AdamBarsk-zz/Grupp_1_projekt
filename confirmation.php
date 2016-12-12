@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -59,7 +59,7 @@ if(isset($_POST['book'])) {
 	if ($singlerooms > 0) {
 
 		// Create a reservaton for each room
-		for ($i=0; $i < $singlerooms; $i++) { 
+		for ($i=0; $i < $singlerooms; $i++) {
 
 			// Get vacant room
 			$query = "
@@ -99,7 +99,7 @@ if(isset($_POST['book'])) {
 	if ($doublerooms > 0) {
 
 		// Create a reservaton for each room
-		for ($i=0; $i < $doublerooms; $i++) { 
+		for ($i=0; $i < $doublerooms; $i++) {
 
 			// Get vacant room
 			$query = "
@@ -139,7 +139,7 @@ if(isset($_POST['book'])) {
 	if ($familyrooms > 0) {
 
 		// Create a reservaton for each room
-		for ($i=0; $i < $familyrooms; $i++) { 
+		for ($i=0; $i < $familyrooms; $i++) {
 
 			// Get vacant room
 			$query = "

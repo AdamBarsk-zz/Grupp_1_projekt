@@ -39,6 +39,34 @@ if(isset($redirect) && $redirect == "true") {
 } else {
   $action = "#";
 }
+
+$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkIn < '".$checkin."' AND r.checkOut > '".$checkout."'";
+
+	$result = mysqli_query($db, $query);
+
+	switch ($familyrooms) {
+		case 1:
+			if (mysqli_num_rows($result) < 3) {
+				echo '<h1>GRATTIS</h1>';
+			} else {
+				echo '<h1>FULLT</h1>';
+			}
+			break;
+		case 2:
+			if (mysqli_num_rows($result) < 2) {
+				echo '<h1>GRATTIS</h1>';
+			} else {
+				echo '<h1>FULLT</h1>';
+			}
+			break;
+		case 3:
+			if (mysqli_num_rows($result) < 0) {
+				echo '<h1>GRATTIS</h1>';
+			} else {
+				echo '<h1>FULLT</h1>';
+			}
+			break;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -190,6 +218,6 @@ if (isset($_SESSION['admin'])) {
 
 	</script>
 	";
-	?>
+?>
 </body>
 </html>
