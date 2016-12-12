@@ -47,7 +47,7 @@ var textArea = document.getElementsByTagName("textarea")[0];
 window.onload = function() {
 
   // Load saved values
-Load();
+  Load();
 
   // Check if user makes a change and save
   for (var i = 0; i < inputs.length; i++) {
