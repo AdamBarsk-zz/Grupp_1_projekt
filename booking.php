@@ -1,56 +1,42 @@
 <?php
-
 session_start();
-
 include("config.php");
-
-
 $query = "SELECT price FROM Room_type WHERE typeOfRoom = 'singleroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $singlePrice = (string)$row[0];
-
 $query = "SELECT price FROM Room_type WHERE typeOfRoom = 'doubleroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $doublePrice = (string)$row[0];
-
 $query = "SELECT price FROM Room_type WHERE typeOfRoom = 'familyroom'";
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $familyPrice = (string)$row[0];
-
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 $action = '';
 $redirect = true;
-
-
 if (isset($_POST['submit'])) {
-
+	$_SESSION['booking'] += $_POST;
 	$singlerooms = $_POST['singlerooms'];
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
 	$checkin = $_POST['checkin'];
 	$checkout = $_POST['checkout'];
-
-
 	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'doubleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
 	$bookedDoubleRooms = mysqli_query($db, $query);
-
 	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'singleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
 	$bookedSingleRooms = mysqli_query($db, $query);
-
 	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
 	$bookedFamilyRooms = mysqli_query($db, $query);
-
 	function checkFamilyRooms() {
 		GLOBAL $bookedFamilyRooms;
 		GLOBAL $familyrooms;
 		switch ($familyrooms) {
 			case 1:
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
-
+					header('Location: confirmation.php');
 				} else {
 					echo '<h1>INTE TILLRÄCKLIGT MÅNGA FAMILJERUM</h1>';
 				}
@@ -73,9 +59,7 @@ if (isset($_POST['submit'])) {
 					echo '<h1>fffffuuuuu</h1>';
 		}
 	}
-
 	function checkSingleRooms() {
-
 		GLOBAL $bookedSingleRooms;
 		GLOBAL $singlerooms;
 		switch ($singlerooms) {
@@ -97,9 +81,7 @@ if (isset($_POST['submit'])) {
 					checkFamilyRooms();
 		}
 	}
-
 	function checkDoubleRooms() {
-
 		GLOBAL $bookedDoubleRooms;
 		GLOBAL $doublerooms;
 		switch ($doublerooms) {
@@ -129,10 +111,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
  checkDoubleRooms();
-
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -255,33 +234,24 @@ if (isset($_SESSION['admin'])) {
 	<script src="scripts/script_booking.js"></script>
 	<?php
 	echo "<script>
-
 		$(document).ready(calcPrice);
 		$('.rooms').change(calcPrice);
 		$('#checkin').change(calcPrice);
 		$('#checkout').change(calcPrice);
-
 		function calcNights() {
 			var day = 1000 * 60 * 60 * 24;
-
 			var checkin = Date.parse($('#checkin').val());
 			var checkout = Date.parse($('#checkout').val());
-
 			return Math.round((checkout - checkin) / day);
 		}
-
 	 	function calcPrice() {
 			numNights = calcNights();
-
 	    var singleTot = $singlePrice * $('#singlerooms').val() * numNights;
 	    var doubleTot = $doublePrice * $('#doublerooms').val() * numNights;
 	    var familyTot = $familyPrice * $('#familyrooms').val() * numNights;
-
 	    var totalPrice = singleTot + doubleTot + familyTot;
-
 			$('#price').html('Ditt pris: ' + totalPrice + ' kr');
 	};
-
 	</script>
 	";
 ?>
