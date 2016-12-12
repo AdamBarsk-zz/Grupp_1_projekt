@@ -47,6 +47,7 @@
 
               <table>
                 <tr>
+                  <th>Checkout</th>
                   <th>ID</th>
                   <th>Bokningsdatum</th>
                   <th>Namn</th>
@@ -67,6 +68,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
     										<tr>
+                          <td>Checkout</td>
     											<td>{$row['book_id']}</td>
     											<td>{$row['book_date']}</td>
                           <td>{$row['first_name']} {$row['last_name']}</td>
@@ -99,6 +101,7 @@
               <h3>Utcheckningar</h3>
               <table>
                 <tr>
+                  <th>Checkout</th>
                   <th>ID</th>
                   <th>Bokningsdatum</th>
                   <th>Namn</th>
@@ -118,6 +121,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
     										<tr>
+                          <td>Checkout</td>
     											<td>{$row['book_id']}</td>
     											<td>{$row['book_date']}</td>
                           <td>{$row['first_name']} {$row['last_name']}</td>
@@ -150,6 +154,7 @@
 							<h3>Pågående vistelser</h3>
 							<table>
                 <tr>
+                  <th>Checkout</th>
                   <th>ID</th>
                   <th>Bokningsdatum</th>
                   <th>Namn</th>
@@ -171,6 +176,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
   										echo "
     										<tr>
+                          <td>Checkout</td>
     											<td>{$row['id']}</td>
     											<td>{$row['dateCreated']}</td>
                           <td>{$row['firstName']} {$row['lastName']}</td>
