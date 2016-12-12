@@ -5,12 +5,12 @@
 <head>
 	<title>Information</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8" />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="styles.css" />
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"> </script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"> </script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"> </script>
+	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
 	<!-- CONTENT -->
 	<div class="container">
-		<div class="" id="sizeCheck">
+		<div id="sizeCheck">
 
 			<article class="col-md-6 welcome">
 				<h1>Information</h1>
@@ -48,13 +48,11 @@
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
 						echo "Enkelrum: ".$text." kr per natt<br>";
-
 						$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'doubleroom'";
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
 						$text = (string)$row[0];
 						echo "Dubbelrum: ".$text." kr per natt<br>";
-
 						$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'familyroom'";
 						$result = mysqli_query($db, $query);
 						$row = $result->fetch_row();
