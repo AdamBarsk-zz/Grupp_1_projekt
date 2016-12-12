@@ -5,8 +5,7 @@ $(function() {
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: today,
-      required: true
+      minDate: today
   });
 
   $("#checkout").datepicker({
@@ -15,8 +14,7 @@ $(function() {
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: tomorrow,
-      required: true
+      minDate: tomorrow
   });
 });
 
