@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 $to = $_POST['email'];
 $subject = "Från Den Glada Geten";
 
 $headers = "From: glada.geten@kyh.se\r\n";
-$headers .= "Reply-To: get@goat.com\r\n";
-$headers .= "Return-Path: get@goat.com\r\n";
+$headers .= "Reply-To: glada.geten@kyh.se\r\n";
+$headers .= "Return-Path: glada.geten@kyh.se\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 
 $message = <<<EMAIL
