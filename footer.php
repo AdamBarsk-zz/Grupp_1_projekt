@@ -5,37 +5,33 @@
                 <button name="save" class="save-button col-xs-12 save-button-form" id="save">Spara</button>
             </div>
           </div>';
-
     echo '<style>
       .save-button {
-      	-moz-box-shadow: inset 0px 1px 0px 0px #fbafe3;
-      	-webkit-box-shadow: inset 0px 1px 0px 0px #fbafe3;
-      	box-shadow: inset 0px 1px 0px 0px #fbafe3;
-      	background-color: #ff5bb0;
-      	-moz-border-radius: 6px;
-      	-webkit-border-radius: 6px;
-      	border-radius: 6px;
-      	border: 1px solid #ee1eb5;
-      	display: inline-block;
-      	cursor: pointer;
-      	color: #ffffff;
-      	font-family: Arial;
-      	font-size: 28px;
-      	font-weight: bold;
-      	padding: 6px 24px;
-      	text-decoration: none;
-      	text-shadow: 0px 1px 0px #c70067;
+        -moz-box-shadow: inset 0px 1px 0px 0px #fbafe3;
+        -webkit-box-shadow: inset 0px 1px 0px 0px #fbafe3;
+        box-shadow: inset 0px 1px 0px 0px #fbafe3;
+        background-color: #ff5bb0;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        border: 1px solid #ee1eb5;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #c70067;
       }
-
       .save-button: hover {
-      	background-color: #ef027d;
+        background-color: #ef027d;
       }
-
       .save-button: active {
-      	position: relative;
-      	top: 1px;
+        position: relative;
+        top: 1px;
       }
-
       .save-button-form {
         text-align: center;
         margin-top: 1vh;

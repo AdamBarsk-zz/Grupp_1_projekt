@@ -31,13 +31,16 @@
 	<div class="container " id="preview">
 		<div class="row">
 			<div class="col-md-12 picture-gallery">
+				<?php 
+					include('img_upload.php');
+				?>
 				<?php
 					if (isset($_SESSION['admin'])) {
 						echo '<form action="#" method="post" enctype="multipart/form-data" class="form-inline col-sm-12">
 								<div class="form-group">
 		    						<label for="fileToUpload" style="display: inline-block">Välj get-porträttering att ladda upp:</label>
 		    						<input type="file" class="file" name="fileToUpload" id="fileToUpload" style="display: inline-block;">
-		    						<button name="delete" class="btn btn-success">Spara</button>
+		    						<button name="add" class="btn btn-success">Spara</button>
 	    						</div>
 							</form>';
 					}
@@ -105,7 +108,6 @@
 	<?php
 		if (isset($_SESSION['admin'])) {
 			echo '<script src="/scripts/script_change.js" type="text/javascript"></script>';
-			include('img_upload.php');
 		}
 	?>
 

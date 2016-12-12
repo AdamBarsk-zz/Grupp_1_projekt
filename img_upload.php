@@ -1,46 +1,30 @@
 <?php
-
 $target_dir = "images/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo ($target_file, PATHINFO_EXTENSION);
 
-if (isset($_POST["submit"])) {
-	if (file_exists($target_dir)) {
-				echo "Denna get finns redan!";
-				$uploadOk = 0;
-			}
-			
-	$check = getimagesize ($_FILES["fileToUpload"]["tmp_name"]);
-	if ($check !== false) {
-		echo "Korrekt djurart: " . $check["mime"] . ".";
-		$uploadOk =1;
-			
-	} else {
-		echo "Filen är inte en get.";
+if (isset($_POST["add"])) {
+
+	if (file_exists($target_file)) {
+		echo "<div> Denna get finns redan! </div>";
 		$uploadOk = 0;
-	}	
+	} else if ($_FILES["fileToUpload"]["size"] >= 4194304) {
+		echo "<div> Tyvärr, geten är för stor. Högsta mankhöjd är 4 MB.</div>";
+		$uploadOk = 0;
+	} else if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+				echo "<div>Bara getter med efternamn JPG, JPEG, PNG & GIF finns på denna gård.</div>";
+				$uploadOk = 0;
+			} else if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+						echo "<div> Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har ladddats upp. </div>";	
+					} else {
+						echo "<div>Tyvärr, geten blev förvirrad på vägen och försvann.</div>";
+	  				  };
 }
 
-
-if ($_FILES["fileToUpload"]["size"] > 5000000) {
-	echo "Tyvärr, geten är för stor.";
-	$uploadOk = 0;
-}
-
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-	echo "Bara getter med efternamn JPG, JPEG, PNG & GIF finns på denna gård.";
-	$uploadOk = 0;
-}
-
-if ($uploadOk == 0) {
-	echo "Tyvärr, geten hittade inte fram.";
-} else {
-	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		echo " Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har laddats upp.";
-	} else {
-		echo "Tyvärr, geten blev förvirrad på vägen och försvann.";
+$filename = $_POST['delete'];
+	if(isset($_POST['delete'])) { 
+		unlink($filename);
+		header('location: http://www.dengladageten.se/gallery.php');
 	}
-}
-
 ?>

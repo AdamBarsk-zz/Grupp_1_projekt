@@ -115,16 +115,16 @@ function Save(index) {
   validate();
 
   // Save data to localStorage
-	localStorage.setItem("checkin", document.getElementById("checkin").value);
-	localStorage.setItem("checkout", document.getElementById("checkout").value);
+  localStorage.setItem("checkin", document.getElementById("checkin").value);
+  localStorage.setItem("checkout", document.getElementById("checkout").value);
   localStorage.setItem("doublerooms", document.getElementById("doublerooms").value);
   localStorage.setItem("singlerooms", document.getElementById("singlerooms").value);
   localStorage.setItem("familyrooms", document.getElementById("familyrooms").value);
-	localStorage.setItem("firstname", document.getElementById("firstname").value);
+  localStorage.setItem("firstname", document.getElementById("firstname").value);
   localStorage.setItem("lastname", document.getElementById("lastname").value);
-	localStorage.setItem("email", document.getElementById("email").value);
-	localStorage.setItem("phonenumber", document.getElementById("phonenumber").value);
-	localStorage.setItem("requests", document.getElementById("requests").value);
+  localStorage.setItem("email", document.getElementById("email").value);
+  localStorage.setItem("phonenumber", document.getElementById("phonenumber").value);
+  localStorage.setItem("requests", document.getElementById("requests").value);
 }
 
 // Form validation
