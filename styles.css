@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
 }
 
-.bigr {  /* Stor text admin "hej kristin" "den glada geten" in echoat */
+.bigr {  /* Stor text admin "hej kristin" "den glada geten" i echot */
   font-size: 72px;
 }
 
@@ -37,7 +37,6 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
-
   width: 100%;
   z-index: 1;
 }
@@ -148,9 +147,6 @@ th {
   font-weight: normal;
 }
 
-.center-date {
-  text-align: center;
-}
 /* FOOTER */
 
 .footer {
@@ -282,7 +278,7 @@ left: 0;
 }
 
 .file {
-  display: inline-block !important; /* Välj bild uploads */
+  display: inline-block !important; /* admin Välj bild uploads */
 }
 
 /*incheck utcheck kalender(Datepicker) */
