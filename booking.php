@@ -156,12 +156,12 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Incheckning:</label><br />
-							<input class="form-control" id="checkin" name="checkin" type="text">
+							<input class="form-control text-center" id="checkin" name="checkin" type="text">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Utcheckning:</label><br />
-							<input class="form-control" id="checkout" name="checkout" type="text">
+							<input class="form-control text-center" id="checkout" name="checkout" type="text">
 						</div>
 					</div>
 
