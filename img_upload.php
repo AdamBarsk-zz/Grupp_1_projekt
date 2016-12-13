@@ -7,18 +7,19 @@ $imageFileType = pathinfo ($target_file, PATHINFO_EXTENSION);
 if (isset($_POST["add"])) {
 
 	if (file_exists($target_file)) {
-		echo "<div> Denna get finns redan! </div>";
+		echo '<link rel="stylesheet" type="text/css" href="styles.css" />';
+		echo "<div><p class='failToUpload'> Denna get finns redan! </p></div>";
 		$uploadOk = 0;
 	} else if ($_FILES["fileToUpload"]["size"] >= 4194304) {
-		echo "<div> Tyvärr, geten är för stor. Högsta mankhöjd är 4 MB.</div>";
+		echo "<div><p class='failToUpload'> Tyvärr, geten är för stor. Högsta mankhöjd är 4 MB.</p></div>";
 		$uploadOk = 0;
 	} else if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-				echo "<div>Bara getter med efternamn JPG, JPEG, PNG & GIF finns på denna gård.</div>";
+				echo "<div><p class='failToUpload'>Bara getter med efternamn JPG, JPEG, PNG & GIF finns på denna gård.</p></div>";
 				$uploadOk = 0;
 			} else if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-						echo "<div> Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har ladddats upp. </div>";	
+						echo "<div><p id='uploadSuccess'> Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har ladddats upp. </p></div>";	
 					} else {
-						echo "<div>Tyvärr, geten blev förvirrad på vägen och försvann.</div>";
+						echo "<div><p class='failToUpload'>Tyvärr, geten blev förvirrad på vägen och försvann.</p></div>";
 	  				  };
 }
 
