@@ -5,7 +5,15 @@ $(function() {
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: today
+      minDate: today,
+      onSelect: function (date) {
+          var date2 = $("#check-in-date").datepicker("getDate");
+          date2.setDate(date2.getDate() + 1);
+          $("#check-out-date").datepicker("setDate", date2);
+          //sets minDate to checkin date + 1
+          $("#check-out-date").datepicker("option", "minDate", date2);
+      }
+
   });
   $("#check-out-date").datepicker({
       inline: true,
@@ -13,7 +21,16 @@ $(function() {
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: tomorrow
+      minDate: tomorrow,
+      onClose: function () {
+          var checkin = $("#check-in-date").datepicker("getDate");
+          var checkout = $("#check-out-date").datepicker("getDate");
+          //check to prevent a user from entering a date below date of checkin
+          if (checkout <= checkin) {
+              var minDate = $("#check-out-date").datepicker("option", "minDate");
+              $("#check-out-date").datepicker("setDate", minDate);
+          }
+      }
   });
 });
 

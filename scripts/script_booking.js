@@ -5,16 +5,31 @@ $(function() {
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: today
+      minDate: today,
+      onSelect: function (date) {
+          var date2 = $("#checkin").datepicker("getDate");
+          date2.setDate(date2.getDate() + 1);
+          $("#checkout").datepicker("setDate", date2);
+          //sets minDate to checkin date + 1
+          $("#checkout").datepicker("option", "minDate", date2);
+      }
   });
-
   $("#checkout").datepicker({
       inline:true,
       showOtherMonths:true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
-      minDate: tomorrow
+      minDate: tomorrow,
+      onClose: function () {
+          var checkin = $("#checkin").datepicker("getDate");
+          var checkout = $("#checkout").datepicker("getDate");
+          //check to prevent a user from entering a date below date of checkin
+          if (checkout <= checkin) {
+              var minDate = $("#checkout").datepicker("option", "minDate");
+              $("#checkout").datepicker("setDate", minDate);
+          }
+      }
   });
 });
 
@@ -23,20 +38,20 @@ var date = new Date();
 var day = date.getDate();
 var tomorrow = date.getDate() + 1;
 var month = date.getMonth() + 1;
-var tomorrowMonth = date.getMonth() + 1;
+var tomorrowMonth = date.getDate() +1;
 var year = date.getFullYear();
 
-  if (month < 10) month = "0" + month;
-  if (day < 10) day = "0" + day;
-  if (tomorrowMonth < 10) tomorrowMonth = "0" + tomorrowMonth;
-  if (tomorrow < 10) tomorrow = "0" + tomorrow;
-
+if (month < 10) month = "0" + month;
+if (tomorrowMonth < 10) tomorrowMonth = "0" + tomorrowMonth;
+if (day < 10) day = "0" + day;
+if (tomorrow < 10) tomorrow = "0" + tomorrow;
 
 var today = year + "-" + month + "-" + day;
-var tomorrow = year + "-" + tomorrowMonth + "-" + tomorrow;
+var tomorrow = year + "-" + month + "-" + tomorrow;
 
 document.getElementById("checkin").value = today;
 document.getElementById("checkout").value = tomorrow;
+
 // FORM LOGIC
 
 var customers = [];
