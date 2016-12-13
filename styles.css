@@ -277,7 +277,7 @@ left: 0;
  color: red;
 }
 
-#uploadSuccess {
+.uploadSuccess {
  color: green;
 }
 

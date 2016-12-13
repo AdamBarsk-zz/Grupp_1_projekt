@@ -17,14 +17,14 @@ if (isset($_POST["add"])) {
 				echo "<div><p class='failToUpload'>Bara getter med efternamn JPG, JPEG, PNG & GIF finns på denna gård.</p></div>";
 				$uploadOk = 0;
 			} else if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-						echo "<div><p id='uploadSuccess'> Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har ladddats upp. </p></div>";	
+						echo "<div><p class='uploadSuccess'> Geten: ". "'" . basename ( $_FILES["fileToUpload"]["name"]) . "'" . " har ladddats upp. </p></div>";	
 					} else {
 						echo "<div><p class='failToUpload'>Tyvärr, geten blev förvirrad på vägen och försvann.</p></div>";
 	  				  };
 }
 
 $filename = $_POST['delete'];
-	if(isset($_POST['delete'])) { 
+	if(isset($_POST['delete'])) {
 		unlink($filename);
 		header('location: http://www.dengladageten.se/gallery.php');
 	}
