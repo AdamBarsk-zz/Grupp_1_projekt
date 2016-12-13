@@ -58,7 +58,7 @@
     			<label for="password" class="book-start">Lösenord:</label>
     			<input type="password" class="form-control" name="password">
   			</div>
-  			<input type="submit" class="btn btn-default login-submit" value="Logga in">
+  			<input type="submit" class="btn btn-default" value="Logga in">
 			</form>
     </div>
   </div>
