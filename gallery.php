@@ -20,10 +20,10 @@
 
 	<!-- GALLERY -->
 	<!-- Black overlay in the background when img is zoomed -->
-	<div id="black"></div>
+	<div id="black" class="black"></div>
 
 	<!--Picture container when img is zoomed -->
-	<div id="white">
+	<div id="white" class="white">
 	</div>
 
 
