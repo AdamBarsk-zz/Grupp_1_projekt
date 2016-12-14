@@ -1,7 +1,7 @@
 $(function() {
   $("#checkin").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
@@ -14,9 +14,10 @@ $(function() {
           $("#checkout").datepicker("option", "minDate", date2);
       }
   });
+
   $("#checkout").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
@@ -174,7 +175,8 @@ function validate() {
         },
 
         phonenumber: {
-          required: true
+          required: true,
+          digits: true
         }
       },
 
@@ -211,7 +213,8 @@ function validate() {
         },
 
         phonenumber: {
-          required: "Fyll i ditt telefonnummer"
+          required: "Fyll i ditt telefonnummer",
+          digits: "Ange ett giltigt telefonnummer"
         }
       }
     });
