@@ -37,7 +37,6 @@ if(isset($_POST['book'])) {
 	// Connect to database
 	include("config.php");
 
-	// Save guest once
 	$query = "
 	INSERT INTO Guest (
 	firstName,
@@ -52,8 +51,10 @@ if(isset($_POST['book'])) {
 	'$phonenumber'
 	)";
 
+	// Save guest once
 	mysqli_query($db, $query);
 
+	// Save guest index
 	$guestid = mysqli_insert_id($db);
 
 	if ($singlerooms > 0) {
@@ -69,12 +70,12 @@ if(isset($_POST['book'])) {
 			LIMIT 1
 			";
 
-			// Get room id
 			$result = mysqli_query($db, $query);
 			$row = mysqli_fetch_row($result);
+
+			// Get room id
 			$roomType_id = $row[0];
 
-			// Insert reservation with room id and guest id
 			$query = "
 			INSERT INTO Reservation (
 			dateCreated,
@@ -93,6 +94,7 @@ if(isset($_POST['book'])) {
 			 $roomType_id
 			)";
 
+			// Insert reservation with room id and guest id
 			mysqli_query($db, $query);
 		}
 	}
@@ -109,12 +111,12 @@ if(isset($_POST['book'])) {
 			LIMIT 1
 			";
 
-			// Get room id
 			$result = mysqli_query($db, $query);
 			$row = mysqli_fetch_row($result);
+
+			// Get room id
 			$roomType_id = $row[0];
 
-			// Insert reservation with room id and guest id
 			$query = "
 			INSERT INTO Reservation (
 			dateCreated,
@@ -133,6 +135,7 @@ if(isset($_POST['book'])) {
 			 $roomType_id
 			)";
 
+			// Insert reservation with room id and guest id
 			mysqli_query($db, $query);
 		}
 	}
@@ -149,12 +152,12 @@ if(isset($_POST['book'])) {
 			LIMIT 1
 			";
 
-			// Get room id
 			$result = mysqli_query($db, $query);
 			$row = mysqli_fetch_row($result);
+
+			// Get room id
 			$roomType_id = $row[0];
 
-			// Insert reservation with room id and guest id
 			$query = "
 			INSERT INTO Reservation (
 			dateCreated,
@@ -173,6 +176,7 @@ if(isset($_POST['book'])) {
 			 $roomType_id
 			)";
 
+			// Insert reservation with room id and guest id
 			mysqli_query($db, $query);
 		}
 	}
@@ -187,60 +191,52 @@ echo "
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h2 for=' style='text-align:center'>Bekräftelse</h2>
-				<form method='post'>
+				<form>
 					<div class='form-group'>
 						<label>Incheckningsdatum:</label>
 						<p>$checkin</p>
-						<input type='hidden' name='checkin' value=' $checkin'>
 					</div>
 					<div class='form-group'>
 						<label>Utcheckningsdatum:</label>
 						<p>$checkout</p>
-						<input type='hidden' name='checkout' value=' $checkout'>
 					</div>
 					<div class='form-group'>
 						<label>Dubbelrum:</label>
 						<p>$doublerooms</p>
-						<input type='hidden' name='doublerooms' value=' $doublerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Enkelrum:</label>
 						<p>$singlerooms</p>
-						<input type='hidden' name='singlerooms' value=' $singlerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Familjerum:</label>
 						<p>$familyrooms</p>
-						<input type='hidden' name='familyrooms' value=' $familyrooms'>
 					</div>
 					<div class='form-group'>
 						<label>Namn:</label>
 						<p>$firstname" . " " . "$lastname</p>
-						<input type='hidden' name='firstname' value='$firstname'>
-						<input type='hidden' name='lastname' value=' $lastname'>
 					</div>
 					<div class='form-group'>
 						<label>Emailadress:</label>
 						<p>$email</p>
-						<input type='hidden' name='email' value=' $email'>
 					</div>
 					<div class='form-group'>
 						<label>Telefonnummer:</label>
 						<p>$phonenumber</p>
-						<input type='hidden' name='phonenumber' value=' $phonenumber'>
 					</div>
 					<div class='form-group'>
 						<label>Önskemål:</label>
 						<p>$requests</p>
-						<input type='hidden' name='requests' value='$requests'>
 					</div>
 					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' onclick='submit()' value='Reservera rum'>
-					<a onclick='abort()' type='submit' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
+					<a onclick='abort()' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>";
+
+// Book
 if (isset($_POST['book'])) {
 	echo "
 		<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
@@ -253,9 +249,12 @@ if (isset($_POST['book'])) {
 			</div>
 		</div>
 	";
-} else {
+} 
+
+// Abort
+else {
 	echo "
-		<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
+	<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h1>Bokning avbruten</h1>
@@ -272,7 +271,6 @@ if (isset($_SESSION['admin'])) {
 	echo "
 	<script>
 		$('.admin').attr('contenteditable', 'true');
-		console.log('test');
 	</script>
 	";
 }
