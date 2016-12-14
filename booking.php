@@ -40,7 +40,7 @@ $familyPrice = (string)$row[0];
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
 
-$action = '';
+$action = 'confirmation.php';
 $redirect = true;
 
 if (isset($_POST['submit'])) {

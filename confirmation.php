@@ -254,7 +254,7 @@ if (isset($_POST['book'])) {
 // Abort
 else {
 	echo "
-		<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
+	<div style='display: none;' id='abortdiv' class='container-fluid main-cont'>
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h1>Bokning avbruten</h1>
