@@ -52,17 +52,17 @@
 						<h3>Boka nu</h3>
 					</div>
 					<div class="row">
-						<form action="booking.php" class="form-inline col-sm-12 textAlignCenter" id="booking" autocomplete="off" method="post">						
-							<div class="form-group" id="check-in">
+						<form action="booking.php" class="form-inline col-sm-12 textAlignCenter text-center" id="booking" autocomplete="off" method="post">						
+							<div class="form-group text-center" id="check-in">
 								<label for="check-in-date" class="book-start text-center">Incheckning</label><br />
 								<input type="text" class="form-control text-center" id="check-in-date" name="checkin" />
 							</div>
-							<div class="form-group" id="check-out">
+							<div class="form-group text-center" id="check-out">
 								<label for="check-out-date" class="book-start text-center">Utcheckning</label><br />
 								<input type="text" class="form-control text-center" id="check-out-date" name="checkout" />
 							</div>
 							<div class="form-group">
-								<div class="form-group" id="num-double">
+								<div class="form-group text-center" id="num-double">
 									<label for="double-beds" class="book-start">Dubbelrum</label><br />
 									<select class="booking-beds form-control" id="double-beds">
 										<option>0</option>
@@ -71,7 +71,7 @@
 										<option>3</option>
 									</select>
 								</div>
-								<div class="form-group" id="num-single">
+								<div class="form-group text-center" id="num-single">
 									<label for="single-beds" class="book-start">Enkelrum</label><br />
 									<select class="booking-beds form-control" id="single-beds">
 										<option selected>0</option>
@@ -79,7 +79,7 @@
 										<option>2</option>
 									</select>
 								</div>
-								<div class="form-group" id="num-family">
+								<div class="form-group text-center" id="num-family">
 									<label for="family-beds" class="book-start">Familjerum</label><br />
 									<select class="booking-beds form-control" id="family-beds">
 										<option selected>0</option>
