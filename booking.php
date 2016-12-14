@@ -30,7 +30,6 @@ if (isset($_POST['submit'])) {
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
 
-
 	$checkin = $_POST['checkin'];
 	$checkout = $_POST['checkout'];
 	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'doubleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
@@ -147,7 +146,7 @@ if (isset($_POST['submit'])) {
 			<section class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 calender">
 
 				<div class="row">
-					<h2 style="text-align:center">Gästinformation</h2>
+					<h2 class="textAlignCenter">Gästinformation</h2>
 				</div>
 
 				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
@@ -215,16 +214,15 @@ if (isset($_POST['submit'])) {
 
 					<div id="errors"></div>
 
-					<div style="margin-top: 1vh">
-						<p id="price" style='font-size: 2rem; font-weight: bold;'><p>
+					<div id="priceContainer">
+						<p id="price"><p>
 					</div>
 
-					<div class="row">
-						<div class="form-group">
-							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
-						</div>
-					</div>
+					
 				</form>
+				<div class="row">
+					<input class="btn btn-lg btn-block btn-default center-block" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
+				</div>
 			</section>
 		</div>
 	</div>
