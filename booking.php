@@ -233,10 +233,10 @@ if (isset($_POST['submit'])) {
 	<!-- Content -->
 	<div class="container main-cont">
 		<div class="row">
-			<section class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 calender">
+			<section class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 calender text-center">
 
 				<div class="row">
-					<h2 class="textAlignCenter">Gästinformation</h2>
+					<h2>Gästinformation</h2>
 				</div>
 
 				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
@@ -308,11 +308,10 @@ if (isset($_POST['submit'])) {
 						<p id="price"><p>
 					</div>
 
+						<input class="btn btn-lg btn-default" name="submit" type="submit" value="Reservera rum" id="submitBooking">
 					
 				</form>
-				<div class="row">
-					<input class="btn btn-lg btn-block btn-default center-block" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
-				</div>
+				
 			</section>
 		</div>
 	</div>
