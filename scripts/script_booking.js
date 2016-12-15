@@ -143,7 +143,8 @@ function validate() {
         $(element).closest(".form-group").removeClass("has-error");
       },
 
-      rules: {
+
+      rules:  {
         checkin: {
           required: true
         },
@@ -153,19 +154,13 @@ function validate() {
         },
 
         doublerooms: {
-          required: true,
-          digits: true
-      //  range: [0, available rooms]
+          require_from_group: [1, ".rooms"]
         },
-
         singlerooms: {
-          required: true,
-       // range: [0, available rooms]
+          require_from_group: [1, ".rooms"]
         },
-
         familyrooms: {
-          required: true,
-        //range: [0, available rooms]
+          require_from_group: [1, ".rooms"]
         },
 
         firstname: {
@@ -190,21 +185,28 @@ function validate() {
       },
 
       messages: {
-        doubleRooms: {
-          required: "Fyll i antal dubbelrum",
-          digits: "Använd endast siffror",
+
+        checkin: {
+          required: "Fyll i inchecknings datum"
+        },
+
+        checkout: {
+          required: "Fyll i utchecknings datum"
+        },
+
+        doublerooms: {
+          require_from_group: "Fyll i antal rum"
       //  range: ""
         },
 
-        singleRooms: {
-          required: "Fyll i antal enkelrum",
-          digits: "Använd endast siffror",
+        singlerooms: {
+          require_from_group: ""
       //  range: ""
         },
 
-        familyRooms: {
-          required: "Fyll i antal familjerum",
-          digits: "Använd endast siffror",
+        familyrooms: {
+          require_from_group: ""
+
       //  range: ""
         },
 

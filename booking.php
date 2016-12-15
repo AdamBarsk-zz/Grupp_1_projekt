@@ -222,6 +222,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Lato|Pacifico" rel="stylesheet">
@@ -260,34 +261,17 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<select id="doublerooms" class="form-control rooms" name="doublerooms">
-								<option value=""></option>
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
+							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="" min="0" max="3">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br />
-							<select id="singlerooms" class="form-control rooms" name="singlerooms">
-								<option value=""></option>
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-							</select>
+							<input id="singlerooms" class="form-control rooms" type="number" name="singlerooms" value="" min="0" max="2">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<select id="familyrooms" class="form-control rooms" name="familyrooms">
-								<option value=""></option>
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
+							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="" min="0" max="3">
 						</div>
 					</div>
 
