@@ -134,6 +134,9 @@ if (isset($_POST['submit'])) {
 					";
 				}
 				break;
+			default:
+				header('Location: confirmation.php');
+
 		}
 	}
 

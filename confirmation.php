@@ -63,14 +63,16 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $singlerooms; $i++) {
 
 			// Get vacant room
-			$query = "
-			SELECT roomType_id
-			FROM Room_type
-			WHERE typeOfRoom = 'singleroom'
-			LIMIT 1
-			";
+			$query = "SELECT roomType_id
+								FROM Room_type AS rt
+								WHERE typeOfRoom = 'singleroom'
+								AND NOT EXISTS
+								(SELECT *
+								 FROM Reservation
+							 	 WHERE roomType_id = rt.roomType_id)";
 
 			$result = mysqli_query($db, $query);
+
 			$row = mysqli_fetch_row($result);
 
 			// Get room id
@@ -104,12 +106,13 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $doublerooms; $i++) {
 
 			// Get vacant room
-			$query = "
-			SELECT roomType_id
-			FROM Room_type
-			WHERE typeOfRoom = 'doubleroom'
-			LIMIT 1
-			";
+			$query = "SELECT roomType_id
+								FROM Room_type AS rt
+								WHERE typeOfRoom = 'doubleroom'
+								AND NOT EXISTS
+								(SELECT *
+								 FROM Reservation
+							 	 WHERE roomType_id = rt.roomType_id)";
 
 			$result = mysqli_query($db, $query);
 			$row = mysqli_fetch_row($result);
@@ -145,12 +148,13 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $familyrooms; $i++) {
 
 			// Get vacant room
-			$query = "
-			SELECT roomType_id
-			FROM Room_type
-			WHERE typeOfRoom = 'familyroom'
-			LIMIT 1
-			";
+			$query = "SELECT roomType_id
+								FROM Room_type AS rt
+								WHERE typeOfRoom = 'familyroom'
+								AND NOT EXISTS
+								(SELECT *
+								 FROM Reservation
+							 	 WHERE roomType_id = rt.roomType_id)";
 
 			$result = mysqli_query($db, $query);
 			$row = mysqli_fetch_row($result);
@@ -249,7 +253,7 @@ if (isset($_POST['book'])) {
 			</div>
 		</div>
 	";
-} 
+}
 
 // Abort
 else {
