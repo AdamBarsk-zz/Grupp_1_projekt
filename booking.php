@@ -1,67 +1,137 @@
 <?php
+
 session_start();
+
+// Connect to database
 include("config.php");
 
-$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'singleroom'";
+$query = "
+SELECT price 
+FROM Room_type 
+WHERE typeOfRoom = 'singleroom'
+";
+
+// Get singleroom price
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $singlePrice = (string)$row[0];
 
-$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'doubleroom'";
+$query = "
+SELECT price 
+FROM Room_type 
+WHERE typeOfRoom = 'doubleroom'
+";
+
+// Get doubleroom price
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $doublePrice = (string)$row[0];
 
-$query = "SELECT price FROM Room_type WHERE typeOfRoom = 'familyroom'";
+$query = "
+SELECT price 
+FROM Room_type 
+WHERE typeOfRoom = 'familyroom'";
+
+// Get familyroom price
 $result = mysqli_query($db, $query);
 $row = $result->fetch_row();
 $familyPrice = (string)$row[0];
 
 $checkin = $_POST['checkin'];
 $checkout = $_POST['checkout'];
-$action = '';
+
+$action = 'confirmation.php';
 $redirect = true;
 
 if (isset($_POST['submit'])) {
 
+	// Create cookie with all post values
 	$_SESSION['booking'] = $_POST;
 
 	$singlerooms = $_POST['singlerooms'];
 	$doublerooms = $_POST['doublerooms'];
 	$familyrooms = $_POST['familyrooms'];
 
-
 	$checkin = $_POST['checkin'];
 	$checkout = $_POST['checkout'];
-	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'doubleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+
+	$query = "
+	SELECT * 
+	FROM Reservation 
+	AS r 
+	JOIN Room_type 
+	AS rt 
+	WHERE r.roomType_id = rt.roomType_id 
+	AND rt.typeOfRoom = 'doubleroom' 
+	AND r.checkOut >= '".$checkin."' 
+	AND r.checkIn < '".$checkout."'
+	";
+
+	// Get vacant doublerooms
 	$bookedDoubleRooms = mysqli_query($db, $query);
-	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'singleroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+
+	$query = "
+	SELECT * 
+	FROM Reservation 
+	AS r 
+	JOIN Room_type 
+	AS rt 
+	WHERE r.roomType_id = rt.roomType_id 
+	AND rt.typeOfRoom = 'singleroom' 
+	AND r.checkOut >= '".$checkin."' 
+	AND r.checkIn < '".$checkout."'
+	";
+
+	// Get vacant singlerooms
 	$bookedSingleRooms = mysqli_query($db, $query);
-	$query = "SELECT * FROM Reservation AS r JOIN Room_type AS rt WHERE r.roomType_id = rt.roomType_id AND rt.typeOfRoom = 'familyroom' AND r.checkOut >= '".$checkin."' AND r.checkIn < '".$checkout."'";
+
+	$query = "
+	SELECT * 
+	FROM Reservation 
+	AS r 
+	JOIN Room_type 
+	AS rt 
+	WHERE r.roomType_id = rt.roomType_id 
+	AND rt.typeOfRoom = 'familyroom' 
+	AND r.checkOut >= '".$checkin."' 
+	AND r.checkIn < '".$checkout."'";
+
+	// Get vacant familyrooms
 	$bookedFamilyRooms = mysqli_query($db, $query);
+
 	function checkFamilyRooms() {
 		GLOBAL $bookedFamilyRooms;
 		GLOBAL $familyrooms;
+
 		switch ($familyrooms) {
 			case 1:
 				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
 					header('Location: confirmation.php');
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			default:
@@ -69,51 +139,70 @@ if (isset($_POST['submit'])) {
 
 		}
 	}
+
 	function checkSingleRooms() {
 		GLOBAL $bookedSingleRooms;
 		GLOBAL $singlerooms;
+
 		switch ($singlerooms) {
 			case 1:
 				if (mysqli_num_rows($bookedSingleRooms) < 2) {
 					checkFamilyRooms();
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många enkelrum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedSingleRooms) < 1) {
 					checkFamilyRooms();
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många enkelrum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många enkelrum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			default:
 					checkFamilyRooms();
 		}
 	}
+
 	function checkDoubleRooms() {
 		GLOBAL $bookedDoubleRooms;
 		GLOBAL $doublerooms;
+
 		switch ($doublerooms) {
 			case 1:
 				if (mysqli_num_rows($bookedDoubleRooms) < 3) {
 					checkSingleRooms();
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			case 2:
 				if (mysqli_num_rows($bookedDoubleRooms) < 2) {
 					checkSingleRooms();
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			case 3:
 				if (mysqli_num_rows($bookedDoubleRooms) < 1) {
 					checkSingleRooms();
 				} else {
-					echo '<p class="error">Det finns inte tillräckligt många dubbelrum lediga på dina datum.</p>';
+					echo "
+					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</p>
+					";
 				}
 				break;
 			default:
@@ -147,10 +236,10 @@ if (isset($_POST['submit'])) {
 	<!-- Content -->
 	<div class="container main-cont">
 		<div class="row">
-			<section class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 calender">
+			<section class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 calender text-center">
 
 				<div class="row">
-					<h2 style="text-align:center">Gästinformation</h2>
+					<h2>Gästinformation</h2>
 				</div>
 
 				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
@@ -159,12 +248,12 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Incheckning:</label><br />
-							<input class="form-control" id="checkin" name="checkin" type="text">
+							<input class="form-control text-center" id="checkin" name="checkin" type="text">
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Utcheckning:</label><br />
-							<input class="form-control" id="checkout" name="checkout" type="text">
+							<input class="form-control text-center" id="checkout" name="checkout" type="text">
 						</div>
 					</div>
 
@@ -218,16 +307,14 @@ if (isset($_POST['submit'])) {
 
 					<div id="errors"></div>
 
-					<div style="margin-top: 1vh">
-						<p id="price" style='font-size: 2rem; font-weight: bold;'><p>
+					<div id="priceContainer">
+						<p id="price"><p>
 					</div>
 
-					<div class="row">
-						<div class="form-group">
-							<input class="btn btn-lg btn-block btn-default" onclick="bookRooms()" name="submit" type="submit" value="Reservera rum">
-						</div>
-					</div>
+						<input class="btn btn-lg btn-default" name="submit" type="submit" value="Reservera rum" id="submitBooking">
+					
 				</form>
+				
 			</section>
 		</div>
 	</div>
@@ -242,8 +329,9 @@ if (isset($_SESSION['admin'])) {
 }
 ?>
 	<script src="scripts/script_booking.js"></script>
-	<?php
-	echo "<script>
+<?php
+	echo "
+	<script>
 		$(document).ready(calcPrice);
 		$('.rooms').change(calcPrice);
 		$('#checkin').change(calcPrice);
@@ -261,7 +349,7 @@ if (isset($_SESSION['admin'])) {
 	    var familyTot = $familyPrice * $('#familyrooms').val() * numNights;
 	    var totalPrice = singleTot + doubleTot + familyTot;
 			$('#price').html('Ditt pris: ' + totalPrice + ' kr');
-	};
+		};
 	</script>
 	";
 ?>

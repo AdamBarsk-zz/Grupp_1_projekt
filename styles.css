@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
 }
 
-.bigr {
+.bigr {  /* Stor text admin "hej kristin" "den glada geten" i echot */
   font-size: 72px;
 }
 
@@ -37,7 +37,6 @@ h1, h2, h3, h4, h5, h6 {
 .header {
   background-color: rgba(255, 255, 255, 0.9);
   margin-top: -5px;
-
   width: 100%;
   z-index: 1;
 }
@@ -52,12 +51,12 @@ h1, h2, h3, h4, h5, h6 {
       color: #444444;
 }
 
-#ul-topnav li a:hover {
+.navbar-nav li a:hover {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-toggle {
-    background-color:rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     border-color: #666666;
 }
 
@@ -99,8 +98,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0px;
 }
 
-.booking {
-  text-align: center;
+#search {
+  margin: 10px;
 }
 
 .booking label {
@@ -148,9 +147,15 @@ th {
   font-weight: normal;
 }
 
-.center-date {
-  text-align:center;
+#priceContainer {
+  margin-top: 1vh;
 }
+
+#price {
+  font-size: 2rem; 
+  font-weight: bold;
+}
+
 /* FOOTER */
 
 .footer {
@@ -229,8 +234,8 @@ left: 0;
   -webkit-filter: sepia(100%);
 }
 
-#black{
-  position:  fixed;
+.black{
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -241,7 +246,7 @@ left: 0;
   width: 100vw;
 }
 
-#white {
+.white {
   position: absolute;
   top: 10%;
   left: 20%;
@@ -250,7 +255,7 @@ left: 0;
   z-index: 2;
 }
 
-#white img {
+.white img {
   height: 100%;
   width: 100%;
   border-radius: 5px;
@@ -271,6 +276,18 @@ left: 0;
 
 #right-arrow {
   right: 0;
+}
+
+.failToUpload {
+ color: red;
+}
+
+.uploadSuccess {
+ color: green;
+}
+
+.file {
+  display: inline-block !important; /* admin Välj bild uploads */
 }
 
 /*incheck utcheck kalender(Datepicker) */
@@ -424,4 +441,14 @@ left: 0;
 .error {
   display: block;
   color: darkred;
+  font-weight: bold;
 }
+
+/* Login.php */
+
+.login-fail {
+  margin-top: 100px;
+}
+
+
+/*end login.php */

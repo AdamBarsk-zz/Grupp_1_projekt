@@ -8,9 +8,9 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      
+
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul id="ul-topnav" class="nav navbar-nav">
+        <ul class="nav navbar-nav">
           <li><a href="index.php">Hem</a></li>
 
           <?php

@@ -1,7 +1,7 @@
 $(function() {
   $("#reservation-date").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"]

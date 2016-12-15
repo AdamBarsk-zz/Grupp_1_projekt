@@ -1,12 +1,11 @@
 $(function() {
   $("#checkin").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: today,
-      required: true,
       onSelect: function (date) {
           var date2 = $("#checkin").datepicker("getDate");
           date2.setDate(date2.getDate() + 1);
@@ -15,14 +14,14 @@ $(function() {
           $("#checkout").datepicker("option", "minDate", date2);
       }
   });
+
   $("#checkout").datepicker({
-      inline:true,
-      showOtherMonths:true,
+      inline: true,
+      showOtherMonths: true,
       firstDay: 1,
       dateFormat: "yy-mm-dd",
       dayNamesMin: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
       minDate: tomorrow,
-      required: true,
       onClose: function () {
           var checkin = $("#checkin").datepicker("getDate");
           var checkout = $("#checkout").datepicker("getDate");
@@ -40,14 +39,19 @@ var date = new Date();
 var day = date.getDate();
 var tomorrow = date.getDate() + 1;
 var month = date.getMonth() + 1;
+var tomorrowMonth = date.getDate() +1;
 var year = date.getFullYear();
 
 if (month < 10) month = "0" + month;
+if (tomorrowMonth < 10) tomorrowMonth = "0" + tomorrowMonth;
 if (day < 10) day = "0" + day;
 if (tomorrow < 10) tomorrow = "0" + tomorrow;
 
 var today = year + "-" + month + "-" + day;
 var tomorrow = year + "-" + month + "-" + tomorrow;
+
+document.getElementById("checkin").value = today;
+document.getElementById("checkout").value = tomorrow;
 
 // FORM LOGIC
 
@@ -55,9 +59,6 @@ var customers = [];
 var inputs = document.getElementsByTagName("input");
 var textArea = document.getElementsByTagName("textarea")[0];
 window.onload = function() {
-
-  document.getElementById("checkin").value = today;
-  document.getElementById("checkout").value = tomorrow;
 
   // Load saved values
   Load();
@@ -174,7 +175,8 @@ function validate() {
         },
 
         phonenumber: {
-          required: true
+          required: true,
+          digits: true
         }
       },
 
@@ -211,7 +213,8 @@ function validate() {
         },
 
         phonenumber: {
-          required: "Fyll i ditt telefonnummer"
+          required: "Fyll i ditt telefonnummer",
+          digits: "Ange ett giltigt telefonnummer"
         }
       }
     });
