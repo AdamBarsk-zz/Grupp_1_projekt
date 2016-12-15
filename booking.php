@@ -6,8 +6,8 @@ session_start();
 include("config.php");
 
 $query = "
-SELECT price 
-FROM Room_type 
+SELECT price
+FROM Room_type
 WHERE typeOfRoom = 'singleroom'
 ";
 
@@ -17,8 +17,8 @@ $row = $result->fetch_row();
 $singlePrice = (string)$row[0];
 
 $query = "
-SELECT price 
-FROM Room_type 
+SELECT price
+FROM Room_type
 WHERE typeOfRoom = 'doubleroom'
 ";
 
@@ -28,8 +28,8 @@ $row = $result->fetch_row();
 $doublePrice = (string)$row[0];
 
 $query = "
-SELECT price 
-FROM Room_type 
+SELECT price
+FROM Room_type
 WHERE typeOfRoom = 'familyroom'";
 
 // Get familyroom price
@@ -56,14 +56,14 @@ if (isset($_POST['submit'])) {
 	$checkout = $_POST['checkout'];
 
 	$query = "
-	SELECT * 
-	FROM Reservation 
-	AS r 
-	JOIN Room_type 
-	AS rt 
-	WHERE r.roomType_id = rt.roomType_id 
-	AND rt.typeOfRoom = 'doubleroom' 
-	AND r.checkOut >= '".$checkin."' 
+	SELECT *
+	FROM Reservation
+	AS r
+	JOIN Room_type
+	AS rt
+	WHERE r.roomType_id = rt.roomType_id
+	AND rt.typeOfRoom = 'doubleroom'
+	AND r.checkOut >= '".$checkin."'
 	AND r.checkIn < '".$checkout."'
 	";
 
@@ -71,14 +71,14 @@ if (isset($_POST['submit'])) {
 	$bookedDoubleRooms = mysqli_query($db, $query);
 
 	$query = "
-	SELECT * 
-	FROM Reservation 
-	AS r 
-	JOIN Room_type 
-	AS rt 
-	WHERE r.roomType_id = rt.roomType_id 
-	AND rt.typeOfRoom = 'singleroom' 
-	AND r.checkOut >= '".$checkin."' 
+	SELECT *
+	FROM Reservation
+	AS r
+	JOIN Room_type
+	AS rt
+	WHERE r.roomType_id = rt.roomType_id
+	AND rt.typeOfRoom = 'singleroom'
+	AND r.checkOut >= '".$checkin."'
 	AND r.checkIn < '".$checkout."'
 	";
 
@@ -86,14 +86,14 @@ if (isset($_POST['submit'])) {
 	$bookedSingleRooms = mysqli_query($db, $query);
 
 	$query = "
-	SELECT * 
-	FROM Reservation 
-	AS r 
-	JOIN Room_type 
-	AS rt 
-	WHERE r.roomType_id = rt.roomType_id 
-	AND rt.typeOfRoom = 'familyroom' 
-	AND r.checkOut >= '".$checkin."' 
+	SELECT *
+	FROM Reservation
+	AS r
+	JOIN Room_type
+	AS rt
+	WHERE r.roomType_id = rt.roomType_id
+	AND rt.typeOfRoom = 'familyroom'
+	AND r.checkOut >= '".$checkin."'
 	AND r.checkIn < '".$checkout."'";
 
 	// Get vacant familyrooms
@@ -257,17 +257,34 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="1" min="0" max="3">
+							<select id="doublerooms" class="form-control rooms" name="doublerooms">
+								<option value=""></option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br />
-							<input id="singlerooms" class="form-control rooms" type="number" name="singlerooms" value="0" min="0" max="2">
+							<select id="singlerooms" class="form-control rooms" name="singlerooms">
+								<option value=""></option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+							</select>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="0" min="0" max="3">
+							<select id="familyrooms" class="form-control rooms" name="familyrooms">
+								<option value=""></option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
 						</div>
 					</div>
 
@@ -309,9 +326,9 @@ if (isset($_POST['submit'])) {
 					</div>
 
 						<input class="btn btn-lg btn-default" name="submit" type="submit" value="Reservera rum" id="submitBooking">
-					
+
 				</form>
-				
+
 			</section>
 		</div>
 	</div>

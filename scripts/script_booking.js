@@ -70,11 +70,12 @@ window.onload = function() {
   textArea.addEventListener("change", Save);
 };
 
-function bookRooms() {
 
-  // Validate form
-  validate();
-}
+document.getElementById('submitBooking').addEventListener('click', function (){
+ // Validate form
+ validate();
+});
+
 function Load() {
 
   // If found memory, load data
@@ -143,21 +144,27 @@ function validate() {
       },
 
       rules: {
-        doubleRooms: {
+        checkin: {
+          required: true
+        },
+
+        checkout: {
+          required: true
+        },
+
+        doublerooms: {
           required: true,
           digits: true
       //  range: [0, available rooms]
         },
 
-        singleRooms: {
+        singlerooms: {
           required: true,
-          digits: true
        // range: [0, available rooms]
         },
 
-        familyRooms: {
+        familyrooms: {
           required: true,
-          digits: true
         //range: [0, available rooms]
         },
 
@@ -176,7 +183,9 @@ function validate() {
 
         phonenumber: {
           required: true,
-          digits: true
+          digits: true,
+          minlength: 10,
+          maxlength: 20
         }
       },
 
@@ -214,8 +223,22 @@ function validate() {
 
         phonenumber: {
           required: "Fyll i ditt telefonnummer",
-          digits: "Ange ett giltigt telefonnummer"
+          digits: "Ange ett giltigt telefonnummer",
+          minlength: "Ditt telefonnummer är för kort",
+          maxlength: "Ditt telefonnummer är för långt"
         }
       }
     });
   }
+
+
+
+//   $(".rooms").change(function() {
+//   var singleroooms = $("#singlerooms").val();
+//   var doubleroooms = $("#doublerooms").val();
+//   var familyroooms = $("#familyrooms").val();
+//
+//
+//     $(".rooms").addClass("has-error");
+//
+// });
