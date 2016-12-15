@@ -64,6 +64,9 @@ if (isset($_POST['submit'])) {
 					echo '<p class="error">Det finns inte tillräckligt många familjerum lediga på dina datum.</p>';
 				}
 				break;
+			default:
+				header('Location: confirmation.php');
+
 		}
 	}
 	function checkSingleRooms() {

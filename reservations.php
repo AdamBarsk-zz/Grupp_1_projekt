@@ -93,7 +93,7 @@
     										</tr>";
                     }
 									} else {
-                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                    echo "<tr><td colspan='10'>Inga resultat hittades</td></tr>";
                   }
 								?>
               </table>
@@ -146,7 +146,7 @@
     										</tr>";
                     }
 									} else {
-                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                    echo "<tr><td colspan='10'>Inga resultat hittades</td></tr>";
                   }
 								?>
               </table>
@@ -186,14 +186,14 @@
     											<td>{$row['checkOut']}</td>
                           <td>";
 
-                        if ($row['roomType_id'] = 5 || 8 || 9) {
-                          echo "{$row['']} dubbelrum<br>";
+                        if ($row['typeOfRoom'] = 'doubleroom') {
+                          echo "{$result->num_rows} dubbelrum<br>";
                         }
-                        if () {
-                          echo "{$row['']} enkelrum<br>";
+                        if ($row['typeOfRoom'] = 'singleroom') {
+                          echo "{$result->num_rows} enkelrum<br>";
                         }
-                        if () {
-                          echo "{$row['']} familjerum<br>";
+                        if ($row['typeOfRoom'] = 'familyroom') {
+                          echo "{$result->num_rows} familjerum<br>";
                         }
   										echo "
                           </td>
@@ -201,7 +201,7 @@
     										</tr>";
                     }
 									} else {
-                    echo "<tr><td colspan='9'>Inga resultat hittades</td></tr>";
+                    echo "<tr><td colspan='10'>Inga resultat hittades</td></tr>";
                   }
 								?>
 							</table>
