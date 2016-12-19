@@ -180,8 +180,8 @@ if (isset($_POST['submit'])) {
 					checkSingleRooms();
 				} else {
 					echo "
-					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</p>
+					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</label>
 					";
 				}
 				break;
@@ -190,8 +190,8 @@ if (isset($_POST['submit'])) {
 					checkSingleRooms();
 				} else {
 					echo "
-					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</p>
+					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</label>
 					";
 				}
 				break;
@@ -200,8 +200,8 @@ if (isset($_POST['submit'])) {
 					checkSingleRooms();
 				} else {
 					echo "
-					<p class='error'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</p>
+					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
+					</label>
 					";
 				}
 				break;
@@ -261,17 +261,31 @@ if (isset($_POST['submit'])) {
 					<div class="row">
 						<div class="form-group">
 							<label class="control-label">Dubbelrum:</label><br />
-							<input id="doublerooms" class="form-control rooms" type="number" name="doublerooms" value="" min="0" max="3">
+							<select id="doublerooms" class="form-control rooms" type="number" name="doublerooms">
+								<option value=""> </option>
+								<option value="1"> 1 Rum</option>
+								<option value="2"> 2 Rum</option>
+								<option value="3"> 3 Rum</option>
+							</select>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Enkelrum:</label><br />
-							<input id="singlerooms" class="form-control rooms" type="number" name="singlerooms" value="" min="0" max="2">
+							<select id="singlerooms" class="form-control rooms" type="number" name="singlerooms">
+								<option value=""> </option>
+								<option value="1"> 1 Rum</option>
+								<option value="2"> 2 Rum</option>
+							</select>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Familjerum:</label><br />
-							<input id="familyrooms" class="form-control rooms" type="number" name="familyrooms" value="" min="0" max="3">
+							<select id="familyrooms" class="form-control rooms" type="number" name="familyrooms">
+								<option value=""> </option>
+								<option value="1"> 1 Rum</option>
+								<option value="2"> 2 Rum</option>
+								<option value="3"> 3 Rum</option>
+							</select>
 						</div>
 					</div>
 
