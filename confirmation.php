@@ -73,7 +73,8 @@ if(isset($_POST['book'])) {
 
 			$result = mysqli_query($db, $query);
 
-			$row = mysqli_fetch_row($result);
+			$row = $result->fetch_row();
+
 
 			// Get room id
 			$roomType_id = $row[0];
@@ -115,7 +116,7 @@ if(isset($_POST['book'])) {
 							 	 WHERE roomType_id = rt.roomType_id)";
 
 			$result = mysqli_query($db, $query);
-			$row = mysqli_fetch_row($result);
+			$row = $result->fetch_row();
 
 			// Get room id
 			$roomType_id = $row[0];
@@ -157,7 +158,7 @@ if(isset($_POST['book'])) {
 							 	 WHERE roomType_id = rt.roomType_id)";
 
 			$result = mysqli_query($db, $query);
-			$row = mysqli_fetch_row($result);
+			$row = $result->fetch_row();
 
 			// Get room id
 			$roomType_id = $row[0];
@@ -195,45 +196,55 @@ echo "
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h2 for=' style='text-align:center'>Bekräftelse</h2>
-				<form>
+				<form method='post' onsubmit='submit()'>
 					<div class='form-group'>
 						<label>Incheckningsdatum:</label>
 						<p>$checkin</p>
+						<input type='hidden' name='checkin' value=' $checkin'>
 					</div>
 					<div class='form-group'>
 						<label>Utcheckningsdatum:</label>
 						<p>$checkout</p>
+						<input type='hidden' name='checkout' value=' $checkout'>
 					</div>
 					<div class='form-group'>
 						<label>Dubbelrum:</label>
 						<p>$doublerooms</p>
+						<input type='hidden' name='doublerooms' value=' $doublerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Enkelrum:</label>
 						<p>$singlerooms</p>
+						<input type='hidden' name='singlerooms' value=' $singlerooms'>
 					</div>
 					<div class='form-group'>
 						<label>Familjerum:</label>
 						<p>$familyrooms</p>
+						<input type='hidden' name='familyrooms' value=' $familyrooms'>
 					</div>
 					<div class='form-group'>
 						<label>Namn:</label>
 						<p>$firstname" . " " . "$lastname</p>
+						<input type='hidden' name='firstname' value='$firstname'>
+						<input type='hidden' name='lastname' value=' $lastname'>
 					</div>
 					<div class='form-group'>
 						<label>Emailadress:</label>
 						<p>$email</p>
+						<input type='hidden' name='email' value=' $email'>
 					</div>
 					<div class='form-group'>
 						<label>Telefonnummer:</label>
 						<p>$phonenumber</p>
+						<input type='hidden' name='phonenumber' value=' $phonenumber'>
 					</div>
 					<div class='form-group'>
 						<label>Önskemål:</label>
 						<p>$requests</p>
+						<input type='hidden' name='requests' value='$requests'>
 					</div>
-					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' onclick='submit()' value='Reservera rum'>
-					<a onclick='abort()' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
+					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' value='Reservera rum'>
+					<a onclick='abort()' type='submit' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
 				</div>
 			</form>
 		</div>
