@@ -196,7 +196,7 @@ echo "
 		<div class='row'>
 			<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 				<h2 for=' style='text-align:center'>Bekräftelse</h2>
-				<form method='post' onsubmit='submit()'>
+				<form method='post'>
 					<div class='form-group'>
 						<label>Incheckningsdatum:</label>
 						<p>$checkin</p>
@@ -243,7 +243,7 @@ echo "
 						<p>$requests</p>
 						<input type='hidden' name='requests' value='$requests'>
 					</div>
-					<input type='submit' class='btn btn-lg btn-block btn-success' name='book' value='Reservera rum'>
+					<input type='submit' onclick='submit()' class='btn btn-lg btn-block btn-success' name='book' value='Reservera rum'>
 					<a onclick='abort()' type='submit' class='btn btn-lg btn-block btn-danger'>Avbryt bokning</a>
 				</div>
 			</form>

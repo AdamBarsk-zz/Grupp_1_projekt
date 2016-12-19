@@ -66,26 +66,26 @@
 
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-  										echo "
+                      echo "
     										<tr>
                           <td>Checkout</td>
-    											<td>{$row['book_id']}</td>
-    											<td>{$row['book_date']}</td>
-                          <td>{$row['first_name']} {$row['last_name']}</td>
+    											<td>{$row['id']}</td>
+    											<td>{$row['dateCreated']}</td>
+                          <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
-                          <td>{$row['phone_number']}</td>
-    											<td>{$row['check_in_date']}</td>
-    											<td>{$row['check_out_date']}</td>
+                          <td>{$row['phoneNumber']}</td>
+    											<td>{$row['checkIn']}</td>
+    											<td>{$row['checkOut']}</td>
                           <td>";
 
-                        if ($row[double_rooms_amount] > 0) {
-                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        if ($row['typeOfRoom'] = 'doubleroom') {
+                          echo "{$result->num_rows} dubbelrum<br>";
                         }
-                        if ($row[single_rooms_amount] > 0) {
-                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        if ($row['typeOfRoom'] = 'singleroom') {
+                          echo "{$result->num_rows} enkelrum<br>";
                         }
-                        if ($row[family_rooms_amount] > 0) {
-                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        if ($row['typeOfRoom'] = 'familyroom') {
+                          echo "{$result->num_rows} familjerum<br>";
                         }
   										echo "
                           </td>
@@ -119,26 +119,26 @@
 
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-  										echo "
+                      echo "
     										<tr>
                           <td>Checkout</td>
-    											<td>{$row['book_id']}</td>
-    											<td>{$row['book_date']}</td>
-                          <td>{$row['first_name']} {$row['last_name']}</td>
+    											<td>{$row['id']}</td>
+    											<td>{$row['dateCreated']}</td>
+                          <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
-                          <td>{$row['phone_number']}</td>
-    											<td>{$row['check_in_date']}</td>
-    											<td>{$row['check_out_date']}</td>
+                          <td>{$row['phoneNumber']}</td>
+    											<td>{$row['checkIn']}</td>
+    											<td>{$row['checkOut']}</td>
                           <td>";
 
-                        if ($row[double_rooms_amount] > 0) {
-                          echo "{$row['double_rooms_amount']} dubbelrum<br>";
+                        if ($row['typeOfRoom'] = 'doubleroom') {
+                          echo "{$result->num_rows} dubbelrum<br>";
                         }
-                        if ($row[single_rooms_amount] > 0) {
-                          echo "{$row['single_rooms_amount']} enkelrum<br>";
+                        if ($row['typeOfRoom'] = 'singleroom') {
+                          echo "{$result->num_rows} enkelrum<br>";
                         }
-                        if ($row[family_rooms_amount] > 0) {
-                          echo "{$row['family_rooms_amount']} familjerum<br>";
+                        if ($row['typeOfRoom'] = 'familyroom') {
+                          echo "{$result->num_rows} familjerum<br>";
                         }
   										echo "
                           </td>
