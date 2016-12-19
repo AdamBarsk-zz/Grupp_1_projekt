@@ -151,11 +151,13 @@ function validate() {
 
       rules:  {
         checkin: {
-          required: true
+          required: true,
+          minlength: 10
         },
 
         checkout: {
-          required: true
+          required: true,
+          minlength: 10
         },
 
         doublerooms: {
@@ -192,11 +194,13 @@ function validate() {
       messages: {
 
         checkin: {
-          required: "Fyll i inchecknings datum"
+          required: "Fyll i inchecknings datum",
+          minlength: "Fyll i ett giltigt datum"
         },
 
         checkout: {
-          required: "Fyll i utchecknings datum"
+          required: "Fyll i utchecknings datum",
+          minlength: "Fyll i ett giltigt datum"
         },
 
         doublerooms: {

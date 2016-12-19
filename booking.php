@@ -263,9 +263,9 @@ if (isset($_POST['submit'])) {
 							<label class="control-label">Dubbelrum:</label><br />
 							<select id="doublerooms" class="form-control rooms" type="number" name="doublerooms">
 								<option value=""> </option>
-								<option value="1"> 1 Rum</option>
-								<option value="2"> 2 Rum</option>
-								<option value="3"> 3 Rum</option>
+								<option selected value="1"> 1 </option>
+								<option value="2"> 2 </option>
+								<option value="3"> 3 </option>
 							</select>
 						</div>
 
@@ -273,8 +273,8 @@ if (isset($_POST['submit'])) {
 							<label class="control-label">Enkelrum:</label><br />
 							<select id="singlerooms" class="form-control rooms" type="number" name="singlerooms">
 								<option value=""> </option>
-								<option value="1"> 1 Rum</option>
-								<option value="2"> 2 Rum</option>
+								<option value="1"> 1 </option>
+								<option value="2"> 2 </option>
 							</select>
 						</div>
 
@@ -282,9 +282,9 @@ if (isset($_POST['submit'])) {
 							<label class="control-label">Familjerum:</label><br />
 							<select id="familyrooms" class="form-control rooms" type="number" name="familyrooms">
 								<option value=""> </option>
-								<option value="1"> 1 Rum</option>
-								<option value="2"> 2 Rum</option>
-								<option value="3"> 3 Rum</option>
+								<option value="1"> 1 </option>
+								<option value="2"> 2 </option>
+								<option value="3"> 3 </option>
 							</select>
 						</div>
 					</div>
