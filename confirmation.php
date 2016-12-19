@@ -63,13 +63,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $singlerooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'singleroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 
@@ -107,13 +112,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $doublerooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'doubleroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 			$row = $result->fetch_row();
@@ -149,13 +159,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $familyrooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'familyroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 			$row = $result->fetch_row();
