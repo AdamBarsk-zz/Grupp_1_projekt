@@ -263,6 +263,20 @@ if (isset($_POST['book'])) {
 				</div>
 			</div>
 		</div>
+		<script type='text/javascript'>
+			var bookingdiv = document.getElementById('bookingdiv');
+			var bookeddiv = document.getElementById('bookeddiv');
+			var abortdiv = document.getElementById('abortdiv');
+
+			function submit() {
+				bookingdiv.style.display = 'none';
+				bookeddiv.style.display = 'block';
+				setTimeout(function() {
+					window.location.href = '/index.php';
+				}, 4000);
+			}
+			submit();
+		</script>
 	";
 }
 
@@ -277,6 +291,17 @@ else {
 			</div>
 		</div>
 	</div>
+	<script type='text/javascript'>
+		function abort() {
+			var bookingdiv = document.getElementById('bookingdiv');
+			var abortdiv = document.getElementById('abortdiv');
+			bookingdiv.style.display = 'none';
+			abortdiv.style.display = 'block';
+			setTimeout(function() {
+				window.location.href = '/index.php';
+			}, 4000);
+		}
+	</script>
 	";
 }
 
@@ -291,7 +316,6 @@ if (isset($_SESSION['admin'])) {
 }
 
 echo "
-<script src='scripts/script_confirmation.js'></script>
 </body>
 </html>
 ";
