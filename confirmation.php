@@ -254,7 +254,7 @@ echo "
 // Book
 if (isset($_POST['book'])) {
 	echo "
-		<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
+		<div id='bookeddiv' class='container-fluid main-cont'>
 			<div class='row'>
 				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 					<h1>Tack för din bokning!</h1>
@@ -264,18 +264,10 @@ if (isset($_POST['book'])) {
 			</div>
 		</div>
 		<script type='text/javascript'>
-			var bookingdiv = document.getElementById('bookingdiv');
-			var bookeddiv = document.getElementById('bookeddiv');
-			var abortdiv = document.getElementById('abortdiv');
-
-			function submit() {
-				bookingdiv.style.display = 'none';
-				bookeddiv.style.display = 'block';
-				setTimeout(function() {
-					window.location.href = '/index.php';
-				}, 4000);
-			}
-			submit();
+			document.getElementById('bookingdiv').style.display = 'none';
+			setTimeout(function() {
+				window.location.href = '/';
+			}, 4000);
 		</script>
 	";
 }
@@ -293,12 +285,10 @@ else {
 	</div>
 	<script type='text/javascript'>
 		function abort() {
-			var bookingdiv = document.getElementById('bookingdiv');
-			var abortdiv = document.getElementById('abortdiv');
-			bookingdiv.style.display = 'none';
-			abortdiv.style.display = 'block';
+			document.getElementById('bookingdiv').style.display = 'none';
+			document.getElementById('abortdiv').style.display = 'block';
 			setTimeout(function() {
-				window.location.href = '/index.php';
+				window.location.href = '/';
 			}, 4000);
 		}
 	</script>
