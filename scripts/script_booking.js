@@ -76,7 +76,6 @@ window.onload = function() {
   textArea.addEventListener("change", Save);
 };
 
-
 document.getElementById('submitBooking').addEventListener('click', function (){
  // Validate form
  validate();
@@ -205,18 +204,14 @@ function validate() {
 
         doublerooms: {
           require_from_group: "Fyll i antal rum"
-      //  range: ""
         },
 
         singlerooms: {
           require_from_group: ""
-      //  range: ""
         },
 
         familyrooms: {
           require_from_group: ""
-
-      //  range: ""
         },
 
         firstname: {
