@@ -243,7 +243,7 @@ if (isset($_POST['submit'])) {
 					<h2>Gästinformation</h2>
 				</div>
 
-				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking" id="bookingForm">
+				<form data-toggle="validator" role="form" action="<?php echo $action; ?>" method="post" autocomplete="off" class="form-inline booking col-sm-12" id="bookingForm">
 
 					<!-- Formulär -->
 					<div class="row">
