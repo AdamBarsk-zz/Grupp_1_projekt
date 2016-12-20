@@ -453,11 +453,7 @@ left: 0;
 
 /*end login.php */
 
-/* Reservation.php */
-
-.checkout {
-  cursor: pointer;
-}
-.checkout:hover{
-  color: red;
+/*Reservations */
+.reservation-incheck-text {
+  margin-top: 25px;
 }
