@@ -90,7 +90,7 @@
 								</div>
 							</div>
 							<br />
-							<button type="submit" id="search" class="btn btn-lg btn-default">Sök rum</button>
+							<button type="submit" id="search" class="btn btn-lg btn-default search">Sök rum</button>
 						</form>
 					</div>
 				</section>
