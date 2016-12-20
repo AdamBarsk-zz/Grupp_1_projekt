@@ -60,10 +60,18 @@
                   <th>Rum</th>
                   <th>Önskemål</th>
                 </tr>
-								<?php
+                <?php
                   include('config.php');
                   $date = $_POST['reservation-date'];
-									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkIn = '".$date."'";
+                  $query = "SELECT *,
+                            GROUP_CONCAT( rt.roomType_id ) AS roomid
+                            FROM Guest AS g
+                            JOIN Reservation AS r
+                            JOIN Room_type AS rt
+                            WHERE g.guest_id = r.guest_id
+                            AND r.roomType_id = rt.roomType_id
+                            AND r.checkIn = '".$date."'
+                            GROUP BY g.guest_id";
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
@@ -78,7 +86,7 @@
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>{$row['roomType_id']} ({$row['typeOfRoom']})</td>
+                          <td>{$row['roomid']}</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
@@ -105,10 +113,9 @@
                   <th>Önskemål</th>
                 </tr>
 
-								<?php
+                <?php
 									$query = "SELECT *,
-                            GROUP_CONCAT( rt.roomType_id ) AS rumid,
-                            GROUP_CONCAT( rt.typeOfRoom ) AS tor
+                            GROUP_CONCAT( rt.roomType_id ) AS roomid
                             FROM Guest AS g
                             JOIN Reservation AS r
                             JOIN Room_type AS rt
@@ -131,7 +138,7 @@
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>{$row['rumid']} ({$row['tor']})</td>
+                          <td>{$row['roomid']}</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
@@ -159,14 +166,22 @@
                 </tr>
 
 
-								<?php
-									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkIn < '".$date."' AND r.checkOut > '".$date."'";
+                <?php
+									$query = "SELECT *,
+                            GROUP_CONCAT( rt.roomType_id ) AS roomid
+                            FROM Guest AS g
+                            JOIN Reservation AS r
+                            JOIN Room_type AS rt
+                            WHERE g.guest_id = r.guest_id
+                            AND r.roomType_id = rt.roomType_id
+                            AND r.checkIn < '".$date."' AND r.checkOut > '".$date."'
+                            GROUP BY g.guest_id";
 
 									$result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-  										echo "
+                      echo "
     										<tr>
                           <td>Checkout</td>
     											<td>{$row['guest_id']}</td>
@@ -176,7 +191,7 @@
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>{$row['roomType_id']} ({$row['typeOfRoom']})</td>
+                          <td>{$row['roomid']}</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
