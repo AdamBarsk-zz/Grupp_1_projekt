@@ -205,6 +205,10 @@ left: 0;
 
 /* GALLERY */
 
+.image_container {
+  display: inline-block;
+}
+
 .picture-gallery {
   margin-top: 10vh;
   background: rgba(255, 255, 255, 0.7);
