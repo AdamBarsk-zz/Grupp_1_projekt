@@ -55,161 +55,86 @@ if (isset($_POST['submit'])) {
 	$checkin = $_POST['checkin'];
 	$checkout = $_POST['checkout'];
 
-	$query = "
-	SELECT *
-	FROM Reservation
-	AS r
-	JOIN Room_type
-	AS rt
-	WHERE r.roomType_id = rt.roomType_id
-	AND rt.typeOfRoom = 'doubleroom'
-	AND r.checkOut >= '".$checkin."'
-	AND r.checkIn < '".$checkout."'
-	";
 
 	// Get vacant doublerooms
-	$bookedDoubleRooms = mysqli_query($db, $query);
+	$query = "SELECT *
+						FROM Room_type AS rt
+						WHERE rt.typeOfRoom = 'doubleroom'
+						AND rt.roomType_id NOT IN
+						(SELECT roomType_id FROM Reservation AS r
+						WHERE (
+						(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkIn = '".$checkin."')
+						OR (checkOut = '".$checkout."')
+						OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+						)
+						)";
 
-	$query = "
-	SELECT *
-	FROM Reservation
-	AS r
-	JOIN Room_type
-	AS rt
-	WHERE r.roomType_id = rt.roomType_id
-	AND rt.typeOfRoom = 'singleroom'
-	AND r.checkOut >= '".$checkin."'
-	AND r.checkIn < '".$checkout."'
-	";
+	$vacantDoubleRooms = mysqli_query($db, $query);
+
 
 	// Get vacant singlerooms
-	$bookedSingleRooms = mysqli_query($db, $query);
+	$query = "SELECT *
+						FROM Room_type AS rt
+						WHERE rt.typeOfRoom = 'singleroom'
+						AND rt.roomType_id NOT IN
+						(SELECT roomType_id FROM Reservation AS r
+						WHERE (
+						(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkIn = '".$checkin."')
+						OR (checkOut = '".$checkout."')
+						OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+						)
+						)";
 
-	$query = "
-	SELECT *
-	FROM Reservation
-	AS r
-	JOIN Room_type
-	AS rt
-	WHERE r.roomType_id = rt.roomType_id
-	AND rt.typeOfRoom = 'familyroom'
-	AND r.checkOut >= '".$checkin."'
-	AND r.checkIn < '".$checkout."'";
+	$vacantSingleRooms = mysqli_query($db, $query);
+
 
 	// Get vacant familyrooms
-	$bookedFamilyRooms = mysqli_query($db, $query);
+	$query = "SELECT *
+						FROM Room_type AS rt
+						WHERE rt.typeOfRoom = 'familyroom'
+						AND rt.roomType_id NOT IN
+						(SELECT roomType_id FROM Reservation AS r
+						WHERE (
+						(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+						OR (checkIn = '".$checkin."')
+						OR (checkOut = '".$checkout."')
+						OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+						)
+						)";
 
-	function checkFamilyRooms() {
-		GLOBAL $bookedFamilyRooms;
+	$vacantFamilyRooms = mysqli_query($db, $query);
+
+
+	function checkRooms() {
+		GLOBAL $vacantDoubleRooms;
+		GLOBAL $vacantSingleRooms;
+		GLOBAL $vacantFamilyRooms;
+
+		GLOBAL $doublerooms;
+		GLOBAL $singlerooms;
 		GLOBAL $familyrooms;
 
-		switch ($familyrooms) {
-			case 1:
-				if (mysqli_num_rows($bookedFamilyRooms) < 3) {
-					header('Location: confirmation.php');
-				} else {
-					echo "
-					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
-					</p>
-					";
-				}
-				break;
-			case 2:
-				if (mysqli_num_rows($bookedFamilyRooms) < 2) {
-					header('Location: confirmation.php');
-				} else {
-					echo "
-					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
-					</p>
-					";
-				}
-				break;
-			case 3:
-				if (mysqli_num_rows($bookedFamilyRooms) < 1) {
-					header('Location: confirmation.php');
-				} else {
-					echo "
-					<p class='error'>Det finns inte tillräckligt många familjerum lediga på dina datum.
-					</p>
-					";
-				}
-				break;
-			default:
-				header('Location: confirmation.php');
+		if (mysqli_num_rows($vacantDoubleRooms) < $doublerooms) {
+			echo "<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.</label>";
+		}
 
+		if (mysqli_num_rows($vacantSingleRooms) < $singlerooms) {
+			echo "<label class='error phperror'>Det finns inte tillräckligt många enkelrum lediga på dina datum.</label>";
+		}
+
+		if (mysqli_num_rows($vacantFamilyRooms) < $familyrooms) {
+			echo "<label class='error phperror'>Det finns inte tillräckligt många familjerum lediga på dina datum.</label>";
+		} else {
+			header('Location: confirmation.php');
 		}
 	}
 
-	function checkSingleRooms() {
-		GLOBAL $bookedSingleRooms;
-		GLOBAL $singlerooms;
-
-		switch ($singlerooms) {
-			case 1:
-				if (mysqli_num_rows($bookedSingleRooms) < 2) {
-					checkFamilyRooms();
-				} else {
-					echo "
-					<p class='error'>Det finns inte tillräckligt många enkelrum lediga på dina datum.
-					</p>
-					";
-				}
-				break;
-			case 2:
-				if (mysqli_num_rows($bookedSingleRooms) < 1) {
-					checkFamilyRooms();
-				} else {
-					echo "
-					<p class='error'>Det finns inte tillräckligt många enkelrum lediga på dina datum.
-					</p>
-					";
-				}
-				break;
-			default:
-					checkFamilyRooms();
-		}
-	}
-
-	function checkDoubleRooms() {
-		GLOBAL $bookedDoubleRooms;
-		GLOBAL $doublerooms;
-
-		switch ($doublerooms) {
-			case 1:
-				if (mysqli_num_rows($bookedDoubleRooms) < 3) {
-					checkSingleRooms();
-				} else {
-					echo "
-					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</label>
-					";
-				}
-				break;
-			case 2:
-				if (mysqli_num_rows($bookedDoubleRooms) < 2) {
-					checkSingleRooms();
-				} else {
-					echo "
-					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</label>
-					";
-				}
-				break;
-			case 3:
-				if (mysqli_num_rows($bookedDoubleRooms) < 1) {
-					checkSingleRooms();
-				} else {
-					echo "
-					<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.
-					</label>
-					";
-				}
-				break;
-			default:
-					checkSingleRooms();
-		}
-	}
- checkDoubleRooms();
+	checkRooms();
 }
 ?>
 
