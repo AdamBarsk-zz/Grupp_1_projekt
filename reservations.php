@@ -43,6 +43,8 @@
 
         <div class="row" style="overflow-x: scroll;">
             <div class="col-sm-12">
+
+              <!-- INCHECKNINGAR -->
               <h3 style="margin-top: 25px;">Incheckningar</h3>
 
               <table>
@@ -78,10 +80,8 @@
     											<td>{$row['checkOut']}</td>
                           <td>";
 
-                  $query = "SELECT roomType_id AND typeOfRoom FROM Room_type AS rt JOIN Reservation AS r JOIN Guest AS g WHERE r.roomType_id = rt.roomType_id AND g.guest_id = r.guest_id AND r.checkIn = '".$date."'";
-                  id = room-id
                         if ($row['typeOfRoom'] = 'doubleroom') {
-                          echo "{$result->num_rows['doubleroom']} dubbelrum<br>";
+                          echo "{$result->num_rows} dubbelrum<br>";
                         }
                         if ($row['typeOfRoom'] = 'singleroom') {
                           echo "{$result->num_rows} enkelrum<br>";
@@ -100,6 +100,8 @@
 								?>
               </table>
 
+
+              <!-- UTCHECKNINGAR -->
               <h3>Utcheckningar</h3>
               <table>
                 <tr>
@@ -153,6 +155,8 @@
 								?>
               </table>
 
+
+              <!-- PÅGÅENDE VISTELSER -->
 							<h3>Pågående vistelser</h3>
 							<table>
                 <tr>
