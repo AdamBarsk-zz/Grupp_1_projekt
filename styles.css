@@ -452,3 +452,12 @@ left: 0;
 
 
 /*end login.php */
+
+/* Reservation.php */
+
+.checkout {
+  cursor: pointer;
+}
+.checkout:hover{
+  color: red;
+}
