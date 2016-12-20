@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0px;
 }
 
-#search {
+.search {
   margin: 10px;
 }
 
@@ -290,6 +290,9 @@ left: 0;
   display: inline-block !important; /* admin Välj bild uploads */
 }
 
+.image_container {
+ display: inline-block;
+}
 /*incheck utcheck kalender(Datepicker) */
 .ui-widget-content {
     background-color: black;
@@ -457,3 +460,12 @@ left: 0;
 .reservation-incheck-text {
   margin-top: 25px;
 }
+
+.checkout {
+  cursor: pointer;
+}
+.checkout:hover{
+  color: red;
+}
+
+/*End Reservations */

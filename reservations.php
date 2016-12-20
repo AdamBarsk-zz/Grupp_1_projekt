@@ -33,12 +33,12 @@
 				</div>
 
 				<div class="row">
-					<form action="" style="text-align: center" class="form-inline col-sm-12" id="reservation_search" autocomplete="off" method="post">
+					<form action="" class="form-inline col-sm-12 text-center" id="reservation_search" autocomplete="off" method="post">
 						<div class="form-group" id="reservation">
 							<label for="reservation-date">Välj ett datum:</label>
 							<input type="text" class="form-control center-date" id="reservation-date" name="reservation-date" />
 						</div>
-            <button id="search-reservation" class="btn btn-default" style="text-align: center;">Sök bokningar</button>
+            <button id="search-reservation" class="btn btn-default">Sök bokningar</button>
           </form>
 				</div>
 
@@ -46,7 +46,7 @@
             <div class="col-sm-12">
 
               <!-- INCHECKNINGAR -->
-              <h3 style="margin-top: 25px;">Incheckningar</h3>
+              <h3 class="reservation-incheck-text">Incheckningar</h3>
 
               <table>
                 <tr>

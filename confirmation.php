@@ -65,7 +65,7 @@ if(isset($_POST['book'])) {
 			// Get vacant room
 			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE rt.roomType_id NOT IN
+								WHERE rt.typeOfRoom = 'singleroom' AND rt.roomType_id NOT IN
 								(SELECT roomType_id FROM Reservation AS r
 								WHERE (
 								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
@@ -114,7 +114,7 @@ if(isset($_POST['book'])) {
 			// Get vacant room
 			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE rt.roomType_id NOT IN
+								WHERE rt.typeOfRoom = 'doubleroom' AND rt.roomType_id NOT IN
 								(SELECT roomType_id FROM Reservation AS r
 								WHERE (
 								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
@@ -161,7 +161,7 @@ if(isset($_POST['book'])) {
 			// Get vacant room
 			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE rt.roomType_id NOT IN
+								WHERE rt.typeOfRoom = 'familyroom' AND rt.roomType_id NOT IN
 								(SELECT roomType_id FROM Reservation AS r
 								WHERE (
 								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
