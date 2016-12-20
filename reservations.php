@@ -71,26 +71,14 @@
                       echo "
     										<tr>
                           <td>Checkout</td>
-    											<td>{$row['id']}</td>
+    											<td>{$row['guest_id']}</td>
     											<td>{$row['dateCreated']}</td>
                           <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>";
-
-                        if ($row['typeOfRoom'] = 'doubleroom') {
-                          echo "{$result->num_rows} dubbelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'singleroom') {
-                          echo "{$result->num_rows} enkelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'familyroom') {
-                          echo "{$result->num_rows} familjerum<br>";
-                        }
-  										echo "
-                          </td>
+                          <td>{$row['roomType_id']} ({$row['typeOfRoom']})</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
@@ -118,34 +106,32 @@
                 </tr>
 
 								<?php
-									$query = "SELECT * FROM Guest AS g JOIN Reservation AS r JOIN Room_type AS rt WHERE g.guest_id = r.guest_id AND r.roomType_id = rt.roomType_id AND r.checkOut = '".$date."'";
-									$result = mysqli_query($db, $query);
+									$query = "SELECT *,
+                            GROUP_CONCAT( rt.roomType_id ) AS rumid,
+                            GROUP_CONCAT( rt.typeOfRoom ) AS tor
+                            FROM Guest AS g
+                            JOIN Reservation AS r
+                            JOIN Room_type AS rt
+                            WHERE g.guest_id = r.guest_id
+                            AND r.roomType_id = rt.roomType_id
+                            AND r.checkOut = '".$date."'
+                            GROUP BY g.guest_id";
+
+                  $result = mysqli_query($db, $query);
 
                   if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                       echo "
     										<tr>
                           <td>Checkout</td>
-    											<td>{$row['id']}</td>
+    											<td>{$row['guest_id']}</td>
     											<td>{$row['dateCreated']}</td>
                           <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>";
-
-                        if ($row['typeOfRoom'] = 'doubleroom') {
-                          echo "{$result->num_rows} dubbelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'singleroom') {
-                          echo "{$result->num_rows} enkelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'familyroom') {
-                          echo "{$result->num_rows} familjerum<br>";
-                        }
-  										echo "
-                          </td>
+                          <td>{$row['rumid']} ({$row['tor']})</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
@@ -183,26 +169,14 @@
   										echo "
     										<tr>
                           <td>Checkout</td>
-    											<td>{$row['id']}</td>
+    											<td>{$row['guest_id']}</td>
     											<td>{$row['dateCreated']}</td>
                           <td>{$row['firstName']} {$row['lastName']}</td>
                           <td>{$row['email']}</td>
                           <td>{$row['phoneNumber']}</td>
     											<td>{$row['checkIn']}</td>
     											<td>{$row['checkOut']}</td>
-                          <td>";
-
-                        if ($row['typeOfRoom'] = 'doubleroom') {
-                          echo "{$result->num_rows} dubbelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'singleroom') {
-                          echo "{$result->num_rows} enkelrum<br>";
-                        }
-                        if ($row['typeOfRoom'] = 'familyroom') {
-                          echo "{$result->num_rows} familjerum<br>";
-                        }
-  										echo "
-                          </td>
+                          <td>{$row['roomType_id']} ({$row['typeOfRoom']})</td>
                           <td>{$row['requests']}</td>
     										</tr>";
                     }
