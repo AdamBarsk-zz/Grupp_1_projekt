@@ -78,8 +78,10 @@
     											<td>{$row['checkOut']}</td>
                           <td>";
 
+                  $query = "SELECT roomType_id AND typeOfRoom FROM Room_type AS rt JOIN Reservation AS r JOIN Guest AS g WHERE r.roomType_id = rt.roomType_id AND g.guest_id = r.guest_id AND r.checkIn = '".$date."'";
+                  id = room-id
                         if ($row['typeOfRoom'] = 'doubleroom') {
-                          echo "{$result->num_rows} dubbelrum<br>";
+                          echo "{$result->num_rows['doubleroom']} dubbelrum<br>";
                         }
                         if ($row['typeOfRoom'] = 'singleroom') {
                           echo "{$result->num_rows} enkelrum<br>";
