@@ -205,10 +205,6 @@ left: 0;
 
 /* GALLERY */
 
-.image_container {
-  display: inline-block;
-}
-
 .picture-gallery {
   margin-top: 10vh;
   background: rgba(255, 255, 255, 0.7);
@@ -457,11 +453,7 @@ left: 0;
 
 /*end login.php */
 
-/* Reservation.php */
-
-.checkout {
-  cursor: pointer;
-}
-.checkout:hover{
-  color: red;
+/*Reservations */
+.reservation-incheck {
+  margin-top: 25px;
 }
