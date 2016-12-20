@@ -227,13 +227,10 @@
     </p>
       <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 social-icons">
         <!-- Social Media Logotypes -->
-        <a href="">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=dengladageten.se">
           <img class="social-logo" src="images/icons/facebook.png" />
         </a>
-        <a href="">
-          <img class="social-logo" src="images/icons/instagram.png" />
-        </a>
-        <a href="">
+        <a href="https://twitter.com/home?status=dengladageten.se">
           <img class="social-logo" src="images/icons/twitter.png" />
         </a>
         </div>
