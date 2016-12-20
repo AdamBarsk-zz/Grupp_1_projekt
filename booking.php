@@ -119,16 +119,8 @@ if (isset($_POST['submit'])) {
 		GLOBAL $singlerooms;
 		GLOBAL $familyrooms;
 
-		if (mysqli_num_rows($vacantDoubleRooms) < $doublerooms) {
-			echo "<label class='error phperror'>Det finns inte tillräckligt många dubbelrum lediga på dina datum.</label>";
-		}
-
-		if (mysqli_num_rows($vacantSingleRooms) < $singlerooms) {
-			echo "<label class='error phperror'>Det finns inte tillräckligt många enkelrum lediga på dina datum.</label>";
-		}
-
-		if (mysqli_num_rows($vacantFamilyRooms) < $familyrooms) {
-			echo "<label class='error phperror'>Det finns inte tillräckligt många familjerum lediga på dina datum.</label>";
+		if (mysqli_num_rows($vacantDoubleRooms) < $doublerooms || mysqli_num_rows($vacantSingleRooms) < $singlerooms || mysqli_num_rows($vacantFamilyRooms) < $familyrooms) {
+			echo "<label class='error phperror'>Det finns inte tillräckligt många rum lediga på dina datum.</label>";
 		} else {
 			header('Location: confirmation.php');
 		}
