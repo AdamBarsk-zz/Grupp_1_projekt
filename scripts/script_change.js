@@ -11,7 +11,6 @@ $("#save").click(function(){
     url: "save.php",
     type: "post",
     data: {data:$edit, id:$id},
-    // processData: false,
     datatype: "html",
     });
 }

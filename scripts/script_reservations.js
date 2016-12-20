@@ -22,3 +22,16 @@ $(function() {
   document.getElementById("reservation-date").value = today;
 
   var selects = document.getElementsByTagName("select");
+
+
+$(".checkout").click(function() {
+  console.log(this);
+  $id = $(this).parent().next().html();
+  $.ajax({
+    url: "checkout.php",
+    type: "post",
+    data: {id:$id},
+    datatype: "html",
+  });
+  location.reload();
+});
