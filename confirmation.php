@@ -63,13 +63,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $singlerooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'singleroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 
@@ -107,13 +112,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $doublerooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'doubleroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 			$row = $result->fetch_row();
@@ -149,13 +159,18 @@ if(isset($_POST['book'])) {
 		for ($i=0; $i < $familyrooms; $i++) {
 
 			// Get vacant room
-			$query = "SELECT roomType_id
+			$query = "SELECT *
 								FROM Room_type AS rt
-								WHERE typeOfRoom = 'familyroom'
-								AND NOT EXISTS
-								(SELECT *
-								 FROM Reservation
-							 	 WHERE roomType_id = rt.roomType_id)";
+								WHERE rt.roomType_id NOT IN
+								(SELECT roomType_id FROM Reservation AS r
+								WHERE (
+								(checkIn BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkOut BETWEEN '".$checkin."' AND '".$checkout."')
+								OR (checkIn = '".$checkin."')
+								OR (checkOut = '".$checkout."')
+								OR ('".$checkin."' >= checkIn AND '".$checkout."' < checkOut)
+								)
+								)";
 
 			$result = mysqli_query($db, $query);
 			$row = $result->fetch_row();
@@ -254,7 +269,7 @@ echo "
 // Book
 if (isset($_POST['book'])) {
 	echo "
-		<div style='display: none;' id='bookeddiv' class='container-fluid main-cont'>
+		<div id='bookeddiv' class='container-fluid main-cont'>
 			<div class='row'>
 				<div class='col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 welcome'>
 					<h1>Tack för din bokning!</h1>
@@ -263,6 +278,12 @@ if (isset($_POST['book'])) {
 				</div>
 			</div>
 		</div>
+		<script type='text/javascript'>
+			document.getElementById('bookingdiv').style.display = 'none';
+			setTimeout(function() {
+				window.location.href = '/';
+			}, 4000);
+		</script>
 	";
 }
 
@@ -277,6 +298,15 @@ else {
 			</div>
 		</div>
 	</div>
+	<script type='text/javascript'>
+		function abort() {
+			document.getElementById('bookingdiv').style.display = 'none';
+			document.getElementById('abortdiv').style.display = 'block';
+			setTimeout(function() {
+				window.location.href = '/';
+			}, 4000);
+		}
+	</script>
 	";
 }
 
@@ -291,7 +321,6 @@ if (isset($_SESSION['admin'])) {
 }
 
 echo "
-<script src='scripts/script_confirmation.js'></script>
 </body>
 </html>
 ";

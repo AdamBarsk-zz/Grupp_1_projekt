@@ -57,6 +57,7 @@ document.getElementById("checkout").value = tomorrow;
 
 var customers = [];
 var inputs = document.getElementsByTagName("input");
+var selects = document.getElementsByTagName("select");
 var textArea = document.getElementsByTagName("textarea")[0];
 window.onload = function() {
 
@@ -67,6 +68,11 @@ window.onload = function() {
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("change", Save);
   }
+
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].addEventListener("change", Save);
+  }
+
   textArea.addEventListener("change", Save);
 };
 
@@ -143,14 +149,15 @@ function validate() {
         $(element).closest(".form-group").removeClass("has-error");
       },
 
-
       rules:  {
         checkin: {
-          required: true
+          required: true,
+          minlength: 10
         },
 
         checkout: {
-          required: true
+          required: true,
+          minlength: 10
         },
 
         doublerooms: {
@@ -187,11 +194,13 @@ function validate() {
       messages: {
 
         checkin: {
-          required: "Fyll i inchecknings datum"
+          required: "Fyll i inchecknings datum",
+          minlength: "Fyll i ett giltigt datum"
         },
 
         checkout: {
-          required: "Fyll i utchecknings datum"
+          required: "Fyll i utchecknings datum",
+          minlength: "Fyll i ett giltigt datum"
         },
 
         doublerooms: {
@@ -232,15 +241,5 @@ function validate() {
       }
     });
   }
-
-
-
-//   $(".rooms").change(function() {
-//   var singleroooms = $("#singlerooms").val();
-//   var doubleroooms = $("#doublerooms").val();
-//   var familyroooms = $("#familyrooms").val();
-//
-//
-//     $(".rooms").addClass("has-error");
-//
-// });
+  // places the database errors in the same field as jquery validator
+  $( ".error" ).appendTo( "#errors" );
